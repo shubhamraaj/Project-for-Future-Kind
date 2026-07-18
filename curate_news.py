@@ -1,33 +1,50 @@
 import os
+import random
 import feedparser
 from bs4 import BeautifulSoup
 
 def fetch_latest_news():
-    print("📡 Fetching external ecological news...")
-    # Using the animal & wildlife news stream
-    feed_url = "https://www.sciencedaily.com/rss/plants_animals/wildlife.xml"
-    feed = feedparser.parse(feed_url)
+    print("📡 Connecting to global animal news aggregation network...")
     
-    if not feed.entries:
-        print("❌ No articles found.")
-        return None
-        
-    # Get the latest article
-    latest_item = feed.entries[0]
+    # List of massive international news networks for broad animal insights
+    sources = [
+        {"name": "World Animal News", "url": "https://worldanimalnews.com/feed/"},
+        {"name": "The Guardian (Animals)", "url": "https://www.theguardian.com/environment/animals/rss"},
+        {"name": "World Animal Protection", "url": "https://www.worldanimalprotection.org/latest/news/feed"}
+    ]
     
-    # Clean the summary text (remove HTML tags if any)
-    clean_summary = BeautifulSoup(latest_item.summary, "html.parser").get_text()
+    # Shuffle the list so every check looks across different networks randomly!
+    random.shuffle(sources)
     
-    # Keep it short and simple (first two sentences)
-    short_summary = ". ".join(clean_summary.split(". ")[:2]) + "."
-
-    article_data = {
-        "title": latest_item.title,
-        "link": latest_item.link,
-        "summary": short_summary,
-        "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" # Default elegant fallback
-    }
-    return article_data
+    for source in sources:
+        try:
+            print(f"🔄 Attempting extraction from: {source['name']}")
+            feed = feedparser.parse(source["url"])
+            
+            if feed.entries:
+                latest_item = feed.entries[0]
+                
+                # Strip clean the text data out of summary containers
+                summary_raw = getattr(latest_item, "summary", "")
+                clean_summary = BeautifulSoup(summary_raw, "html.parser").get_text() if summary_raw else "No summary available."
+                
+                # Keep summary text sharp and distinct (first 2 sentences)
+                sentences = [s.strip() for s in clean_summary.split(". ") if s.strip()]
+                short_summary = ". ".join(sentences[:2]) + "." if sentences else "Click full report link to read analysis overview."
+                
+                print(f"✅ Success! Extracted headline: '{latest_item.title}' from {source['name']}")
+                return {
+                    "title": latest_item.title,
+                    "link": latest_item.link,
+                    "summary": short_summary,
+                    "source": source["name"]
+                }
+        except Exception as e:
+            print(f"⚠️ Channel {source['name']} connection dropped: {e}. Moving to alternative network...")
+            continue
+            
+    print("❌ Critical: All global feeds returned empty responses.")
+    return None
 
 def inject_into_website(article):
     if not article:
@@ -35,38 +52,37 @@ def inject_into_website(article):
 
     html_file = "index.html"
     if not os.path.exists(html_file):
-        print("❌ index.html not found in this directory!")
+        print("❌ System Error: index.html not found in execution tree!")
         return
 
     with open(html_file, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # The exact marker matching the new ID tag inside your Welfare News page view
     target_marker = '<div id="automated-welfare-feed">'
     
     if target_marker not in content:
-        print("❌ Error: Could not find '<div id=\"automated-welfare-feed\">' inside your index.html file!")
+        print("❌ Integration Error: Missing '<div id=\"automated-welfare-feed\">' target.")
         return
     
-    # Create the new HTML card layout matching your custom .article-deep-dive styles
+    # Render customized card using your modern style guides
     new_card_html = f"""
-            <!-- Automated Animal Insight Card -->
+            <!-- Automated Global News Wire Card -->
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">Latest Live Feed Update</span>
+                <span class="card-tag">Global Update &bull; {article['source']}</span>
                 <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">{article['title']}</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated Wire | ScienceDaily</p>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated Wire</p>
                 <p>{article['summary']}</p>
-                <a href="{article['link']}" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report →</a>
+                <a href="{article['link']}" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
     """
 
-    # Insert the card right below the wrapper marker
+    # Update buffer layout contents
     updated_content = content.replace(target_marker, target_marker + new_card_html)
 
     with open(html_file, "w", encoding="utf-8") as f:
         f.write(updated_content)
         
-    print(f"🚀 Successfully automated: Added '{article['title']}' to your Welfare News feed!")
+    print("🚀 Pipeline cycle completed successfully.")
 
 if __name__ == "__main__":
     latest_article = fetch_latest_news()
