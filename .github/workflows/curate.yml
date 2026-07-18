@@ -1,5 +1,6 @@
 name: Automated News Update
-
+permissions:
+  contents: write
 on:
   schedule:
     # Runs every day at 8:00 AM Indian Standard Time (2:30 AM UTC)
