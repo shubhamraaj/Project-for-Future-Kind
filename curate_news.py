@@ -6,11 +6,18 @@ from bs4 import BeautifulSoup
 def fetch_latest_news():
     print("📡 Connecting to global animal news aggregation network...")
     
-    # List of massive international news networks for broad animal insights
+    # Expanded list of 10 international news networks for broad animal insights
     sources = [
         {"name": "World Animal News", "url": "https://worldanimalnews.com/feed/"},
         {"name": "The Guardian (Animals)", "url": "https://www.theguardian.com/environment/animals/rss"},
-        {"name": "World Animal Protection", "url": "https://www.worldanimalprotection.org/latest/news/feed"}
+        {"name": "World Animal Protection", "url": "https://www.worldanimalprotection.org/latest/news/feed"},
+        {"name": "ScienceDaily (Wildlife Science)", "url": "https://www.sciencedaily.com/rss/plants_animals/wildlife.xml"},
+        {"name": "Phys.org (Animal News)", "url": "https://phys.org/rss-feed/biology-news/animals/"},
+        {"name": "Mongabay (Wildlife & Conservation)", "url": "https://news.mongabay.com/feed/?post_type=articles"},
+        {"name": "Fauna & Flora International", "url": "https://www.fauna-flora.org/news/feed/"},
+        {"name": "Humane Society International", "url": "https://www.hsi.org/news/feed/"},
+        {"name": "Wildlife Conservation Society", "url": "https://newsroom.wcs.org/Rss.aspx?nid=13490"},
+        {"name": "IPBES (Biodiversity & Ecosystems)", "url": "https://www.ipbes.net/news-feed.xml"}
     ]
     
     # Shuffle the list so every check looks across different networks randomly!
@@ -26,7 +33,12 @@ def fetch_latest_news():
                 
                 # Strip clean the text data out of summary containers
                 summary_raw = getattr(latest_item, "summary", "")
-                clean_summary = BeautifulSoup(summary_raw, "html.parser").get_text() if summary_raw else "No summary available."
+                clean_summary = BeautifulSoup(summary_raw, "html.parser").get_text() if summary_raw else ""
+                
+                # Fallback to description field if summary is empty
+                if not clean_summary or clean_summary.isspace():
+                    desc_raw = getattr(latest_item, "description", "")
+                    clean_summary = BeautifulSoup(desc_raw, "html.parser").get_text() if desc_raw else "No summary available."
                 
                 # Keep summary text sharp and distinct (first 2 sentences)
                 sentences = [s.strip() for s in clean_summary.split(". ") if s.strip()]
@@ -43,7 +55,7 @@ def fetch_latest_news():
             print(f"⚠️ Channel {source['name']} connection dropped: {e}. Moving to alternative network...")
             continue
             
-    print("❌ Critical: All global feeds returned empty responses.")
+    print("❌ Critical: All global 10 feeds returned empty responses.")
     return None
 
 def inject_into_website(article):
