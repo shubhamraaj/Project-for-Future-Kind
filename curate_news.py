@@ -6,7 +6,6 @@ from bs4 import BeautifulSoup
 def fetch_latest_news():
     print("📡 Connecting to global animal news aggregation network...")
     
-    # Expanded list of 10 international news networks for broad animal insights
     sources = [
         {"name": "World Animal News", "url": "https://worldanimalnews.com/feed/"},
         {"name": "The Guardian (Animals)", "url": "https://www.theguardian.com/environment/animals/rss"},
@@ -20,7 +19,6 @@ def fetch_latest_news():
         {"name": "IPBES (Biodiversity & Ecosystems)", "url": "https://www.ipbes.net/news-feed.xml"}
     ]
     
-    # Shuffle the list so every check looks across different networks randomly!
     random.shuffle(sources)
     
     for source in sources:
@@ -31,14 +29,20 @@ def fetch_latest_news():
             if feed.entries:
                 latest_item = feed.entries[0]
                 
-                # Strip clean the text data out of summary containers
-                summary_raw = getattr(latest_item, "summary", "")
-                clean_summary = BeautifulSoup(summary_raw, "html.parser").get_text() if summary_raw else ""
+                # 🛠️ SMART CHECK: Look across all fields for full text data
+                raw_text = ""
+                if hasattr(latest_item, "summary") and latest_item.summary:
+                    raw_text = latest_item.summary
+                elif hasattr(latest_item, "description") and latest_item.description:
+                    raw_text = latest_item.description
+                elif hasattr(latest_item, "content") and latest_item.content:
+                    raw_text = latest_item.content[0].value
                 
-                # Fallback to description field if summary is empty
-                if not clean_summary or clean_summary.isspace():
-                    desc_raw = getattr(latest_item, "description", "")
-                    clean_summary = BeautifulSoup(desc_raw, "html.parser").get_text() if desc_raw else "No summary available."
+                clean_summary = BeautifulSoup(raw_text, "html.parser").get_text().strip() if raw_text else ""
+                
+                # 🛠️ FALLBACK: If the text is just a location tag (like "GRAND GEDEH," under 100 chars), fall back gracefully
+                if len(clean_summary) < 100:
+                    clean_summary = f"New environmental insights and breaking reports have emerged. Read the complete publication overview directly from the official source page."
                 
                 # Keep summary text sharp and distinct (first 2 sentences)
                 sentences = [s.strip() for s in clean_summary.split(". ") if s.strip()]
@@ -76,7 +80,6 @@ def inject_into_website(article):
         print("❌ Integration Error: Missing '<div id=\"automated-welfare-feed\">' target.")
         return
     
-    # Render customized card using your modern style guides
     new_card_html = f"""
             <!-- Automated Global News Wire Card -->
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
@@ -88,7 +91,6 @@ def inject_into_website(article):
             </div>
     """
 
-    # Update buffer layout contents
     updated_content = content.replace(target_marker, target_marker + new_card_html)
 
     with open(html_file, "w", encoding="utf-8") as f:
