@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Chatter | Local Ecological Journalism Hub</title>
+    <style>
+        /* Modern Reset and Design Tokens */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #003366;       /* Deep Navy */
+            --secondary: #4682B4;     /* Steel Blue */
+            --dark-text: #222222;     /* Off-Black Charcoal */
+            --muted-text: #555555;    /* Neutral Grey */
+            --light-bg: #F8FAFC;      /* Soft Slate Background */
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sticky Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--secondary);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: color 0.2s ease-in-out;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary);
+        }
+
+        /* Hero Banner Showcase */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.88), rgba(0, 31, 61, 0.92)), 
+                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 2rem;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Multi-Page Views Control */
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active-view {
+            display: block;
+        }
+
+        /* Main Content Grid */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            min-height: 50vh;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--muted-text);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Event & Text Page Layouts */
+        .article-deep-dive {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .article-deep-dive h3 {
+            color: var(--primary);
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .event-item {
+            background: var(--white);
+            border-left: 5px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 6px 6px 0;
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .event-meta {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A202C;
+            color: #A0AEC0;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 6rem;
+            border-top: 4px solid var(--primary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Header & Navigation System -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Animal Chatter</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a onclick="switchPage('home')" id="nav-home" class="active">Home</a></li>
+                    <li><a onclick="switchPage('welfare')" id="nav-welfare">Welfare News</a></li>
+                    <li><a onclick="switchPage('insights')" id="nav-insights">Insights</a></li>
+                    <li><a onclick="switchPage('events')" id="nav-events">Events</a></li>
+                    <li><a onclick="switchPage('about')" id="nav-about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Global Hero Unit -->
+    <section class="hero">
+        <h2>Ecology, Welfare, and Campus Policy</h2>
+        <p>Analyzing the critical intersection of localized institutional regulations, public community hygiene models, and data-driven wildlife conservation science.</p>
+    </section>
+
+    <!-- ================= PAGE 1: HOME ================= -->
+    <div id="page-home" class="page-view active-view">
+        <main>
+            <div class="section-header"><h3 class="section-title">Latest Editorial Stream</h3></div>
+            <div class="news-grid">
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="card-content">
+                        <span class="card-tag">Welfare News</span>
+                        <h4 class="card-title">Campus Enforces Strict Wildlife and Feeding Regulation Frameworks</h4>
+                        <p class="card-text">Following localized wildlife incidents, institutions have restricted stray animal management to 19 targeted structural zones while introducing severe compliance metrics scaling up to ₹25,000 for deviations.</p>
+                        <button onclick="switchPage('welfare')" style="background:var(--primary); color:white; border:none; padding:0.5rem; cursor:pointer; border-radius:4px;">View Section</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="card-content">
+                        <span class="card-tag">Insights</span>
+                        <h4 class="card-title">Comparative Analysis: Plant-Based Shifts and Habitat Reclamation</h4>
+                        <p class="card-text">New data indicates that systematically transitioning agricultural resources toward plant production chains drop global land footprint requirements by up to 33%, successfully stabilizing endangered biological corridors.</p>
+                        <button onclick="switchPage('insights')" style="background:var(--primary); color:white; border:none; padding:0.5rem; cursor:pointer; border-radius:4px;">View Section</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= PAGE 2: WELFARE NEWS ================= -->
+    <div id="page-welfare" class="page-view">
+        <main>
+            <div class="section-header"><h3 class="section-title">Welfare News & Local Policies</h3></div>
+            <div class="article-deep-dive">
+                <h2>The 19-Spot Regulatory Mandate: A Campus Analysis</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Published by Shubhamraj Pandey | Local Policy Feed</p>
+                <p>Recent public safety declarations have heavily restructured localized animal management workflows. In order to preserve standard structural safety parameters, open stray animal feeding is officially banned outside of exactly 19 highly regulated structural zone grids.</p>
+                <h3>Compliance Parameters & Liabilities</h3>
+                <p>Failure to stick strictly to the designated grid locations triggers immediate administrative citations. Penalties follow a scaling structural system, scaling up to ₹25,000 for systemic non-compliance by external entities or repeating operations.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= PAGE 3: INSIGHTS ================= -->
+    <div id="page-insights" class="page-view">
+        <main>
+            <div class="section-header"><h3 class="section-title">Ecological & Scientific Insights</h3></div>
+            <div class="article-deep-dive">
+                <h2>The Silent Tool: Plant-Based Shifts and Habitat Reclamation</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Data Science & Global Ecology Review</p>
+                <p>New analytical data published across bio-therapeutic networks maps a direct mathematical link between global dietary systems and wild biome integrity. By scaling down the systemic resource demands required to run animal feed infrastructures, natural biological corridors are given structural breathing room to rejoin and fix themselves.</p>
+                <h3>Key Ecological Metrics</h3>
+                <ul>
+                    <li><strong>33% Farmland Reclamation:</strong> Transitioning away from dense livestock models instantly drops global agricultural land space requirements by a clean one-third.</li>
+                    <li><strong>Rodent Pipeline Suppression:</strong> Eliminating scattered food remnants near living areas breaks up the high-calorie supply line that drives fast urban rodent breeding cycles inside residential environments.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= PAGE 4: EVENTS ================= -->
+    <div id="page-events" class="page-view">
+        <main>
+            <div class="section-header"><h3 class="section-title">Community Events & Timelines</h3></div>
+            <div class="event-list">
+                <div class="event-item">
+                    <div class="event-meta">AUGUST 2026 — FIRST WEEK</div>
+                    <h3>Final Project Showcase</h3>
+                    <p>An optional project showcase event tailored for developers and designers who want to present their finished platform builds, automated server connection frameworks, and deployment roadmaps.</p>
+                </div>
+                <div class="event-item">
+                    <div class="event-meta">ONGOING — WEEKLY</div>
+                    <h3>Campus Feeding Zone Inspections</h3>
+                    <p>Systematic field sweeps conducted across all 19 designated zone borders to track sanitation levels and keep public health metrics steady.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= PAGE 5: ABOUT ================= -->
+    <div id="page-about" class="page-view">
+        <main>
+            <div class="section-header"><h3 class="section-title">About the Platform</h3></div>
+            <div class="article-deep-dive">
+                <h2>Our Editorial Mission</h2>
+                <p>Animal Chatter is a curated news hub and digital repository. We provide short summaries of important articles covering animal welfare, campus public health, and conservation science, directing you straight to the original sources across the web. We also share up-to-date details on local environmental conferences and community events.</p>
+                <h3 style="margin-top:2rem;">Lead Publisher & Project Engineer</h3>
+                <p><strong>Shubhamraj Pandey</strong><br> Platform Engineer & Editorial Director</p>
+                <p style="margin-top:1rem;">Driven by a passion for sustainability and community action, this platform was built to make vital environmental journalism and local policy updates accessible to everyone at a single glance.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Global Footer -->
+    <footer>
+        <p>&copy; 2026 Animal Chatter Platform. All rights reserved.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">Published by Shubhamraj Pandey &bull; Dedicated to Local Animal Welfare and Ecological Awareness</p>
+    </footer>
+
+    <!-- Interactive Routing Script -->
+    <script>
+        function switchPage(pageId) {
+            // Hide all views
+            const views = document.querySelectorAll('.page-view');
+            views.forEach(view => view.classList.remove('active-view'));
+
+            // Deactivate all navigation buttons
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => link.classList.remove('active'));
+
+            // Activate specific view and button
+            document.getElementById('page-' + pageId).classList.add('active-view');
+            document.getElementById('nav-' + pageId).classList.add('active');
+
+            // Smooth scroll back to content start point
+            window.scrollTo({ top: 350, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
