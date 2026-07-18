@@ -4,9 +4,8 @@ from bs4 import BeautifulSoup
 
 def fetch_latest_news():
     print("📡 Fetching external ecological news...")
-    # Example: Using an environmental news RSS feed
-    # You can replace this URL with any news portal's RSS feed link
-    feed_url = "https://www.sciencedaily.com/rss/earth_climate/environmental_science.xml"
+    # Using the animal & wildlife news stream
+    feed_url = "https://www.sciencedaily.com/rss/plants_animals/wildlife.xml"
     feed = feedparser.parse(feed_url)
     
     if not feed.entries:
@@ -42,30 +41,32 @@ def inject_into_website(article):
     with open(html_file, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # Define the exact marker in your HTML where new cards should live
-    target_marker = '<div class="news-grid">'
+    # The exact marker matching the new ID tag inside your Welfare News page view
+    target_marker = '<div id="automated-welfare-feed">'
     
-    # Create the new HTML card layout with the source link button
+    if target_marker not in content:
+        print("❌ Error: Could not find '<div id=\"automated-welfare-feed\">' inside your index.html file!")
+        return
+    
+    # Create the new HTML card layout matching your custom .article-deep-dive styles
     new_card_html = f"""
-            <!-- Automated Curated Card -->
-            <article class="card">
-                <div class="card-img" style="background-image: url('{article['image']}');"></div>
-                <div class="card-content">
-                    <span class="card-tag">Curated Insights</span>
-                    <h4 class="card-title">{article['title']}</h4>
-                    <p class="card-text">{article['summary']}</p>
-                    <a href="{article['link']}" target="_blank" class="btn" style="background:var(--secondary);">Visit Original Source</a>
-                </div>
-            </article>
+            <!-- Automated Animal Insight Card -->
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">Latest Live Feed Update</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">{article['title']}</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated Wire | ScienceDaily</p>
+                <p>{article['summary']}</p>
+                <a href="{article['link']}" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report →</a>
+            </div>
     """
 
-    # Insert the card right below the grid opening tag
+    # Insert the card right below the wrapper marker
     updated_content = content.replace(target_marker, target_marker + new_card_html)
 
     with open(html_file, "w", encoding="utf-8") as f:
         f.write(updated_content)
         
-    print(f"🚀 Successfully automated: Added '{article['title']}' to your homepage grid!")
+    print(f"🚀 Successfully automated: Added '{article['title']}' to your Welfare News feed!")
 
 if __name__ == "__main__":
     latest_article = fetch_latest_news()
