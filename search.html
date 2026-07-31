@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search | Animal Chatter</title>
+  <style>
+    /* Reset & Base Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: #033666;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    nav a:hover, nav a.active {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1000px;
+      margin: 2.5rem auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    .page-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #033666;
+      margin-bottom: 0.5rem;
+    }
+    .page-subtitle {
+      color: #64748b;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Search Box */
+    .search-box-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      font-size: 1.15rem;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      background: white;
+      color: #0f172a;
+    }
+    .search-input:focus {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+    }
+
+    /* Results Count & Grid */
+    .results-count {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    .results-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0284c7;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .card-title:hover {
+      color: #0284c7;
+    }
+
+    .card-desc {
+      font-size: 0.98rem;
+      color: #334155;
+      margin-bottom: 1rem;
+    }
+
+    .card-link {
+      font-weight: 700;
+      color: #033666;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .no-results {
+      background: white;
+      border: 1px dashed #cbd5e1;
+      padding: 3rem;
+      text-align: center;
+      border-radius: 8px;
+      color: #64748b;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+  </style>
+
+  <!-- Free Client-Side Search Engine Library (Lunr.js) -->
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">Animal Chatter</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories/wildlife.html">Wildlife</a>
+        <a href="categories/domestic.html">Domestic</a>
+        <a href="categories/poultry.html">Poultry</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="search.html" class="active">Search</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Search Area -->
+  <main>
+    <h1 class="page-title">Search Archive</h1>
+    <p class="page-subtitle">Instantly search through our entire database of aggregated ecological news, policy updates, and research.</p>
+
+    <div class="search-box-container">
+      <input 
+        type="text" 
+        id="search-input" 
+        class="search-input" 
+        placeholder="Type keywords like 'dog', 'poultry', 'forest', 'supreme court'..." 
+        oninput="executeSearch()"
+        autofocus
+      >
+    </div>
+
+    <div id="results-count" class="results-count"></div>
+    <div id="results-container" class="results-grid"></div>
+  </main>
+
+  <footer>
+    &copy; Animal Chatter | Ecological Journalism Hub
+  </footer>
+
+  <!-- Search Logic Script -->
+  <script>
+    let searchIdx;
+    let articles = [];
+
+    // 1. Fetch the JSON generated by Python (curate_news.py)
+    fetch('news-data.json')
+      .then(response => {
+        if (!response.ok) throw new Error('news-data.json not found');
+        return response.json();
+      })
+      .then(data => {
+        articles = data;
+
+        // 2. Build the Lunr.js search index in the browser
+        searchIdx = lunr(function () {
+          this.ref('id');
+          this.field('title');
+          this.field('snippet');
+          this.field('category');
+
+          data.forEach((doc, idx) => {
+            doc.id = idx;
+            this.add(doc);
+          });
+        });
+
+        document.getElementById('results-count').innerText = `Loaded ${articles.length} articles. Ready to search!`;
+      })
+      .catch(err => {
+        console.warn(err);
+        document.getElementById('results-count').innerText = "Please run 'py curate_news.py' to generate the search index file (news-data.json).";
+      });
+
+    // 3. Perform real-time search on user input
+    function executeSearch() {
+      const query = document.getElementById('search-input').value.trim();
+      const container = document.getElementById('results-container');
+      const countDisplay = document.getElementById('results-count');
+
+      container.innerHTML = '';
+
+      if (!query) {
+        countDisplay.innerText = articles.length ? `Loaded ${articles.length} articles. Ready to search!` : '';
+        return;
+      }
+
+      if (!searchIdx) return;
+
+      try {
+        // Lunr search with wildcard support
+        const searchResults = searchIdx.search(query + '*');
+        countDisplay.innerText = `Found ${searchResults.length} result(s) for "${query}"`;
+
+        if (searchResults.length === 0) {
+          container.innerHTML = `
+            <div class="no-results">
+              <h3>No matching articles found</h3>
+              <p>Try searching for broader keywords like <strong>welfare</strong>, <strong>policy</strong>, or <strong>animal</strong>.</p>
+            </div>
+          `;
+          return;
+        }
+
+        searchResults.forEach(res => {
+          const item = articles[res.ref];
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <div class="card-tag">${item.category || 'NEWS'}</div>
+            <a href="${item.url}" target="_blank" class="card-title">${item.title}</a>
+            <p class="card-desc">${item.snippet || ''}</p>
+            <a href="${item.url}" target="_blank" class="card-link">Read Full Article on Source →</a>
+          `;
+          container.appendChild(card);
+        });
+
+      } catch (e) {
+        // Handle trailing or invalid search characters gracefully
+      }
+    }
+  </script>
+</body>
+</html>

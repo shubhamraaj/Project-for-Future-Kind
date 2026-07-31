@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Animal Chatter</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: #033666;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    nav a:hover, nav a.active {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    .page-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #033666;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.75rem;
+    }
+
+    /* Card Layout */
+    .about-card {
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      padding: 2.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      margin-bottom: 3rem;
+    }
+
+    .section-heading {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-text {
+      color: #334155;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .sub-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #033666;
+      margin-bottom: 0.5rem;
+    }
+
+    .author-name {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+
+    .author-title {
+      color: #64748b;
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Subscription Widget */
+    .subscribe-box {
+      background-color: #0f172a;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .subscribe-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .subscribe-box p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .subscribe-form {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .subscribe-input {
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      border: 1px solid #334155;
+      width: 100%;
+      outline: none;
+      background: #1e293b;
+      color: white;
+      font-size: 0.95rem;
+    }
+    .subscribe-input:focus {
+      border-color: #0284c7;
+    }
+    .subscribe-btn {
+      background-color: #0284c7;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 0.2s ease;
+    }
+    .subscribe-btn:hover {
+      background-color: #0369a1;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">Animal Chatter</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="categories/wildlife.html">Wildlife</a>
+        <a href="categories/domestic.html">Domestic</a>
+        <a href="categories/poultry.html">Poultry</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="search.html">Search</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1 class="page-title">About the Platform</h1>
+
+    <div class="about-card">
+      <h2 class="section-heading">Our Editorial Mission</h2>
+      <p class="section-text">
+        Animal Chatter is a curated news hub and digital repository. We provide short summaries of important articles covering animal welfare, campus public health, and conservation science, directing you straight to the original sources across the web. We also share up-to-date details on local environmental conferences and community events.
+      </p>
+
+      <h3 class="sub-heading">Lead Publisher &amp; Project Engineer</h3>
+      <div class="author-name">Shubhamraj Pandey</div>
+      <div class="author-title">Platform Engineer &amp; Editorial Director</div>
+
+      <p class="section-text" style="margin-bottom: 0;">
+        Driven by a passion for sustainability and community action, this platform was built to make vital environmental journalism and local policy updates accessible to everyone at a single glance.
+      </p>
+    </div>
+
+    <!-- Free Newsletter Subscription Widget -->
+    <section class="subscribe-box">
+      <h2>Subscribe to Daily Updates</h2>
+      <p>Get the latest animal welfare updates, policy shifts, and environmental news directly in your inbox.</p>
+      
+      <form action="https://buttondown.email/api/emails/embed-subscribe/animalchatter" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/animalchatter', 'popupwindow')" class="subscribe-form">
+        <input type="email" name="email" placeholder="Enter your email address..." required class="subscribe-input">
+        <button type="submit" class="subscribe-btn">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; Animal Chatter | Ecological Journalism Hub
+  </footer>
+
+</body>
+</html>

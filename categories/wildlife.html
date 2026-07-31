@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wildlife &amp; Conservation | Animal Chatter</title>
+<style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: #033666;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: white;
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    nav a:hover, nav a.active {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Category Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+      color: white;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #a7f3d0;
+      font-size: 1.05rem;
+    }
+
+    /* Main Container & Grid */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Card Styling */
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #059669;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .card-snippet {
+      font-size: 0.95rem;
+      color: #334155;
+      margin-bottom: 1.25rem;
+    }
+    .card-link {
+      display: inline-block;
+      color: #064e3b;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation Header -->
+<header>
+<div class="header-container">
+<a class="logo" href="../index.html">Animal Chatter</a>
+<nav>
+<a href="../index.html">Home</a>
+<a class="active" href="wildlife.html">Wildlife</a>
+<a href="domestic.html">Domestic</a>
+<a href="poultry.html">Poultry</a>
+<a href="../about.html">About</a>
+<a href="../contact.html">Contact</a>
+<a href="../search.html">Search</a>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero">
+<h1>Wildlife &amp; Forest Conservation</h1>
+<p>Tracking tiger corridors, forest reserve policies, anti-poaching initiatives, and human-wildlife coexistence models across India.</p>
+</section>
+<!-- Main Content Grid -->
+<main>
+<div class="news-grid" id="wildlife-news-grid">
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit - GujaratSamachar English</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit  GujaratSamachar English</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxOZE5xTHZhblJwNlphV1dBdXAzLUFiRmJ2c3BGcS05UnNKQldkQ3RubFBvX1RGc2ZibWNkckJvdWZZd3MyOC1qXzRrNXZqWE1qT0wtakt1LVNYV2xZZDY2c0NRc2FnbFZ5M1R2aDlPVUhFOXNQVElqT2h3bzU2bFM1NkVKRUtoc3pTdFZBbEFGUkpfY1Z1QnNyOFpraXhwam9jM3BaTUhsUjRVRHdsaVFqYV83T1B5aWxRdHVITGRnN2dHZ2l5LWFzSHgwaW5zMXpYRlowdy02RC03Z3RnWHVoZHFETzk4dFk?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing - Vajiram &amp; Ravi</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing  Vajiram &amp; Ravi</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMibEFVX3lxTE53UmdDYU9MSTJQakFobjg5SnFDc2RGYnhSRWRZWXYzbUxpSWt3ZUZzdG9EVDdicHljQmVvNldBV1gxU0JZQ195cjFRNndURVFxVWhBWEpaOUxuOTNTMFVkS2tUdi1CX2NWRDlsNQ?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">Department of Animal Husbandry &amp; Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethical and Responsible Research - PIB</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">Department of Animal Husbandry &amp; Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethi...</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQdFpiUnBud3c2X1pqcWFxbGN4RnVXQTY3UVBqSy1sNXcwYm1mcG1rLXJ3MkRDc1NlaVMzZzdfczNYWkhqd2FVZWpPY21uN2NiaTZMVFdRaXQ0N1FEMWlyZnplOVpGZm12eVVfNFg1WlIwQk9VMVgwYm9hZ1AyRGZDcXZPQ3E5a19QVjYydk9Mcm9KVkxNZk1sWQ?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">'Threads of cruelty': Caught between heritage, livelihoods and animal welfare - India's silk dilemma - WION</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">'Threads of cruelty': Caught between heritage, livelihoods and animal welfare - India's silk dilemma  WION</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMi6AFBVV95cUxQaVdtZ1E0d3plVTZoZWE2T2sxOUx3bTdUTUpIbnYtNi1kV1RwSU9XZ2FvWkV3QUh6dTAzbFB4TC1aaHVOc1RGeVAzYUozdHgzbnhJcXlTdUkxMjliSEg4cXFvU3BoZm9FNnJMZlVVZDdlcUZDdHFGYVJwdEQxcnZPY2hNOVhuaGVqT0NfWEJnbnVfM0t3YW43OF9QZDZNQnd1cmNtV1RmMDNWMnNHYThnVWJnTklPYUgyeHpBTDRJZmJJSWIwZTh1V2lvbThiT0tIU044bUs0VnNnaXJMclA3YW8tTDl5XzV40gHuAUFVX3lxTE4tc0NrMjU3YWg3Y3YwS2p2YmhSV2tqbXBZNzIwZGY4cHE3ZV9pMzVJdVpISGRoY2NOSm1aX0E2MWFJV3J2Unc5N2JPeG04QktDQUJmUEo0d09Rc3c3SGdxMU1JWlA1eTNqemRvM1R6QkVwbUV4VHpFQ1c4dkJMQVJrazBXWDRkRTFpRlJKTGNSYjhOOGhGRnp4RTNzQ2xxdlV6R2Y5M2l2QTdFbF92bFJEM0JDU1N1SkNnV0pLOVpjbmhxdzM1YWJ6dHVDNTRrUURGNElGZ2VBcVRUbWl2Y3J0eGNLTWVqQjFScVZtT1E?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">Habitat loss key challenge in conservation: Yadav on Gloal Tiger Day | India News - Hindustan Times</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">Habitat loss key challenge in conservation: Yadav on Gloal Tiger Day | India News  Hindustan Times</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMiygFBVV95cUxOMWR3cjZWNnVHVmpHSEJtRzlVUGJtZzdsY0xBeU5pV0N4aWduMUN2MTFpNndjSjZaUERuS2dVTXpfc3NXRjZMa0Q5enhFdEJzTjlqUjBPN01tQXJXUmh3QzNNOXctaG1WdDlUazlGMTBaemp5bS12b0o1THQzcjhsUnpnUk5yQzlXdlVkUXJ6VXhQU3dpWmJuLXRST2ZIOEo5VEg5UEZfdHV2Tk5fNEFSR2dZVy15Z1ZQU01Ub3ZqT1h5QmZUUXJ5UmtR0gHPAUFVX3lxTFA1eDgyVjcwNmtOS3RNdUZvenNfVE5fa3dseUcxUG45Vnh5eFA1WWh1YlBGZUgwWEpwWC1ndHo2djJpdjFPeVRxTWViNElqUzhhNzFSQ3VqS0RpV3JUcVVyS1l4WkhjWkt4T3ZPUGdWeE8wTkRYa1pjLTVCY1d2U0JQOEZNSlZfQjhoNzJkc1NTN1V6Y1hSc0RkOUFncjd4MmxLdWlnQXRBYnNnZFVHdGozUDlaVkdUZl9Nci11dVNfMTlyRDlnVUpabHNoanFKRQ?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">When the tiger returns, the forest breathes again - The Times of India</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">When the tiger returns, the forest breathes again  The Times of India</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOWTZMSXdHNWVLZzJ3emJxR05EQVdvMEFkYUlMY0FlMzdkbkRQaFZtUlN5YjM1eXhXOVhNZVlObDhUc1h4Mlg4VmtaNmE5OVp5NWM4eFdxa2k2YkdnVG9NZ1F3UWtiTF9iS1VkU0s1UTVQaE91bnhhZ0Rhcks1Mm1uNlBrNUpZNmpFZXh3ZE1lME4wMlF2b2VBMjVBSGVYcUHSAZ8BQVVfeXFMTlk2TEl3RzVlS2cyd3picUdOREFXbzBBZGFJTGNBZTM3ZG5EUGhWbVJTeWIzNXl4VzlYTWVZTmw4VHNYeDJYOFZrWjZhOTlaeTVjOHhXcWtpNmJHZ1RvTWdRd1FrYkxfYktVZFNLNVE1UGhPdW54YWdEYXJLNTJtbjZQazVKWTZqRWV4d2RNZTBOMDJRdm9lQTI1QUhlWHFB?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">India’s tiger conservation a global model for wildlife recovery: Environment ministry - ThePrint</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">India’s tiger conservation a global model for wildlife recovery: Environment ministry  ThePrint</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMiugFBVV95cUxOUzU5TEdaWUxyLUNfOF85SFljY1dMZV96dEtLZU56RmxDcy1NQVVkb2ZvVEpvOEZTMi16clJmeWxhQTFnSkxuQnFfbUEwd2dNZXdEUzRFS3UxQ2lDOV9rRWtxdGdYRUxFWW9pQzZ2dk0wSS1ITHM1Zm9PZGotTTFVMTREWXF0aHlzeWJfR1dNLVlERVBNeUNwalRldlNJWk9SNHJnUW10SmxGUC1HRXVOZFVIdGJfQWNjdVHSAb8BQVVfeXFMTV9jOWRmVUt1SFBpcmtFOXQ4ajZHV1dtODlhU25pdTZBRzRocHNlLW9BSDdNVGxBLUoxSXFTWGcxNWthcXQzekJONldNd29DcFFIbDNRdkxWNFZVdldSMzhtdHMzQW5FZl9rc29PS2RnTWc3cjJvUE9QNUpMUUFBRXBGMmlnRjBnX05Ua2YzMU1xX0txdWVRUEhWQ1JEOEVNM1pmZXktOW9vWWZzckxMZmFidDFZNWphXzZPQWlzRms?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">India's Tiger Conservation Lessons: What 5 Experts Want Young People To Know - thebetterindia.com</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">India's Tiger Conservation Lessons: What 5 Experts Want Young People To Know  thebetterindia.com</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxNcHpSU0xxb2Q3bmh3SzBaTDNHT2pkRF9tcjNqMmtGNTUzMXd2bjJCeVo2YlEwUWlNLVNDN01JUVZfcFdodGQyNUlEc21lclhDNkZUenJockZ2dERUb0prdmN1eDNaakpYR0VsNFJoZjJFc0hST3pBYXpjLU9NU0V5bmFLSXhmNlJSQ1p6dnAzTDNXUUZ4UjJaQUdnNm53eDZHQjF6NkQ0ajFVQ3ZBLVNESGNrRUZPb1VUNWtn0gHAAUFVX3lxTE1VRFVfUlNwQUc5dzlSYXBiMzVXVVl3Wk9HcWNoTVRmMmNILWhuOVFtcERtNXpRQldrSjE2clBFU3RMNHJqRHgtRm9jM205SnhzcW8xX3ZmRjIyMTFBNVZJVHBuVk1vVHRrLXVTYUg2X0wyQkFOangybGlZYmNVT3VCVGJQcVVCMVdMWGNKbko2UW1TR0cwVFJsWDFjZk04S3IxZ2pwb05zM0s3dGxaOUluWkZUbkYtaGNITFhiUWNrTA?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">India proud to have nearly 70 pc of world's tiger population: PM Modi on Global Tiger Day - The Hans India</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">India proud to have nearly 70 pc of world's tiger population: PM Modi on Global Tiger Day  The Hans India</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOZWpzQzl0dExicUZGNTVtakxjQXVrSWxYay1xVUczWlFMYmtBaEI5VjdjZnZEOFJqbHdoU09iRy1PaDBJSUdNa2QzdC1xZFBKSlMtQXVxQ0paYjJYUThSbjVMX0JTeWppTUJwbVQ1QUdjNENCaVRnbnB6elZsOVkyTUZOc1g0MTVXakpWeGNIN1Y0TmRzN2o2LWtQaUlhaE02RENmSlUyblY5eEZTRTdqa1d5N1c3WC1MN0ZnblBVR3BlYV9HTW9zdGllSFViU1JXVG5JatIB2gFBVV95cUxOQ0xJZW9EV2tZTmRuci1yOHJJZm13TGg3V21TVF9RcTRVemhZZzA3a242M3dsTmY0bjJEQV9qeDRNMjJWc0ZxZThOZE5fZzhMRlZ0Nm1hQVFuUHVZYURJenhkOTEzclpRMERudlEwYjJGYTdfLTZqbWVHWW5UUGJyRWExbl9KamlGLUNSM3pNYV80d2loQS1IOW9jZFlnSlR6TjVYTzBGazlBWXAtYWM3dm5TWFlZQTRFVEZBX0pwVm5FRlpPeGNxeHA5WHFlZW41Q1ZlZk53RHRBdw?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">Rethinking conservation: India needs a new framework for conserving tigers - Down To Earth</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">Rethinking conservation: India needs a new framework for conserving tigers  Down To Earth</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPVFlXWTRDR0hUSmlqY1BvcEVlMDJYX3d3d3kxNllSa09tZU12RkNiVGtzcVB5VHNiZVd0cWVjSVA1U3YweXZmMGtWVDNsNnlNWjVvRmM3V09TeTY3VnFoX1FVTGVnRHNDTDV0MGhtODJiQ0dZcV9SdTU1c1ZmRWpPeEMtc1hNU3JldDUyZVdKWF9DTnZHd3d6N1RjWXVidFoxZjU0UEtIOE5zUmhpbHlkRlBQZ0c2SG5zdlJwb0VYMTgyaVBD0gHSAUFVX3lxTE5oc05tSC1neHhqd1hnZ0tXSWhKUnVxSU8wM3NYVkwxN0x5aXV1ZU82VU54NHhnbHNzRmJLWDVMZ1U3RElmdzA0YzM1S09BdzUtMXozNElWSXRhbm82Z3VQdFpiWmFuTmdHbXEyak9GdHYxN1doaXNDODdxQXJDb0U4eFJaWUtlbFBZVjg3UzRKYWZRQTRxM0phbzQ1c0hsVkFaNzl0a0VESzJRRVIwczA1ZGZVMmtsNDhncEh0YW5uQldfVllYbFYxbU55ekVXa2Y4UQ?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">Global Tiger Day 2026 Report: India's Tiger Population Rises to 3,682; Tiger Reserves Increase to 58 - currentaffairs.adda247.com</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">Global Tiger Day 2026 Report: India's Tiger Population Rises to 3,682; Tiger Reserves Increase to 58  currentaffairs.adda247.com</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQQlJHaHNoaVVBUjRZY1luNHZQUDBxR3FJQ3hQWVB5bVoxUWd3NjhtVzh0dXcwd2NROEd6dWZnVGI5RkFaLVhUUHJfRERtWkpxV3JEb3FPSmJxSlhDZmFVTmFQTmRXSmxkc2RVMjYxdVhjZ2RiZ1l1X2lFQmJ3ZEhuRzMtVHRXRXNvNUZHRW9YVV9GaVRmOXdJeVdjX1BKY0pOYWR4X20xRGF0RDZHdExLTmRkRElQVkYzcElzcERfbVBTTXFSeFFfSExLdFo?oc=5" target="_blank">Read Full Article →</a>
+</div>
+
+<div class="card">
+<div class="card-tag" style="color: #059669;">WILDLIFE</div>
+<h3 class="card-title">PM Modi Reaffirms India’s Commitment to Wildlife Conservation on World Wildlife Day | Akashvani News - News On AIR</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">PM Modi Reaffirms India’s Commitment to Wildlife Conservation on World Wildlife Day | Akashvani News  News On AIR</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNYUYtSGcxdnJIcW9MZjlOck43a3lOU2dFaFp0QVdrQjBpeV95bVZJcTNiVnBIZFFReDJ3N3dZa01FaV9TWEtvYnNPeGN3TjVSTG5vS2hIRzV1a0VyMHd5dTM1ZEhzQUNfaDJGUld3V01FRmpZLWFoWGZpcjdFWDVZanYzVVFVS29FRTFEUGtENmJwRm1EZUgxRjc2bDAybmtETkdUR1ljRS1XMlRZ?oc=5" target="_blank">Read Full Article →</a>
+</div>
+</div>
+</main>
+<footer>
+    © Animal Chatter | Ecological Journalism Hub
+  </footer>
+</body>
+</html>
