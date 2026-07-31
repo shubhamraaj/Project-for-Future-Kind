@@ -77,6 +77,23 @@
             color: var(--secondary);
         }
 
+        /* Live Status Bar */
+        .live-status-bar {
+            background: #002244;
+            color: #E2E8F0;
+            padding: 0.75rem 2rem;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--secondary);
+        }
+
+        .live-indicator {
+            color: #4E4;
+            font-weight: bold;
+        }
+
         /* Hero Banner Showcase */
         .hero {
             background: linear-gradient(rgba(0, 51, 102, 0.88), rgba(0, 31, 61, 0.92)), 
@@ -252,6 +269,16 @@
         </div>
     </header>
 
+    <!-- Live System Status Banner -->
+    <div class="live-status-bar">
+        <div>
+            <span class="live-indicator">● LIVE AGGREGATOR:</span> Connected to 1,000+ Indian News & Policy Networks
+        </div>
+        <div style="font-style: italic; opacity: 0.8;">
+            Auto-Updated via Python Cloud Workflows
+        </div>
+    </div>
+
     <!-- Global Hero Unit -->
     <section class="hero">
         <h2>Ecology, Welfare, and Campus Policy</h2>
@@ -261,24 +288,55 @@
     <!-- ================= PAGE 1: HOME ================= -->
     <div id="page-home" class="page-view active-view">
         <main>
-            <div class="section-header"><h3 class="section-title">Latest Editorial Stream</h3></div>
+            <!-- Platform Metric Badges -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; text-align: center;">
+                <div style="background: var(--white); padding: 1.5rem; border-radius: 6px; border: 1px solid var(--border);">
+                    <h3 style="font-size: 2rem; color: var(--primary);">1,000+</h3>
+                    <p style="font-size: 0.85rem; color: var(--muted-text); font-weight: 600;">MONITORED SOURCES</p>
+                </div>
+                <div style="background: var(--white); padding: 1.5rem; border-radius: 6px; border: 1px solid var(--border);">
+                    <h3 style="font-size: 2rem; color: var(--primary);">3</h3>
+                    <p style="font-size: 0.85rem; color: var(--muted-text); font-weight: 600;">DYNAMIC SECTIONS</p>
+                </div>
+                <div style="background: var(--white); padding: 1.5rem; border-radius: 6px; border: 1px solid var(--border);">
+                    <h3 style="font-size: 2rem; color: var(--primary);">24/7</h3>
+                    <p style="font-size: 0.85rem; color: var(--muted-text); font-weight: 600;">CLOUD AUTOMATION</p>
+                </div>
+            </div>
+
+            <div class="section-header"><h3 class="section-title">Explore Dynamic Content Streams</h3></div>
+            
             <div class="news-grid">
+                <!-- Stream 1: Welfare News Preview -->
                 <div class="card">
                     <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="card-content">
-                        <span class="card-tag">Welfare News</span>
-                        <h4 class="card-title">Campus Enforces Strict Wildlife and Feeding Regulation Frameworks</h4>
-                        <p class="card-text">Following localized wildlife incidents, institutions have restricted stray animal management to 19 targeted structural zones while introducing severe compliance metrics scaling up to ₹25,000 for deviations.</p>
-                        <button onclick="switchPage('welfare')" style="background:var(--primary); color:white; border:none; padding:0.5rem; cursor:pointer; border-radius:4px;">View Section</button>
+                        <span class="card-tag">Real-Time Feed &bull; Welfare</span>
+                        <h4 class="card-title">Live Policy & Wildlife Feed</h4>
+                        <p class="card-text">Automated coverage tracking stray dog management, forest department rescues, and municipal policy across India.</p>
+                        <button onclick="switchPage('welfare')" style="background:var(--primary); color:white; border:none; padding:0.6rem 1rem; cursor:pointer; border-radius:4px; font-weight:600;">Explore Welfare News →</button>
                     </div>
                 </div>
+
+                <!-- Stream 2: Scientific Insights Preview -->
                 <div class="card">
                     <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="card-content">
-                        <span class="card-tag">Insights</span>
-                        <h4 class="card-title">Comparative Analysis: Plant-Based Shifts and Habitat Reclamation</h4>
-                        <p class="card-text">New data indicates that systematically transitioning agricultural resources toward plant production chains drop global land footprint requirements by up to 33%, successfully stabilizing endangered biological corridors.</p>
-                        <button onclick="switchPage('insights')" style="background:var(--primary); color:white; border:none; padding:0.5rem; cursor:pointer; border-radius:4px;">View Section</button>
+                        <span class="card-tag">Data Science &bull; Insights</span>
+                        <h4 class="card-title">Conservation & Research</h4>
+                        <p class="card-text">Latest scientific studies, habitat reclamation metrics, and dietary shift impacts on bio-corridors.</p>
+                        <button onclick="switchPage('insights')" style="background:var(--primary); color:white; border:none; padding:0.6rem 1rem; cursor:pointer; border-radius:4px; font-weight:600;">Explore Insights →</button>
+                    </div>
+                </div>
+
+                <!-- Stream 3: Community Events Preview -->
+                <div class="card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="card-content">
+                        <span class="card-tag">Community &bull; Events</span>
+                        <h4 class="card-title">Conferences & Summits</h4>
+                        <p class="card-text">Tracking upcoming national animal welfare summits, campus sweeps, and developer showcases.</p>
+                        <button onclick="switchPage('events')" style="background:var(--primary); color:white; border:none; padding:0.6rem 1rem; cursor:pointer; border-radius:4px; font-weight:600;">Explore Events →</button>
                     </div>
                 </div>
             </div>
@@ -289,88 +347,7 @@
     <div id="page-welfare" class="page-view">
         <main>
             <div class="section-header"><h3 class="section-title">Welfare News & Local Policies</h3></div>
-            
-            <!-- The Python scraper targets this clean line and drops new articles right below it -->
             <div id="automated-welfare-feed">
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Village to Wild: Inside the Step-by-Step Rescue of a Royal Bengal Tiger - The Better India</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Village to Wild: Inside the Step-by-Step Rescue of a Royal Bengal Tiger  The Better India.</p>
-                <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPRlhXSEZzS21JYjVCSWU0N0ttTTAxZHlJTHpKb3ZPaGItZGp2LUxEU1QyOGFrSHR4cWZrZTRZUk1FYjBoX25FeFJnbGpTYXEtZmpKNWQwb2xETlN0UnpzRWVFNzd6SEw0QnFmRExZU2N3Mi1FYnZXZDFKY0xoX2FRN25jd1ZaZjQ4NkROWVIxOHJEVmdlN2ZFaXh4UnNSV0R2cmx4eXJn0gGrAUFVX3lxTE1jNGhvcHlXdDFWSjdjZVZwNTd1cl9zX2ZjbWNUb1VzZDBsaER3ekdONDZyRzgweHlxUTBtUGEwX0hqWkFjMzFqdGtOYkpaMUh0eEZuMlQyYktmX3dPRXRvN2hPRXlfdjY4S2stMjdGaTdNYkJ5SE01dERQU0VQa0x3VmItY0YwR3AweHFnaW1MbmNMWU1pQ2U2R3dnMDlxMlVGUVQ5ak4xLWRjQQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Meet Bharat Borah, from Assam's 'Hornbill Village' who has been saving injured birds and animals by build - The Times of India</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Meet Bharat Borah, from Assam's 'Hornbill Village' who has been saving injured birds and animals by build  The Times of India.</p>
-                <a href="https://news.google.com/rss/articles/CBMigANBVV95cUxPdGdkZWRXTkgyLXNaVVVYc05zN2UtSzdMVkFYdEh2cThscnZfSE5QX2lpZElFc2daWHBVX1M4TzdxX2VNRDdDNGNROW4tUjRubTlNM1ZkSXFSd3ZkampVaExZU2tQRTJNMEN0cnhNN2h1ZGMxVjItTHlxNjYtMzVsdW9WYnRqakRTS2FEdUFOZm5hOHlYeW45UlBOa2JWbVpOZHZJazVGaHhCSktLZGplNEQ4bFRwc29oQXZCdEc0dU1sN2h1UER3aGlHQ0ZaNXcwWDE1WVBRV1dhY1o0M0xFRlZtanV1QXdDUGpsdmRXbEJxTXJzY0RIQjUwdGtfZ2FjN0VTT0dMVnZWS0VMZ2ktQWpnSU1FZEtQWWx4VW9XWVViNnFXZ05ob09FeG1vSEs4RlRhWGt2LTVfM3Nsa241Nk1MNmJzWTFhUHVHVkR5VFM2NlFQVW5pM1lFYXhVSHRtWWNfblphRkV0d2RKc25QWEFfaGJpYWZwekxKU2hhRGTSAYYDQVVfeXFMTjFxaldwSnlxNVVMdHRMUzdTWnBqUktuYzdZWTVodjJESHVZdnRoT3Y2MkI4cGhPT096ZlUtZW9JSXF1RUFKVVZ3YUtuZ1FNc1Z2aE9FbXZvLTRpd1ZwNUlqdmRJdGlhZXRUd1NYUm1rV1E0T1kwdXRvbURlclRQbU45LW5NU1NrRDllZ3BEYmUwV2tfSVgyYjlNT3BnenZTWldwYXI1X3dMQ24tN0pETXlYRDBtZjFtVFh6cDFibmRaQ3dDa3BYOHpRZDhyalI1dTNkUWxaX0ltMnB4NTQ1MTNqVklJSTVVSlkzd2gzUVZFdGZTaTNfSHpuU2FUVFc0TDZ2QU9GcnRSWlA3NkEyYzdJMy1va1NiWWJVdnA1RWdycUtTRDhLcDdJZEViR2pnWHBjeGdmN0RvZVFvVzBkUkwtZVZ3Vklkak52VGFyS3d2ei1YaS05V2o3bHpYay16Vi1KZktBNHVRc2pIb3k4MlpFQ0FFRXNmSjVReXpmNE05YnRXSFJB?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Dead Calf Found on Seventh Sweep of Udupi Animal Hoarder’s House of Horrors, 17 More Animals Rescued—PETA India Demands Ban on Keeping of Any Animals - PETA India</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Dead Calf Found on Seventh Sweep of Udupi Animal Hoarder’s House of Horrors, 17 More Animals Rescued—PETA India Demands Ban on Keeping of Any Animals  PETA India.</p>
-                <a href="https://news.google.com/rss/articles/CBMiiwJBVV95cUxPZnNPR3BBVGxvSXFobks0anhydkFtejdDMjdrU0FqT1dNa3l0ZjZwMnVqWm96SVdMbENQUF9UVHVnTGhRbnlDUmgzakJ6aWJFNHI2Q1h2cEJEdkY5cjNDTzlycVBCMHdrNlRHeUZ0bVlRak8tNFQ1aWllTEJWVFA3WmJvQThZWjhqSkdtWHVjdmdpYWFsUndCbmNSTXl6ejk4R0poRXVhcEtTUzctTk1hXy1Camc4bWNvSExYWkx3b09QVFpBVlN6bUpFdHRyX2dndkZlWUp6ZFFFOG9xV2hMUnJkd0dJUDQxSFhQS3I0WXNkS1RrMzVBa2x3dGE2YjQweXh3R3dFanM3Wms?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Shri Bhupender Yadav chairs the 29th Meeting of the National Tiger Conservation Authority at Coimbatore - pib.gov.in</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Shri Bhupender Yadav chairs the 29th Meeting of the National Tiger Conservation Authority at Coimbatore  pib.gov.in.</p>
-                <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxOWllGZ0N2RG9XZnRvU1loUGVVU0NPRnh2dXRCMHVIeHhZaFA5NjJzN0N1ZVVkbFRYbDl6VFN1UVhxNFNTNS14bkw5Vk16VjJrblBlZjlsbThrLXB2czc2S3YzaWx5RThtN1ZFZFhSY1B0TkhiSlg2UlNlQXhhVEtTVg?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Wildlife smuggling bid foiled, two Lemurs rescued from luggage of passengers at Mumbai airport - ThePrint</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Wildlife smuggling bid foiled, two Lemurs rescued from luggage of passengers at Mumbai airport  ThePrint.</p>
-                <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPUG9sQjBDTl8tblMtZlNJZElZam1LSk5Ra09PS3ZEYng2aHB4M2NfamV6WS1XaklfZEdHRlBEQi1QTjRnS20wbmtKek9WQXVQYXFYcTJCVHhKa0F3dXJQeDFLSVFFZV8wZk5OcUVURHNTaVZyUnVXMU1fLUcyRXJSQkJfbkJWX0VqVnU4SGZFMTlORFRkTDBPR0pockJkWFNEQU5oR3gxY21WOHRVQTVTM1p2Q1czbHltTm5rQTA5UUh4NDhPUmJN0gHMAUFVX3lxTFBramNZZ29oZGVhZ1hIV0xodjB2ZWp2LUttRHk1RUZDMF84ZnFqenNCR2VHbVk0b29ndm1HcjYzWHA0RFZnUnR6U1ROd1pfREwwYVhjcFJvR0M2T002V1VwdGpIdWNpdjRnMC1uUzA0Um80N3BRWUFjY1BBWkR4dlhfTHAtQktsRWpBMHktWWlKVE45Tk1SVkQ4S3JVWUlRbFVIVFNseFBCQU5GYVBsRktvd0dYM1VHa2JiSS1JaGZDTk42TFVXNGFZbXJIRA?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">38 Additional Temporary/Transit Rescue, Rehab And Release Facilities To Be Set Up In Tiger Reserves Across India - ETV Bharat</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>38 Additional Temporary/Transit Rescue, Rehab And Release Facilities To Be Set Up In Tiger Reserves Across India  ETV Bharat.</p>
-                <a href="https://news.google.com/rss/articles/CBMi9AFBVV95cUxPYlh1aDh5YUx2UUFqemxtVmhpYVBQY2pNVlJpZGx0cUxnTlRuaHJIMU52aHJEQjEzOHdUaWJoSW95TmJWeDFRSkxKUmxwaFlWX0lHWEY1T2ZpeHdoRmlZSC1zbG5wVnBrRjRLUVc1LUtzLXdKbHdFaXFwU3NWNnFsNWpUUjMwVDlOT1drSlZKTWUyaW9icWp4Z05ENF9FZDJlUC16RHNTVFdoT29ESWVxTk1KX3ZmczlKeEp6LVJxdE5kMXlqYkJCTXNYX1J1N3F5NXFGU1gtSmtzeFllYVBwT2FXZnNLZU5ScVlFWGk5V2tBbFZw0gH6AUFVX3lxTFB2a0twTnZjNU14VVNrX3VzUmt5YXVqbjhBRTlnS2QzdmdpRVhjQ082aEdVWFo3cnZiR1VYZDFtcGNpc2tMckhveUFGOWh4LXpvZW9Ka2RDbXBEQVMzbVUzbW83WUVUQ1FQeXNSWEtScDJBamQ0QzlnRWhsYV9xb3VsMDl3MEFQNEtpU3M4dDBueGdKNm9kSlI3Z0gxVmtVdkFLQ3FKX2ZzQmZQSWFYbU91VFE4SkZ2dUZFUkgxenZpMG9yaXQyaDA2cnRpU2k2VGdPWngxdnhUMWFzLV9iWG5zbXJzUjF1eUFqcVNlaFdqMV9PMjVUYWVIbkE?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">One year after its inauguration by Narendra Modi, Vantara has expanded into a scaled, science-led wildlife rescue and rehabilitation initiative, strengthening clinical capacity and delivering measurable conservation impact. #indianstartupnews #ad #vantara - instagram.com</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>One year after its inauguration by Narendra Modi, Vantara has expanded into a scaled, science-led wildlife rescue and rehabilitation initiative, strengthening clinical capacity and delivering measurable conservation impact. #indianstartupnews #ad #vantara  instagram.com.</p>
-                <a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE9wSzc5THI1dHQ3clVwdldxdlZ5MDlveWpOQjZDQTY5Nk9KdVRDeXp5a084LWlLenJuSzhBNVNkR2tYYm1GcTRDM0hCUThvYjVMREZBN0ZR?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">The Wild Among Us: How India’s Wildlife Conservation Begins With Communities - Outlook Traveller</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>The Wild Among Us: How India’s Wildlife Conservation Begins With Communities  Outlook Traveller.</p>
-                <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPcF9LT3p3ek8xNV9YMjZqSnZIQjVKVk1qS1M0X1BsWllWdDVrTWJnQnlwZm03Wmo1Y1ZVYjNoVGNmN3RqTWl3TUpEQUlkWGV1akVpaUZtejYzeDl6MXZ0aXlNeVdxVlE4eFRXOUtpQlVwNU5ubTdRQTl4RWx4OGQ4S2xmNFl5U0JpRmVvZ2YydU0zVU52aUV2N25URXlKX1RKQ1RQdVUwLXhqYUIzRy1xRFgtdllqOVQ3OTFWLWl5VFZqSmN60gHSAUFVX3lxTE8tNkpUTFoyX0ZYOS1zMFR1ZWM1Yzk0YzJDbE5jYkx5Q3hSTDExWVlUNTdNbEstRFM1OHYyUWpNRURJZERPUUJGWXFENFdBczZ5SUlPZVQxeFBfUjdBX3RmbUdoZzcxSjBGTWd4VktmMkNPVXB4cHRtU0hLaXN3ODFzMEdTRmF3WGNXNVdBSUt0SDlZd214bTlndHJCVDRUYVpDZzUxaFBNV0VlLTZfWTBXUzlUczdNU0FlZHV1c1d2dmtBVVNJZ3NNUF9Ua2JHOUw1Zw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Duli and Atsu are finally living wild and free in India’s forests - International Fund for Animal Welfare | IFAW</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Duli and Atsu are finally living wild and free in India’s forests  International Fund for Animal Welfare | IFAW.</p>
-                <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxQLWFwQVVTbGs5NDlaeF9hdmJvNjE3MHNQVzVFbVdXUkRFbmRQWkhzeUo1a2FiZVMtSDNlZzk4YUl1bjBKbTd1YkUtWWRXNkFBMVltX3R6eXQyN2stQW1wNlNHQUI1RER5T1BjbVVkbXBtVDlGNXVxS3RXSjM4RWhydThB?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Vantara marks one year since inauguration, highlights wildlife rescue and rewilding milestones - Fortune India</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Vantara marks one year since inauguration, highlights wildlife rescue and rewilding milestones  Fortune India.</p>
-                <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxPWWxXbXQxRjFYUl9zMlZidVo0eEtnWi1DdkFzTXJkTGVhMDJKZnVFajh0cTJhUmRuMHZsaWh5U1QweWx0UTZZOXNtdldkRWFVUHFFY1pGWjl1N1dNSllULTFKU05seGpXNnVUNUpxZXZtSDF1dnhHZGgxZUI0dXgzV1BxNFFWY2x6dHNCMlNLS1RlcXhFYkhnc1djdS1kU0JfWHJJNUEtZDF5N184UHhIUDhGaTNCd2VfSmxyR2RNOTYyZ0pOX01aekZKWVVsUDFy0gHeAUFVX3lxTE5hTWgweEI5bGo1RFZweUM4amVzVEtXcWpPdnFNV2RDclRObElLMVlObkxJd1VMWHlTdlJpU1k4R1RVZDNZYVlBN2txdTh0N0RwOTMtcXVFaUVPak5jbEpHcG5pa01sS2swWEZxS2YwNDNLU0kxQnBlVnNxUFNLR25ySENtVmU1d2VCWUdhemdfdjZzN2trYXNuUmxPSFF3QUhWSjcxbnI2V1RRaXhqdmYtNnU2Zm1CR0Y1RTQxa25uaVB4QUFQT0hRRk4zdGVidWJ5a2Nqa2RLVFhTWkpaZw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
                 <span class="card-tag">India Update &bull; Indian News Wire (Animal Birth Control India)</span>
@@ -453,245 +430,244 @@
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Volunteers play crucial role in Bangladesh’s wildlife crime control efforts - news - Mongabay</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Why Test Subject V, Presented by PETA India Honorary Director John Abraham, is a Must Watch</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Volunteers play crucial role in Bangladesh’s wildlife crime control efforts  news - Mongabay.</p>
-                <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxPakVCVF81VkdpZlo1UnFsNDhlXzFkRDdKWU5LbW91NXNGSkxUTmJ3N1MyaEVLdnJ1aDhjNXpjdzRZVEpUbTR2WkF0TU5YcHgzZmJUUENHRGs1eExzSXVHNnBlZVU0QnQxVHUyRWR3aEFxZk9BVi11XzJGM2NYRk5ZaF9lMjFJUl9pa0MzaGh1MzFfNk53SkY3SUhPTXhEbFNMdWxmVkpCeGtQN2RodUHSAbMBQVVfeXFMTXQyTkJzeFVvY1g0NXJvNjJITkFpRUVGOFhDR01uVGZiVXdUbFBPMnZseWpUbzJqSWxYUHJBQjdCVnlicG5OeEJmb2tzbkU4eFFic0JBMzQyYmFNTllURVd1bXJsU1B2d05tcnVOUkdVUlVqeGZNNm1TZHVjTHBNOVBvUS0zNDhramVoSGJMOE9XbnZRUGgtZmI4YjRDd3BZdlBuMXBWYXpJR01mSFF1dnBYclE?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Test Subject V, presented by John Abraham and supported by PETA India, is an inspiring film about compassion, curiosity, animals, health, and the power to rethink everyday choices.
+The post Why Test Subject V, Presented by PETA India Honorary Director John Abraham, is a Must Watch appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/why-test-subject-v-presented-by-peta-india-honorary-director-john-abraham-is-a-must-watch/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">VIDEO | Leopard hides under bed inside house: Rescued after 5-hour operation; shifted to quarantine centre - Bhaskar English</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Celebrate Hen-dependence Day: New PETA India Billboard Urges Citizens to Extend Freedom to Chickens</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>VIDEO | Leopard hides under bed inside house: Rescued after 5-hour operation; shifted to quarantine centre  Bhaskar English.</p>
-                <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNMWhacHcxMUtzMVdTUVZ5QTV2S2NOLVpibGRpWG5fMkxVbWZzcmdyTFB6UHJTb2xfUmYwZFFFblRRSi1WYkpiVHNIZmpTM2NPU1BWT3AwLUJ2M3NWUXpPYTl2OWZoYmhmbmF3QUNHRGFrdy1lS3c1eUdObElqSGlyQjVObDR6cEQ5YnpWazdqd2tlXy15dTRjU29oazVOdjF0dDJ3M19BNVl4Z21UTjhGSDQxU3Fha05BMWtjSC15c3JSLU5VLWfSAcsBQVVfeXFMT0JvOTAtS2RKNmcyc054RU54b3Z0a2dKdXNpWjBoRjgyM1gwekNlTk1LS1FPT3ZNcnpGelpLSnVmTlpMaEdiNURXUVhRb21wR3hfMUk0OVkzNEZaQjZmRUU3UlQ3MVdlV1JrMTJvRkQxQmlJY1liT01yWExRN1VIWTRaaDJjOUVheUdYOXNiNlpSUUJ0anpSQ1BTRUNCVktFR25OdGRaR3p2LXVZWTFvRm1NNGs5dndQcEZQNC1RbnJZQUNSLUU5OWxzM2s?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>PETA India’s newly installed billboards across cities are reminding people that chickens, like all of us, value their lives and freedom—encouraging compassionate food choices.
+The post Celebrate Hen-dependence Day: New PETA India Billboard Urges Citizens to Extend Freedom to Chickens appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/celebrate-hen-dependence-day-new-peta-india-billboard-urges-citizens-to-extend-freedom-to-chickens/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Tamil Nadu’s first wildlife rescue, treatment and rehabilitation centre inaugurated near Coimbatore - The Hindu</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">High Court of Delhi Seeks CCSEA Response to PETA India Petition for Release of 73 Beagles and Other Animals Eligible for Rehabilitation from Palamur Biosciences</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Tamil Nadu’s first wildlife rescue, treatment and rehabilitation centre inaugurated near Coimbatore  The Hindu.</p>
-                <a href="https://news.google.com/rss/articles/CBMi-AFBVV95cUxOZmNqVzZjY1BPVWQ2bk16a3NzVzI5ZVJ0STRCWk44TWYyTEk1TFoxdnItd0tsUEVST3drbU9wb3BpYndYaC1FdWFnNGU1cUdKUUJCZlVLbFl2a3pPM0tFTzQzc08yaUJFVk5kRU5Wdl9hMVl0dDJFS2dCZHpRWUVNZ1RZeUlPTE55Vmk5cGoyZ1J5YmZsdU1udmY1akxoWTdPenlURE8xZnh3enhfVFNaSjAyVUFyS3NQODdqTi1aeks0WXZfLUtZX0pCbmpjYVkwN19sR3ctdTVMOU53cy1xcWJRRjBWa3FoZ0VBVGwzQXF5VHVFdXg4TtIB_wFBVV95cUxOUENzdG5DX0kxdUt0R0FjZWYwWWZKZjF4VkRYbjJWSnRzaWtGTWZvMlBrN29hQWhsWlNsRnpqSm04bnhUSHMxOFRyT0d5V2hDTGdzS3dFR09fTWk3X2tYNEFHeWtMR3p0TmlVOGcwVTZFRHBzZHVFbEFMTnVOeU1CekJxTTdhMTNxdGhkVVFDQ3RzempkWXZOYWRNNnRVX19VWXNJVS1TZV9KNlhxN0lySmZxbEtrM2NSdTlheVVnWXZCVWdpRUQ5TGxFLXlTUVRvOENlckc4ZFJmbm9SdGpCNVBGN2JGdXoyTmdsa2Z5MVJvNUlBOGJ0TW1lOHdFek0?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>The High Court of Delhi issued notice to the central government’s CCSEA seeking response to PETA India’s petition for rehabilitating eligible animals from Palamur Biosciences to suitable sanctuaries and ...
+The post High Court of Delhi Seeks CCSEA Response to PETA India Petition for Release of 73 Beagles and Other Animals Eligible for Rehabilitation from Palamur Biosciences appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/release-the-73-beagles-delhi-high-court-directs-palamur-biosciences/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Conservationists rescue rare langur, question Ctg Forest Dept's inaction on wildlife trafficking - The Business Standard</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">PETA India Advances Non-Animal Tests for Medical Products</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Conservationists rescue rare langur, question Ctg Forest Dept's inaction on wildlife trafficking  The Business Standard.</p>
-                <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNV3FoZXRwa1daNExuSUdEanA0NEpyUE5PR1Rwcy1JNjVyT0gyUXZ4dkR3N0t3MV9KN3doejJrektHdWRrZzFBVkxDRGNCTmNHVS1JZ0FhN1RhT3BrcDdvM3dEcmJDWC1vMUE0RFFRMUIxWDl3QTZydlBYcUdkR3J1NXNrYmlIV2lHQlJJaWhHUWNOYjVIbWxmc05aclFEYU56aVBCaUx6T280SzhSY0JNVXFMckdGel9Q0gG-AUFVX3lxTE9sY3hLaDlIUnlOZlB4LU5IcHlrS2JLOTBIQ0M0bVNmWUcxQ3pYdGJpUF9EVXZnSWJMS2xPRjZITXFKV08zajlkU1JLaUU3NW5jVnhMQzhkRnhpNThMSFowUTRjQUpSd3didklKME1yUDlaUGhEMURJNUZsSHl0c3ROalhfLUZpMDN6ZHRFNVRrMUNobUFsYWZ5QnlOam9XRUU3OEhKRXZaRFpiVHVhVEVFaUZkQTFRNllhVDFVcEE?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>PETA scientists are helping shape India's transition to non-animal pyrogen testing through regulatory and industry engagement.
+The post PETA India Advances Non-Animal Tests for Medical Products appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/peta-india-advances-non-animal-tests-for-medical-products/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Leopard sighting: Forest dept issues advisory - The Times of India</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Rajasthan Animal Husbandry Department, With Support from PETA India, Seizes 120 Illegal Spiked Bits Used to Control Horses for Weddings and Tourist Riding in Mount Abu and Sirohi</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMiugFBVV95cUxPd3B3VWV1bUNOUVhzVktMVlQwRk1VaFM4TzlEU0RvNC1UaFljQ0pkTmdPbUVqMGxXVlE2MjhVQjB3Q01Udk1ObF8yZDRfTm9NWERBUURYTENMUzJzdWRMdXd4SEtOb2RjYjdJcjVXX0ptWUZHdXJVdFZ1TXhDaWJITnlhcGRzREstaEpBbWZrd2J4WG5xV1VuVXhuRzBJT3lWem5pQmVjMFI5Rzh5bzVfSUhPWVo1TUVwckHSAb8BQVVfeXFMUE00SEJnZlBNZV9NYVFEV2ZMd25RT3RaWFZLTUpkMG1YeTBUbEswVFBicnNGVVRvSjBaSFhUVmJ6TEt4WFNZSkd2LXd5WTgxQnFSc1R0N2xjSEV2NzdLZWU4VWloSEQ5aXhlN1BCRmRDUXVFb2dQWk1kc3ppZmppTW14N3p1YmVUcmgwV1hGV0cwcjU1UXZqTEVMOWt6RHJHVEZNU1N0VUJTNW1pZjB0eU1UWDJYcWlQd0FWTmoybGM?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>With PETA India’s support, Rajasthan Animal Husbandry Department confiscated 120 illegal spiked bits used to control horses through pain for weddings and tourist riding in Mount Abu and Sirohi
+The post Rajasthan Animal Husbandry Department, With Support from PETA India, Seizes 120 Illegal Spiked Bits Used to Control Horses for Weddings and Tourist Riding in Mount Abu and Sirohi appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/rajasthan-animal-husbandry-department-with-support-from-peta-india-seizes-120-illegal-spiked-bits-used-to-control-horses-for-weddings-and-tourist-riding-in-mount-abu-and-sirohi/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Forest department to establish professional rescue teams - telanganatoday.com</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">PETA India’s ‘Tejas Tofu’ Mascot Distributes Free Tofu Tikka in Amritsar Ahead of World Tofu Day</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxNN3BDMS00Vjd3ejI3cDU0ZmFvaVFvejZuSTBlYy1tU21qS1Q4QVpkZ3VfYnU5Nkg3aDh1c2hHdzI3NTV6Q2g0NDROS1NzOG1FU0Y3c3FDYnY2bjY3Mnc5Qmh5Y1JpZGYtWERWWk1jWms5LWFGdUZVdXk1Vlk5TmFydDdMM2paMkpHbGdR?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Amritsar gets to taste delicious protein-packed tofu tikka as PETA India’s ‘Tejas Tofu’ mascot distributes the dish to all passersby in the city.
+The post PETA India’s ‘Tejas Tofu’ Mascot Distributes Free Tofu Tikka in Amritsar Ahead of World Tofu Day appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/peta-indias-tejas-tofu-mascot-distributes-free-tofu-tikka-in-amritsar-ahead-of-world-tofu-day/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">This Valentine’s Day, Send Your Love to Injured Wild Animals Who Need Food, Treatment & Care - The Better India</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">ISKCON Pandharpur Sri Sri Radha Pandharinatha Mandir Unveils Life-Size Mechanical Elephant, Airavata—First of its Kind to Participate in for Sri Jagannatha Ratha Yatra—Gifted by PETA India</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>This Valentine’s Day, Send Your Love to Injured Wild Animals Who Need Food, Treatment & Care  The Better India.</p>
-                <a href="https://news.google.com/rss/articles/CBMi2AFBVV95cUxPYXdNUVkyUzZxLWppZUJ2bUhWTGMwNVg5TFJ5djdCRmdqa3F5aTRvZU10R2xJZXVvOGk4OFJUU1dXWENGZ0RESFNIVG91NERuVDFEZzhVX1VzN3FRM2x3eHU4alNPcnROWXJYdmRoSTVSdTZIcW5nYS1sc2RXdGdvcDBHbGl4TnJxLVg0UHRwbl9pYndUTHpCblVBbldmMmxldTVEcUZHVWstaXZsY1JESVljOXBnaWI0ZHBpWC00MU03Rl9RWDBBVDBlX1J3REQ4TDJFNXNrRC3SAd4BQVVfeXFMT1Q3NXQ0YUlCdy1qMVY4R0xqR3dkLUlWVWQ1Q3dLLUlvZ3dod0xldWtmZkhQb1o4ZXRsanBrUDRjWDNqVEkwcV9TeHVHVS1PM0syMFBDZV8zZ1FCU1c2cjVXVXVJNGQ2R2x1cXlVWnRuUVctTFVITFdOUlFCZU5IWHdKWFJlamFmUlh1cFowbmVYRFh6ZjhWZ3RhLXFQNXJ5a3hkQ1lGWE9KZFBzQk9LVlpqeGY2aXl0TFZ5MkNZbmgyQVBrQUJmSTM1MUdQdHAwTFhHME5hTnk0dmlLVVVB?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>PETA India donated Airavata, a life-size mechanical elephant, to Sri Sri Radha Pandharinatha Mandir (ISKCON Pandharpur), allowing traditions to happen in a safe and animal-friendly manner.
+The post ISKCON Pandharpur Sri Sri Radha Pandharinatha Mandir Unveils Life-Size Mechanical Elephant, Airavata—First of its Kind to Participate in for Sri Jagannatha Ratha Yatra—Gifted by PETA India appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/iskcon-pandharpur-sri-sri-radha-pandharinatha-mandir-unveils-life-size-mechanical-elephant-airavata-first-of-its-kind-to-participate-in-for-sri-jagannatha-ratha-yatra-gifted-by-peta-i/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Forest department, PWD to inspect PAP contour canal to curb animal deaths - The New Indian Express</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">‘Are You Wearing My Mother?’ PETA India’s New AI-Powered Robot Calf Confronts Chandigarh Shoppers Ahead of National Parents’ Day</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Forest department, PWD to inspect PAP contour canal to curb animal deaths  The New Indian Express.</p>
-                <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxOOUw3WkdtZzFXbWZzazNWOHY2enFlTDVGU3lncmUwVUlIejh2NS1QWGE5QkpQUXpPZ3l1aWNpRHB3SEN4ckJ3ZXBaNkxiS3pvTmpva25VUzl5WUNsUDJ0LVFNQU1aRWNYa051Q3p2d1MwVGxvakxDSktxRWNFZ3J3RWZWRThqSl9NR3lPX203Y2F0ZnZ4ZEpjWmhScW1IRDBjZk9FUE9uZkg2QjczdllMbXRBdzk5dHM1b3dFa3dDdW0zTHVGYmZoMlNaQmVLWUxx0gHeAUFVX3lxTE1hWjR0YVJuYzlITF9fY3FFb1M1X2dvR09oWFBJUTQzM3o1VHFjY0FNRHNYWmQ1c0FUVGdVeVNtdVEtdFVKTFNfaWd1WUVVZElaWC1Tb0hVUHFzSHRWM2V2ZGpXSm01ZjByb1dZaDdjMjFhRFNINnp0aVAzdWs0czdoalBCd0w0c2hmSnAydU5HemJydlNKczFHdVRjaEFQVE44cG4tWG1KSDRaVGxISXNIaHlmYWZhdVVONjJtYzAxSzVPRlM0YVRweVRPZnVGT24zS3E4UGJ3bllOeUsxUQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>PETA India’s AI-powered, realistic-looking robotic calf Jeev highlighted the horrors of the leather industry and urged the people of Chandigarh to choose cruelty-free fashion ahead of National Parents’ Day.
+The post ‘Are You Wearing My Mother?’ PETA India’s New AI-Powered Robot Calf Confronts Chandigarh Shoppers Ahead of National Parents’ Day appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/are-you-wearing-my-mother-peta-indias-new-ai-powered-robot-calf-confronts-chandigarh-shoppers-ahead-of-national-parents-day/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">15 Deer Killed By Stray Dogs At Chhattisgarh Animal Rescue Centre - NDTV</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Chennai Forest Division Rescues Monkey Abused for Entertainment Following PETA India Complaint</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOMlpjNm9EcFpTcUEzWjFEOVozSTdVelpXazhuWXlyOVBVRUhYeVJzdFVZT3VJSTU2bUg1bnZES0FvT0dERmVXaUl6a2NnZHdxWlVzVVJwTmdtaHI3VGRkTHFXNlZySjBSOU9GZnozZHpWbW9ZM0FRa0dXNFBTR2VrdnlYU0pwc1RLTlQ5MWh6T3I4ZWEzckt3X0pJaFBMWmtWRXdjbElsVGc2Z9IBsgFBVV95cUxPMUYwUWFsTmZERVdsOW5RYmZTd1diZHFXZzBzY0ZwODlKVlg5MEkwNWFXWTE0VmRCZ1B4aWlWWmNsSDlqSkFFWGRRLUVxekFNUTZjUUN5Ynl4RXJZdDl6TXFxZTVSVklfUEdsVHkzRk1rZHVOTWl5N19PQWVYQk9OeHRWREVNaEs1QTJGYjZIamxXNGRpUjNtLWdteTlwQTczOG9QSzlFWlFOdzJjWHlodUhB?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>PETA India worked with Chennai Forest Division to rescue a monkey abused for entertainment, following a complaint from a concerned citizen.
+The post Chennai Forest Division Rescues Monkey Abused for Entertainment Following PETA India Complaint appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/chennai-forest-division-rescues-monkey-abused-for-entertainment-following-peta-india-complaint/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Forest Department Animal Rescue)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Maharashtra: Bear strays into Buldhana's residential area, chased back into forest by officials - ANI News</h2>
+                <span class="card-tag">India Update &bull; PETA India Wire</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Victory! Quick-Commerce Platform Zepto Stops Selling Glue Traps After Hearing from PETA India</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Maharashtra: Bear strays into Buldhana's residential area, chased back into forest by officials  ANI News.</p>
-                <a href="https://news.google.com/rss/articles/CBMi7AFBVV95cUxNNUt6LUl6VUZYYUZDekhUZ2xmWmRzZFlQWlpJbjVQRjVIb25FSFpLWkdUblpIcDFGeThZSGgzRWs1eWUyTUlodWFVdFpJdW9KdEtHVjFDdXFxSzFHb05IM1JNT0VIWU8zeVZncFJFNTFhWHN2eE9PaURXOXFEclBzYkprYmpFV3lnMzlObl9vVW8xWXpkbVotbjd3QndEUnoySllwMW9TcjZDRjFjaFJhZG1sOE5ONUIyVURzbk1Ba2cxcWQ4Z1lVclhVMU1PWkU0Ui1TcWl5ZC1xdURqZEdGVUZVQWY0S29DQmhLUg?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>After PETA India alerted Zepto about the prohibition of glue traps in 32 states and UTs across India, the quick-commerce delivery platform stopped the sale of these cruel devices, ...
+The post Victory! Quick-Commerce Platform Zepto Stops Selling Glue Traps After Hearing from PETA India appeared first on PETA India..</p>
+                <a href="https://www.petaindia.com/blog/victory-quick-commerce-platform-zepto-stops-selling-glue-traps-after-hearing-from-peta-india/" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali Jatra - PETA India</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Rescued From Haryana's Streets in 2013, Elephant Spends 12 Years Building a Herd</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali Jatra  PETA India.</p>
-                <a href="https://news.google.com/rss/articles/CBMihgJBVV95cUxNTE05SDVtNEx2WGVGZVdudTBZN3hPNGFaN1B4T3dXMEFqU05tYTE1ZFlRYzM5RXk5el9kZXVWYXNROEtldWYzUm4xbzZ3Y20xWms2eS16clRlOG5YOXNPUnJMWTMtZjhJOE92Wlo3U19kNXhpU1o2OTVRclNnc2NEcWxNbzRkM0ZSWV9OODFhSTVZYnN0Qi0xN1JvOEhJakdDNThmWk1wNEFneTFrNG9Ic3UtdEZxSWhBYVQ5T0Z0TUI3ZXRjVmtrb090TXlBc19TN1FEZTBOTnV1bmppeGE5ckdZMWdJUllUSjRKVVNfTlFVbmtjdkpvTjZNUFk4anVkZ3daejRR?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Every evening, Erika sets the pace.
+She walks a familiar route through the forested grounds of the Elephant Rehabilitation Centre in Ban Santour, Haryana, and the herd follows — Lilly and Jasmine staying close, moving at her speed, pausing when she pauses. For the caretakers who have known Erika for over a decade, watching her lead is still something worth stopping for.
+Because not long ago, she could barely stand without pain.
+From Haryana's streets to a forest sanctuary 
+Erika is around 65 years old.</p>
+                <a href="https://thebetterindia.com/wildlife/erika-rescued-elephant-wildlife-sos-captive-elephant-rehabilitation-india-12001432" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">NCRB records animal cruelty for the first time in India’s crime statistics. 9,000+ cases in 2024 - ThePrint</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">How This New DNA Tool Could Reveal Where Trafficked Pangolins Were Poached</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>NCRB records animal cruelty for the first time in India’s crime statistics. 9,000+ cases in 2024  ThePrint.</p>
-                <a href="https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQUxfb1ZqVG9FTjQ4bVFVdFJTZW5QWDN3WmFYcjBtSk5BdWM2YWNqOWkwZVIxZ1BTYkJlZS1GcTNvZmFGWGdJTHBJc3Z1YWlKQ1JiUVRFSXR2cDl5TndJUzhGSjJ6N1JZY1BEaXFrM1lfZjg0bi1KNlRFLTRPVjNxM2hWbXpKNmhiN1FrVjNlejVLY2JqVnFsR0h5aGRGWGFSRXJyd3JVVGxRcEk0SndrU3ZrbkRZVXczR1VpMlNhZkwycU9IVlhzbdIBzgFBVV95cUxOOWN4VHc4eTA5aXZSSUpId2ZKVk1QQlhJVjY1WWYwVlpWOWdLTDhkSmN0LXF3V2NjOHhtY2xma2RDTzNCS0o5Tnh6clBlQU9QZ1c5eXZtUUZaX3NhbU9RbHZMb0FYX0xVak1XMlczYVBpYmZTZ2FuRGhtWEZ6ZkZoVnFpOWlsRGtsT25PNXF4cUlyM1JkcllLb1ZWU2NXelRnTlpSMlM1My13ZTZMaXh4OGlDNFUtY3ZCTF9UYUFZYy1aLTgyQVpjOW9PdVNoZw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Scientists tracing a suitcase full of seized pangolin scales may soon be able to tell not just what species the scales came from, but the exact forest where the animal once moved through the undergrowth.
+That possibility could reshape the fight against one of the world’s most secretive wildlife crimes.
+A new international study has shown that DNA recovered from trafficked pangolins can now be used to map illegal wildlife trade routes with remarkable precision, helping investigators identify poaching hotspots and track organised trafficking networks across borders. But how?
+For India, home to the Indian Pangolin and the critically endangered Chinese Pangolin, the implications are significant.</p>
+                <a href="https://thebetterindia.com/wildlife/pangolin-dna-wildlife-trafficking-routes-india-11903884" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">In a 1st, NCRB tracks cases of cruelty against animals: 10,312 arrested in 2024 - The Times of India</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Inside the 80-Day Journey of a Mother Elephant Mourning Her Calf in Corbett</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>In a 1st, NCRB tracks cases of cruelty against animals: 10,312 arrested in 2024  The Times of India.</p>
-                <a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxPNjBPb0hYYnNNeDNFX1VFOEp2OG1zZTc0R19sYmZqTTdEMlhTOUxFRXhLbC1WcjhaTWlDbUVCMWRHQkFFSEYxaXlSR1RPUi0yNWhtd0dGQ3FSSS1Jb01qWU9Ma0s1Q3g1TUtQSG1pblFoYXdqSEdCQXBFSW5vM0xBeF9kY1ZHaHpwYVpYUDFXR0pRblZhR185anFQNFF0Y01laGVDSElUUjF4RFdzM1RiNnFQcnVIZnM1TzFHMHRHdjdhZ2lIQ2g4T0E5blpTYWFyOVRLMHNLWG9qek9v0gHiAUFVX3lxTFBPYTJmNE4yWFVZazVJaHBURkFWbjNqRm00bTIyOE5INHMxYk9Sc1VSamwtbWdWTEIyeU0zbHpodTlkVURqbUZpX3JVMTF3a1dlc3lKRG9TRExqS0JnRTNlbV94a3o3Rmw2aVlIQjRZelcxX1VkM0VIdWxzQ0lGakZWSktuZGVGeTZjNnhVVzExODNkZ25yUlBCSW9zRU1zT0JfZjNhWVN6SENOZDQ3WXBCcFNMbS0yMTFwTVlvYTJqektnZHV2VVNlUVRtSkt4QXpVTFZUVTIxaUlxY3BRVmdBVGc?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>The Ramganga valley was loud that morning.
+It was not the usual crashing movement of elephants through the forests of Kumaon, but deep, guttural rumblings. A photography team stationed near the river in the Corbett landscape sensed tension in the herd’s movement.
+What they witnessed next would stay with them for months.
+In the middle of a slow-moving elephant herd was a mother carrying her dead calf.
+Not for a few hours.</p>
+                <a href="https://thebetterindia.com/wildlife/mother-elephant-80-day-grief-journey-corbett-11863543" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Animal Sacrifice In The Name Of Religion Challenged: Supreme Court Issues Notice On PIL Seeking Ban - LawBeat</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">For 15 Years, This Punjab Man Has Carried Water Into Forests to Help Wild Animals Survive the Heat</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Animal Sacrifice In The Name Of Religion Challenged: Supreme Court Issues Notice On PIL Seeking Ban  LawBeat.</p>
-                <a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxPT2tLdzRXZnlMZkhJdVVpeVNJaVFPaWVON3NxbDdZVWw3R1ZIQ0FJZ0dlOU14UTdBMWhrN05QVHNhRUdTUTR5NnFabnpnS2tUVjRVVUtQdE14MkV2TFVnUEFDT2R5bkR2NE0teXNZc1YxWWxYdEFfM0htVzNwRVpKZXM3TEc0TDRtQkpYbFJ3T19wQ2Q4QXc2Wm81OWctNmNEeTNEV1VCN0Y1Tk9aeFFzVVdpT0doTVBsQkNrTml0Q1RHVmpsNnJDQ05lME93NzRDY1lR0gHYAUFVX3lxTE9GczNIZGZoUnUwTHhtYlZUdkpCajJ5eldITkV5MFk5TGk3djFib2VLeEY2MXYtT0dpWFNlUUM4ZjJGNkpNUzFvZXJJcVFWbUdtUEo5M1R6cHZ6elFKSmY1SnJfeUtXdGpFWXpWRXl0TmhZWGFwYmZ1ejdyc1Z3NWRPMDJ3VldlZ1hySTFGSl8temdfNTI2SFVFWG14LWZ2UlRvXzQtZUEwSHdKSkNGUFdQcnduTHpOOUlCN3Q5YTRlNTNPb3BuV0NaZkxsU05YMnJFVVlOVW9KRw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Every alternate day through Punjab’s unforgiving summers, a tractor-tanker climbs into the dry folds of the Shivalik hills carrying water.
+Long before sunrise burns the earth a pale brown, Harpal Singh Pali begins his route across a five-km stretch of forest near Kanpur Khuhi village in Ropar district. By the time the heat settles over the hills, wild boars, sambar deer, blue bulls, and peacocks have already begun gathering near shallow pits and concrete troughs carved into the landscape.
+They know the sound of his tractor.
+For the last 15 years, Pali,  now known locally as Ropar’s ‘Water Man’, has made it his mission to keep wildlife alive during the harshest months of the year. 
+ 
+
+By keeping water inside Punjab’s drying Shivalik forests, Harpal Singh Pali is not only helping wildlife survive the summer, but also protecting the vegetation that holds the fragile ecosystem together.</p>
+                <a href="https://thebetterindia.com/wildlife/punjab-water-man-harpar-singh-pali-ropar-forest-water-holes-wild-animals-summer-11860364" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">PETA slams passage of Assam law allowing festive buffalo fights - The Hindu</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">How Sniffer Dogs Are Becoming India’s New Frontline Against Illegal Wildlife Trade</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPTy1CRkNDMnlqb2RBYzc1QjR3T2RQVVMtOGNzUlJjMmlWV042MlpTOUg0NV9ILU1UTjB6dk5RS29JdmNGc2taVllxQmFqUUJselROSmRlMzl5eUJZYVpzYm5iMHNSU2QwYi1MWXlXbEk0OFlmX2FocVhNZVpaQmNMUGVpSVBfME14ZmwtczZLRUFlMW5ZaTE4ZVBVRm93UkNaVUxEVWtsQ3JmUEJxN0owZlFZUGtzaTVkdjl3LVdvMlVpSjBsRDQ00gHOAUFVX3lxTE9QVUl6VHBiWDU2WmFmOFdCWS1OVVBoMlhEc2lPa0lCcHlzNjlVS2pKOS1Pd3plYzhOMHlHdzRUNi1BWnZwd1dpREJ0NnNkci1hQ2ZCUlVMNVc3cTk4MXpxMHBMcldybGFMUXZzdV9WQ1BqU3FiRUF2cEEtYWZJYThxTzJqbGo4QjBfY29ia3ZEOHpLWUhEa2U1bkViRW1WSTEwenB5RHYyX1djTThSQ2ZwSFlsOG5RUmJyQTFWeUt5OEg4eHNQa2NKSF9Md3pR?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>A tiger claw wrapped in cloth. Pangolin scales hidden inside sacks of grain.</p>
+                <a href="https://thebetterindia.com/wildlife/maharashtra-wildlife-sniffer-dog-centre-india-illegal-wildlife-trade-11825963" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">India: Illegal Bull Races and Brutal Animal Cruelty - wildbeimwild.com</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Once Near Extinction, India’s Elusive Caracal Is Making a Comeback in Rajasthan</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxNalJTNU5OV202dkZ4aWJ4Zk9MMG5ZUnlGcWlka1dGOGxUMmd4di10cHhrQ3ZHdEtabmxzaUVTRmc1ODEwdzBSU3pKSno1dlVRVkgyVkNRakJfaUVOSU8yNlQ5SDVYdlFmYi0xcW9abUxGaUo2eW4xeUF5UHhZWVlVQWpOYlg2dw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Across western India, the caracal, once widespread across its dry landscapes, is now close to local extinction.
+But the good news is that recent findings in Rajasthan have confirmed the presence of a breeding population.
+In the Thar, where survival is already calibrated to scarcity, the stress was visible in the thinning margins for species that have long lived at the edge.
+Among them was the caracal.
+Known locally as Siyahgosh, or ‘black ear’, the elusive wild cat has moved so quietly through India’s ecological memory that, until recently, its near-disappearance went largely unnoticed.
+Now, with climate pressures mounting, India has made a decisive move: a first-ever national masterplan to bring the species back from the brink.
+At the centre of that plan is Rajasthan.
+A fragile presence, finally confirmed
+Fresh field evidence has confirmed what conservationists had only hoped for: the caracal persists in the dunes of Shahgarh Bulge and Ramgarh in Jaisalmer.
+More importantly, it is not just surviving, but breeding.
+Radio-collaring studies conducted along the India–Pakistan border have, for the first time, documented family groups.
+
+Caracals favour open forests and scrub habitats, which are the landscapes increasingly intersected by roads and railways. Photograph: (Wikimedia Commons)
+
+ 
+For a species long thought to be functionally extinct in India, this changes the conversation.
+Forest officials have verified at least three individuals in the region.</p>
+                <a href="https://thebetterindia.com/wildlife/india-caracal-conservation-rajasthan-siyahgosh-11800779" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Justice for Chanchal – OIPA India initiates legal action against cruelty after elephant painted pink for photoshoot - OIPA</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">New Born Lion Cubs In Mumbai Park Raise A Rare Question : Can Lions And Tigers Coexist?</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Justice for Chanchal – OIPA India initiates legal action against cruelty after elephant painted pink for photoshoot  OIPA.</p>
-                <a href="https://news.google.com/rss/articles/CBMiXEFVX3lxTE1CalZPTHAwenV6c2x5em56Q2xyblZmdEM2SVh4NDJ5SkhQeFgxd2doekJqTXhDc0xMRXRBeWljLXpGN1N3SmdKOENJS0V3Uk8zdUlfVFJZYmxpbXhT?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Three lion cubs were born on the night of January 11 at Sanjay Gandhi National Park (SGNP) in Mumbai.
+Born to lioness Bharati and lion Manas, the cubs are part of a carefully managed conservation breeding programme. Their arrival has drawn attention not just for its rarity, but for what it represents.
+SGNP remains the only national park in India where people can see lions, tigers and leopards within a major metropolitan city.
+But that claim comes with a complication.
+Because while all three species are present here, they do not — and largely cannot — live together in the wild.
+A park that holds what the wild keeps apart
+Sanjay Gandhi National Park sits within Mumbai, a city of over 20 million people.</p>
+                <a href="https://thebetterindia.com/wildlife/mumbai-lion-cubs-sgnp-lions-tigers-coexist-11753630" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Prevention Of Cruelty To Animals India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Indian food companies taking significant steps to end animal cruelty - ANI News</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">How a Tiger Couple in Kheoni Revived a Forgotten Forest</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxQMG0tTnVFTkNTc2tJZndJVUVRUkVIaDBGcFJvdXdyV0xGYXJNLUExNVRCeDhuTm4xbG1nR2pUSnVOSUtwQ0RFYXFJbW5QZVdER190MWNXMVN2aUpqZ2piWTFxRnlCTXg0dThQSTNIRE1pM2hQWllsQkZNdGpRbWVoT0YyNER3MzhjS09CcVVQN2VuRTNhMW9KcU5ydVV6X0ZCZUZQMXpLQmRuYXQtMXJpbDBwaWJTVlJaUEtN?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>In the dry deciduous belt of the Malwa-Nimar region in western Madhya Pradesh, extending slightly into Rajasthan, a tiger couple has rewritten the fate of a forest.
+Yuvraj and Meera, now the dominant pair at Kheoni Wildlife Sanctuary, have done more than establish territory; they have made Kheoni their home. 
+They held territory, hunted, and eventually, they bred. 
+Last month, the Dewas forest department confirmed what the camera traps had been suggesting for weeks: Meera had given birth to three cubs.
+Now, at just a few months old, they are beginning to emerge, slipping out of the undergrowth in padding across clearings under their mother’s watch. 
+They are now moving through a forest that, not long ago, could barely hold their kind.
+Passage to presence
+For decades, Kheoni was known as a “quiet corridor,” linking larger, better-known habitats like Ratapani Wildlife Sanctuary and the distant Melghat Tiger Reserve. 
+Tigers passed through, but they didn’t stop for long enough to claim it.
+At 134.7 square kilometres, the sanctuary seemed too small, too exposed, too dependent on neighbouring forests to sustain a resident population. 
+But that assumption no longer holds. Forest department data now places Kheoni’s tiger population at around a dozen individuals. 
+Sightings, once rare and anecdotal, have become routine. 
+The ‘power’ couple
+Yuvraj and Meera settled in Kheoni.
+In ecological terms, it marked the point at which Kheoni crossed a threshold, where prey density, territory, and safety aligned enough to support breeding.
+ 
+
+Their arrival adds context to the predator hierarchy, joining leopards, hyenas, jackals, and sloth bears already present in the sanctuary Photograph: (Gaurav Sharma Dadhich- Facebook)
+
+ 
+That threshold became visible last month with the confirmation of the births because a breeding tigress does not choose uncertainty.</p>
+                <a href="https://thebetterindia.com/wildlife/kheoni-tiger-breeding-hub-madhya-pradesh-11727716" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Haryana’s modern cow sanctuary in Gurugram to tackle stray cattle menace - The Tribune</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Scientist Explains How One Tiger Can Help Send a Child to School in Rural Bengal</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Haryana’s modern cow sanctuary in Gurugram to tackle stray cattle menace  The Tribune.</p>
-                <a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPVlVhTjVvZU90aFZmMVBwRFZTdFp4SnNFRWpVQU9xY0lJdnRvUGR2bzZoVGFyUzdRaFlqNEU4Y1Bac1hVRjlGd0JKMkwzTXlPV19keFRvQjFEQ29uYUJMcktSMkR0MkFneEpQUVY5ZnR4UEducm1PWkpGNWVBdjN1aDBpbDJQR25vaUNWZGpGWXMzUE9sSEExZDFxTlo3aUFraXUtNWEyZFJVRGhIeUdsQUtCTEfSAbgBQVVfeXFMTmZvR09yYlVxTjhwLWZOQWFfNW9LbkVDeVRSMlNoOW5kMUNfTnp6UUdreHRCQzdaWDV0UGtRcjZnYWg2czdtbkNTdkZnRV8ta21FY2V3WW90VUE2RFhtNEJnakRJbG9CTWNwdWtreUJzZC1VVlpkZWpfZDJudTE3NnhEeGgwX2Q5eWhRNWMtdU04ejNIM25ZRU01bExPWnBBYTVWSHh3V1ZGbEo4WWZqUVNDb2h0ZmxscA?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>It is easy to think of the Bengal Tiger as a symbol of wilderness, power, and India’s conservation success. But what if the story is far more intimate?
+What if that tiger is also shaping whether a child in a nearby village makes it to school?
+In a recent podcast conversation, conservation scientist Faiyaz Ahmad Khudsar offered a deceptively simple explanation.</p>
+                <a href="https://thebetterindia.com/wildlife/tiger-conservation-water-farming-education-india-11712494" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Chhattisgarh CM Vishnu Deo Sai launches Gaudham Yojana, lays foundation of state’s first cow sanctuary - The Statesman</h2>
+                <span class="card-tag">India Update &bull; The Better India (Animal Welfare)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">‘You Found a Home, I Found Mine’: Inside TBI Employees’ Stories With Rescued Pets</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Chhattisgarh CM Vishnu Deo Sai launches Gaudham Yojana, lays foundation of state’s first cow sanctuary  The Statesman.</p>
-                <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxPbmpYazNDLTNRUUYtUWgzeFR5LVY2U08wbm1Pek4zZmJfRWQ3Z0VOMXQwdmtad0p1WFlkWkJDR2YxTkNqWFp0YlZiVmRHNG9JdXNoN2Z5Wi11aF9sRnZTZTdTNWJwWkNiSmdId2R0S2RGT2lhVVBHclhXb1I4MDR3aENDS3RwWTF6QkxxZXl0X2NPUk4tUHVPSnoyNGE4Y0NMVklCTUpYRjgyR0hHZU91d3lfMVBnWWwyeW9JelBra0s3cjVLMnRqWktpTzROZWJLNVhRRFYzNDZRUWNaMDdHRExMSnYyUdIB6wFBVV95cUxQeHNIeFMyZk5wRUJ2aXpzUHdURDdxZTB3Rk1rUk1TUGFpcEpyRkFyUGRBSHNGRkt5Q2s1Ni1MajVZV21fN1BFejhCMFQxZlptZW42RzlkaXRiMGl3UU1nOU5KRXZfcUQ0U2ZDVGtrRGdUSlljLVFLWE1GVk1nNWlheUp3Y3czbHdESXQzcDFFOVBaYWJ6VUV1U0gydWJqWkZxNkpLdWp0aVJSeS1jek83X2RkZEduNXl1YzdTazczM05jdUM0ZDl5NlhoTTBEU2YzZW5zZXh2V0VzQUdBV3llVGkxcFBiWjY2R2Qw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Have you ever looked into the eyes of a dog that waits for you on the street when you’re late? The way it lights up the moment you turn into the lane, as if you were the only thing it had been waiting for all day. They don’t ask for much.</p>
+                <a href="https://thebetterindia.com/changemakers/rescued-pet-adoption-stories-india-tbi-11702139" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Gurugram to get India’s first modern cow sanctuary in Hasanpur - The Tribune</h2>
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit - GujaratSamachar English</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQnNPX2M2VE9jZmJ1UG1qNm43cG9kQlh1ay1ub3FRTzAzOXo3TDBXeWtBNzYzVGJnZHl6YTZPVFhuXzhZTy03NmlVbmJKNWg4LVhhN1dVRk5BbUdBaTR4US1fZ19LSExyaVQ2NXdXYTE5TnpqbTBpVS1hX3d4ZllmdXN3SVhGMXFGb056N0RITXpxZGhBRHFDckM3U3c4ZlZVR0l6TFRZY2VLQdIBrgFBVV95cUxOMGI4WXhyTGp3Q3JjX0JfY2VrallpWkVFTU1YRTFXVVhMVF96R01ZbmJXeGROVW5kM3NZMlFYa1JnV3hxVnZ0OGV0Z0dBWDI2c3BMV0VWQ2xNMGtkMEpZdk1tdEJiaV84aFF4NHk0RldQSlpsRnVFclRhTXg3YTNrRE0zSDdHVEZNN0xXU2FZNUhXWHpLaWdTTHk4a3oxUXVvU2VoWmpPbFBSOWJXVGc?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+                <p>Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit  GujaratSamachar English.</p>
+                <a href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxOZE5xTHZhblJwNlphV1dBdXAzLUFiRmJ2c3BGcS05UnNKQldkQ3RubFBvX1RGc2ZibWNkckJvdWZZd3MyOC1qXzRrNXZqWE1qT0wtakt1LVNYV2xZZDY2c0NRc2FnbFZ5M1R2aDlPVUhFOXNQVElqT2h3bzU2bFM1NkVKRUtoc3pTdFZBbEFGUkpfY1Z1QnNyOFpraXhwam9jM3BaTUhsUjRVRHdsaVFqYV83T1B5aWxRdHVITGRnN2dHZ2l5LWFzSHgwaW5zMXpYRlowdy02RC03Z3RnWHVoZHFETzk4dFk?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
 
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">India’s 5 million stray cows are sacred—and a growing nuisance - National Geographic</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>India’s 5 million stray cows are sacred—and a growing nuisance  National Geographic.</p>
-                <a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxQNkg2Rm5BWDlaRUV4U215bGdvZTJtbm5kS2kzeXBQelpQdE91R0QzM1NtZlFtRU9DMDByUGZzVHVfTGliWWtUNkpnUkt5NWdvZEVUZE5OOE5pVWRBNko0MnN5aVZ0WVNiMUtIQWlHNlJqX2JRTEZyN0hQX3RWMFMtNXVBdkc5bXRBMXFnU29KNGk2UjY5Ykc4QmlZVQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">First centrally funded cow sanctuary in his constituency, Union minister busy seeking fodder donation - The Indian Express</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>First centrally funded cow sanctuary in his constituency, Union minister busy seeking fodder donation  The Indian Express.</p>
-                <a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxOMU8yM3JzY3JnVUc0LU9UeWpIZGJoWUoxR0FiS280UUdpSDhLT0V3a3JHRFVTdFpMYlUzS1lXZGxFWWQ5NFNQeEFETGQ0N1d0QmhjQWVMUkJ5RW1XcU9aUUFFTnpSYW5qZ19LYUlNRGw3STd4UVMxNG5fdnoxUmM5U3l2Rzl2ZEdZUElqRU9CV2FnVE5RSlk3ejdEZFZrRUtaLVZuMGZ2Y0JaWFFPTWwzVGU1N2hCX0N3Z1RGbnI5UdIBxgFBVV95cUxOWmNWMW4wV0F5dVh2NlZfekUzbjktVmxUWVFxUXpuN2RsMFAzemx4elAxb0xZQi0tV2ZLdVVLSkNpakJ0X2FJTVE4bGNUOXQ2TGhnLTZ5SGxGa0pZRkpDU05YejRmaFY3OEF3cE9tQ09ENzVDaWRfRzRRU2dlYkNWVFpsXzBjSG5Bcmd1eEZSWHdHNTFTUkc5Zk9SUFF1bUFmZmQ5bHNXbDRZTHg5Q1JobXNzT3hpcUhCRnVmNXJlNXkxMUhOMmc?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">MOOvement: Brajboro Cow Sanctuary promotes healing and connection through cows - Daily Tar Heel</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>MOOvement: Brajboro Cow Sanctuary promotes healing and connection through cows  Daily Tar Heel.</p>
-                <a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE9OdXFqQ0k2RTI0Y2VBNEoxTkZOcjFzS21Gd29keFhKZDVYblZoQldsQnZsRnVYZUc4bWR5SHR3Z0ZLZGFKSnBxNHRuLUVKenFnX1pTMjJZRl9BUFpwblJFdWVYb3FGN3dmVkZ6ZFY1MjJRTkFQLVZQcE5OajFqQQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Indias First Cow Sanctuary in MP Says It Cant Afford to Take in Any More Cattle - TheWire.in</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Indias First Cow Sanctuary in MP Says It Cant Afford to Take in Any More Cattle  TheWire.in.</p>
-                <a href="https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTWoxZGMxMUNQazM5UjdHYm5qSFZNY2dHbVdBOGdfOUxxUTJIZG9Lc0hocXZHbHhBUzlHT1hvSlFEY3RsMTZ4NVRUS0hFa2d1elR3RDctNGdoYWx4YXdQM2ZaVGdXQXpMTXNuX3llV0lPdjVDTUFWQk5LYkZ6dHM3Vl8zMGdhbVNJck400gGQAUFVX3lxTE5VSGpVR2xxbG45ZEhKRDRpVWNxby1RN2Znd3FTQ0lVeW00dmFOQzlCY3RNYlNCVUJzUHpSd3BFQlZabEJmNTJ2NnNmdTQ2OUJJaXFqY0ZFY2RUUW5hd3NBaWRKdVB4Sy1qeDFqZzhZNWh6UW5QT2RDaTlNZTIzVzZMZFQxRFItX3h4S1JicllXcQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">A first for Haryana: Sanctuary for cows to be set up by 2024 end - The Times of India</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>A first for Haryana: Sanctuary for cows to be set up by 2024 end  The Times of India.</p>
-                <a href="https://news.google.com/rss/articles/CBMi8AFBVV95cUxNdk5sU3pjSFNTeVZDeEVmZGhQOHVSRDVTNGJoQ1NUb1M5OWdYLUM4dHFTRUhrVmVxTk9ZYkJxOXp0T1hYODlMdjg0ZGlpSnJGTGU0cXFpS3Y5Q2ZJaFo5OHRWUS1SblJtRnkwYTM2NkdoWXNlWFVNYmZraF9xbFZRZ29PMFhlQjlYTlNHRGRYTVFXY2doV1c4Wkx3TXNtVG00MERFUU1ZdFZSTWpnV0Zid0RWVlUyTHBlYTdockRVSExxNEJfd2l6dElCNmFqVEVtNXJaTkd5c0ZiOF9USGU1dExqNVUyTzF3VW9OUU1CZ0_SAfYBQVVfeXFMT05pamtDWDNoOGp3VzNTVzNJdU85dWZHTk93UjZ1TXJWc2NIbUFreHJVaGRDbVJpRlpwNnhGcFdGUlVWQ0Jnc1ViNjdqUkVNMGFjWXNaYzB3VzI5Q2xqZW5RV2ktU0hBczlTMk93d0ZSNEQ3ZWxjZ0VIbWxoclBrN1Nja3V4bjFLNHJMZUJCTk81YkhpVGd6SURRYzVQRUlqS1N1a2w1U3YzdFV6LUwyS1JiVEhCMHpVeVdYY0ViSV9ITGVFbWNDa2JCNHFkSU1YQkdOSmtmdmZlT1ZfRHo3QXNRdndoQTdpbWNlckxWVzYtX2hlbjBB?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">India’s first cow sanctuary opened in MP’s Malwa | India News - Hindustan Times</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbkpyd1lBRlM0YlNLWWNsd01IZnFQZDZHbml1WWlwOWNUVTdhY0luQUViN0FBOW4tbDRrSXU2Z05yVDlsTkNWRW5LSkN1bUZPYk9FRDlSMl9tVlZUWm56Mk5kSG5VU05lUmVKUmJxbDJqRUQ3Y19rLXl1R1JSN08wdHR4M3luTTNHNHlUcGtIRU5nS2NNYmxlYVpiWUVyU09QU19NV0FCR0ltUzhHYWJGLTRmbnQxSUoySkhzLTFRVUlad9IBxwFBVV95cUxOMFdlV1hmeGticnN0OTVNRHh2SHFHMUhXblBTRGFQVHIzN2lPU1puNFVJekNzU1BkbE9BMlJkWC1lSTVTdm52bWpFNl84dWJ3eDZiVU1pSnVjcUVmWTBPLVA0SVlsdXluQ1FHMHRXNVNJa241ZDZrNUJyX2xyQmd2eDV0YXpYWllWd3F4eUtITEdLY1pXZmt4bGdwZ1htVEhGcS1mcXRoblpSMFFOd0VZUjhzMGxUSXlwZC1hbzM2T0xLaERMVEJN?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Cattle Sanctuary India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">The cattle whisperer of Tiruvallur - The New Indian Express</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
-                <a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxOMnhUTndsMXByOXpfdkRVdV9obEd3VWtWRTZ1X0dOdDJ5TExsclo5MUdrZGI2ZVoxWVhyVXNhWVZaSXZLb2lwUFZyUFktTWF0X3hiS0dhQXNCcGN0SHA3QVdGNjltbTNwdExpdW1yeFBNU3k5aFhQRmtPcF9QNTB2dXMzNGtGbnhUQ1ZKaDRINzdFOFnSAaABQVVfeXFMTzUzVVFiZ2RGd2NCb0NVUl9QdVBBb2FLSDVxc3J1VVRHY3owdjlhb3U4QW8takJmNUtoMVN5NWZtdVJaZzVRcXhJN0ZnV3h1Sm80enphUHA5U0tBWmlpTUdQeUVkazVQU1ZiSUYyZldUV3JneWdObEZoMl9ubWJIdkxZanZmU0x4UG11M0tJc1dHWVJZcnpNM2Y2MXkzWGx2dQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Tiger Conservation India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">International Tiger Day 2026 being observed today; India leads global tiger conservation with nearly 70% of world’s tigers | Akashvani News - News On AIR</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>International Tiger Day 2026 being observed today; India leads global tiger conservation with nearly 70% of world’s tigers | Akashvani News  News On AIRPIB Backgrounder  pib.gov.inVideo | International Tiger Day: India Roars as Global Tiger Stronghold  NDTVCo-existing with tigers outside reserves  The HinduHabitat loss key challenge in conservation: Yadav on Gloal Tiger Day | India News  Hindustan TimesDecades ago, India feared losing its tigers; today it's home to nearly 75% of the world's wild population  The Times of IndiaWorld Tiger Day: India's big cats facing disease, shrinking forests, rising conflict  India TodayRethinking conservation: India needs a new framework for conserving tigers  downtoearth.org.inInternational Tiger Day: India brought back its tigers. But can we keep them safe?  Firstpost.</p>
-                <a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxQUlZHbjhyRkk3Vzl2dlVqcGplOXZTc21ZMGlheHV5dFo0T3JMSDQzVWNBcndKUUVpWkVwUVloV1lZd09hUDNnRXhnTGtkbVhaNzkyU0JLN1JMLUpCNGVPOGRmekcwNjZQWkFhR2VpZlFtRmdRWUpJT2cycjlER1g5RUZnM0FPN2UyR2h4b0g2STFUQ2RteG5GdC1keGFtcFdSZUJGVjAtU1A1V3RBZU12T09zQlFEUFhQZlhtYTFuZWJIOF9CNUh3SkNyWTMycmhqTk5jc1cxQ21XblVjSmc?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-
-            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
-                <span class="card-tag">India Update &bull; Indian News Wire (Tiger Conservation India)</span>
-                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">PM extends greetings on Global Tiger Day, reaffirms commitment to tiger conservation - PM India</h2>
-                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
-                <p>PM extends greetings on Global Tiger Day, reaffirms commitment to tiger conservation  PM India.</p>
-                <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxQb1dUX0MwM0FPY0FVaV9lX3JYNTFfQXhzRmIzT2h2RW9QTTVkLXFJdjQ0TVNSTVB4cWE1ZXl3M2h6Sy16bzQzQTd2X1l5M055U3hkOGw1bEJJVFdCOWJ5U3dPMUhhV1V2V29PaFpkeE1Vc0s2SkFKMTZhNVlFSXQ1VUtlN2VSYjhCM0hKck1uR3ZHRlBBTG5vempydV85Ukxza01ZVGpuTWdUelNYbFh5VlFDSVJyaHFNVTRMeXh5bnhfZVB4eFE?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-            <!-- Automated Indian Animal Welfare Card -->
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
                 <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
                 <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">As Assam floodwaters recede, focus on relief for animals - The Hindu</h2>
@@ -699,14 +675,156 @@
                 <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
                 <a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxOVTdwbnRvR21vTjhKSjJsUVplaFBTajBueUF5M09xTVdDVlpwUTlKTk5ldFhlQ0xUWnh1VkFnNzRCcmc0UFlvSjhvR3VLamZmMGVoZjB1d19wSkxHVjI3T2RMVGVRU1lHQk8tZEpmRWZUcWVScjRtOUNGdFlKVy15akI0Tng3WlZyQV96d0tMQTNaX0h0WlA2Q04taEVoS1RsNUJGLTB0QkNiUzIwbmpKTGlMU0FHTFN3WjRVMNIBwwFBVV95cUxNckhyMFB0YzVZMnNhdzVjMjg0SVBHajJ1djZLMlBYVnZPZmRDTkdlWUJTekVSWmw1YUYxRlhMbXJpM1FKek1iZERPWGdYVXJaTWFSa0Q0enl3SjByWGl0NGhPNGRIbmswRUlWa3htbmstSVF1UDBMVU5vUVBFRE5CeTU4bGNXSHpOM2tqTmtydmU4WkdXZzM5dlNVRUdxZkxjcUhmelBndTY0bzVjcmNDTkhfMHdOREZNb0ZHeVhPaVBvc2s?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
             </div>
-    </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing - Vajiram & Ravi</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing  Vajiram & Ravi.</p>
+                <a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE53UmdDYU9MSTJQakFobjg5SnFDc2RGYnhSRWRZWXYzbUxpSWt3ZUZzdG9EVDdicHljQmVvNldBV1gxU0JZQ195cjFRNndURVFxVWhBWEpaOUxuOTNTMFVkS2tUdi1CX2NWRDlsNQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Meet Nehemiah Turner: The 11-year-old Florida boy who spent more than 100 hours reading to shelter animal - The Times of India</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Meet Nehemiah Turner: The 11-year-old Florida boy who spent more than 100 hours reading to shelter animal  The Times of India.</p>
+                <a href="https://news.google.com/rss/articles/CBMi5gJBVV95cUxPbGh1dUQzV0NpaGE4OGw3VWtCSmFzRC1LdlFUQXRLLWJmdHFscS1UeTl2UEM3RUo1dzJ5eW5DVGJjbUR6bHZvMDdfdWt3Q2VHVFc0aHpqeloyU2FjMTY5c3k0M2dFNjN2am1ndi0zY29WZHd6cGhvUHF1NGlXYXByRGdkRFlQT0VMLXJyZ3ItcExYTnVxMm0xY0FSR05UWV8xcUtxOVVScHZuanYwd1FKZGwwcTFuN2J5LTJhVVFjOXV6ZURpaWMtYzEzeE5zWW1adUdZelVJVHhpY0hzOGpSdEhBSTNSYTFRQTU5RS1pWW9mbG43TDhrNENHUi1uUnZFUzg0TTFHYl85X1R0U1JMZmZaTWtpV2Z2NFFGTmw0RlA4aU1tak5oV3VPY2N4SGxDM3k4MEY0ZFpBSEJ2QkZKTlJQSUViWWpwOHRsMzNQTXNvV1A2UzhscVVwSTVIQUUyZWZabGV30gHrAkFVX3lxTE1LSmVmZXBWWC1KNzF1RG9GRktuR1dWUC1oUFBlSFF5c0pWaDd6UzdUTmdGSHFkNGpYblFvRS1IbTExTTY0Y3B6d3ZQZDBMTVg0S1p2dWVTaHdURHpYYk9sUEhJMWEzejk0c0Fnck00cURhNThlUWVieXlkVS1NWUE2SXNuUFBld0VBajQ2djBiZWEtNUhIdE5TSVAyeU5FWGtMcGViZUt1R25XbG5KU0VrUFZ6bENtUllKYnZRMDkzN3Q4Mkh2bU9kMlRlLWxCUk1TeW5fYjg4YkJjeWozdjhhc0hTakZPUmF3V0xfYklSdDloekxfLW5iYTVFYnpELTVOdDA5bkhVcktyQ3VKVDB1X3k0VTZHaE5zNlFhV1dkNHdkY29WMVp1c1dlYWlOTm5WT2dONVVqc3ZlQnpMM0d0Yk1OUFFacHpNNFdnak9wZ01TLVJiTmgwT1d2WG9MdXJ0cmRSeWtNN2xsWQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali Jatra - PETA India</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali Jatra  PETA India.</p>
+                <a href="https://news.google.com/rss/articles/CBMihgJBVV95cUxNTE05SDVtNEx2WGVGZVdudTBZN3hPNGFaN1B4T3dXMEFqU05tYTE1ZFlRYzM5RXk5el9kZXVWYXNROEtldWYzUm4xbzZ3Y20xWms2eS16clRlOG5YOXNPUnJMWTMtZjhJOE92Wlo3U19kNXhpU1o2OTVRclNnc2NEcWxNbzRkM0ZSWV9OODFhSTVZYnN0Qi0xN1JvOEhJakdDNThmWk1wNEFneTFrNG9Ic3UtdEZxSWhBYVQ5T0Z0TUI3ZXRjVmtrb090TXlBc19TN1FEZTBOTnV1bmppeGE5ckdZMWdJUllUSjRKVVNfTlFVbmtjdkpvTjZNUFk4anVkZ3daejRR?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Department of Animal Husbandry & Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethical and Responsible Research - PIB</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Department of Animal Husbandry & Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethical and Responsible Research  PIB.</p>
+                <a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQdFpiUnBud3c2X1pqcWFxbGN4RnVXQTY3UVBqSy1sNXcwYm1mcG1rLXJ3MkRDc1NlaVMzZzdfczNYWkhqd2FVZWpPY21uN2NiaTZMVFdRaXQ0N1FEMWlyZnplOVpGZm12eVVfNFg1WlIwQk9VMVgwYm9hZ1AyRGZDcXZPQ3E5a19QVjYydk9Mcm9KVkxNZk1sWQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">A collective voice for the animal protection movement in India - YourStory.com</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site..</p>
+                <a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQbnFLaFpVY1lXZkRaektLYlQ0eDYyYnphUXUxVGxrTE9KN2tUNlBtSTJpM2ZDc2N5VW1lRHpiNmdVQ1ZxT1hCTmtQdWlIWEJvaU11MWpZZnV4ZVNlMklmdlZNUnFiQTc3aG11VlVFSHl2eHhCQm5vazRMai15SFhIUnhoX29maC1fQVlzeXBUX09taTFabDJYYmh4OFZnQjNTTWJRVzlfemlvNFNFZGc?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">'Threads of cruelty': Caught between heritage, livelihoods and animal welfare - India's silk dilemma - WION</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>'Threads of cruelty': Caught between heritage, livelihoods and animal welfare - India's silk dilemma  WION.</p>
+                <a href="https://news.google.com/rss/articles/CBMi6AFBVV95cUxQaVdtZ1E0d3plVTZoZWE2T2sxOUx3bTdUTUpIbnYtNi1kV1RwSU9XZ2FvWkV3QUh6dTAzbFB4TC1aaHVOc1RGeVAzYUozdHgzbnhJcXlTdUkxMjliSEg4cXFvU3BoZm9FNnJMZlVVZDdlcUZDdHFGYVJwdEQxcnZPY2hNOVhuaGVqT0NfWEJnbnVfM0t3YW43OF9QZDZNQnd1cmNtV1RmMDNWMnNHYThnVWJnTklPYUgyeHpBTDRJZmJJSWIwZTh1V2lvbThiT0tIU044bUs0VnNnaXJMclA3YW8tTDl5XzV40gHuAUFVX3lxTE4tc0NrMjU3YWg3Y3YwS2p2YmhSV2tqbXBZNzIwZGY4cHE3ZV9pMzVJdVpISGRoY2NOSm1aX0E2MWFJV3J2Unc5N2JPeG04QktDQUJmUEo0d09Rc3c3SGdxMU1JWlA1eTNqemRvM1R6QkVwbUV4VHpFQ1c4dkJMQVJrazBXWDRkRTFpRlJKTGNSYjhOOGhGRnp4RTNzQ2xxdlV6R2Y5M2l2QTdFbF92bFJEM0JDU1N1SkNnV0pLOVpjbmhxdzM1YWJ6dHVDNTRrUURGNElGZ2VBcVRUbWl2Y3J0eGNLTWVqQjFScVZtT1E?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">By standing up for stray animals, India can show the world a better way - The Indian Express</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>By standing up for stray animals, India can show the world a better way  The Indian Express.</p>
+                <a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQYzhUUHpoNVQzNXEyZFJPMlJhVU1yTUVQS0ZDNFR3M2dYVHBqbDVqT3g4bXRYS3dyeml3RDluaG1BNXF5Qmg3eHJZU3pGUl96RzIxc0ppY2U5X1R6N0p5bFl0WWVNRmFwRTlCeG5wT2VfQ3F6elN6dXFfaWFfQkxrejFQSVhEc1l3T3pqckRhX0tEVXdaaUZnRThxbElkUUtscGxMNGtyMlgzQdIBsAFBVV95cUxPUHhKT3VmaVpMWmpxbENTSkpmWGI5V0NtRDhDTGg3czFxVzF6c2ZyYUtpUzBhX3ljYnR2RmNrMHFFVWIyYVhQckVHZ0xzZk95emRCbTh5d19mX1BwMjhuVWxGN0RacXBrRmtqNXVEdXRSNk9qMTdFTHBNUFVrUmwwbk5zZlFtNzZLMnh1MDc3T19NN3ZfWk5ycXJVc3VfMVpqbXplamhvWmF3d0FtakJaTg?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Animal Welfare India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Thiruvanathapuram corporation's stray dog management plan faces legal challenge - The New Indian Express</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Thiruvanathapuram corporation's stray dog management plan faces legal challenge  The New Indian Express.</p>
+                <a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxPbW1kTUZFaVlvTjU5bGRmYmg1dmlCa1c1bzhRVmY1ajNUeEVJVlE1VnUzSFUtSlB5b2EtYUhIemd0enNRVi1NdzA4aS1YRkpsTXpfUi1TZVE2ZE1PbFFYM3E3a29odzVIOThMeDVZNjlMVnlxOWFaN2o2R0c0RDZ2WDJqc0EwOUFQUEtlVTk5dW5Yc01fSzZ4Z2xUYW5FSHVWMVduLXZ4WGJETHhHdEpHbmtSQ2lkc0UzZ3RfRm5KOTVYbGNpTDNNOXB6a2N2ekY3WWFkRlM3N3pxUU9abnR6SGlLc9IB8AFBVV95cUxOeDhlZml1dzRsbVFlaU94cnU4cWRZWkRLNzNncUdJZUFVbUwtUUhfelhWM21pWEtCUkNRV0p2YVZadjVpWWJFX2dWb2NBU1l0SGFHdUhmaV8wMkhoRjBKbFA0XzU2ZnM5SUJWUUEycDVaN2w4Ylc2T0UxT0VUU0VVNFF0VFpXRXEydno3TXRVVWpmQWNUSk1jVlFya09NTkJyZy01eldrc3BBc0hFeDhVNGIxZTdraTAtcDJVZ3lCWnBsWk1JTF85SFVEQUNZcnRmc1RoM1g3NWxCZUhUNjBwbGZGc2xHNm1VSTREOFRYb2s?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Village to Wild: Inside the Step-by-Step Rescue of a Royal Bengal Tiger - The Better India</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Village to Wild: Inside the Step-by-Step Rescue of a Royal Bengal Tiger  The Better India.</p>
+                <a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPRlhXSEZzS21JYjVCSWU0N0ttTTAxZHlJTHpKb3ZPaGItZGp2LUxEU1QyOGFrSHR4cWZrZTRZUk1FYjBoX25FeFJnbGpTYXEtZmpKNWQwb2xETlN0UnpzRWVFNzd6SEw0QnFmRExZU2N3Mi1FYnZXZDFKY0xoX2FRN25jd1ZaZjQ4NkROWVIxOHJEVmdlN2ZFaXh4UnNSV0R2cmx4eXJn0gGrAUFVX3lxTE1jNGhvcHlXdDFWSjdjZVZwNTd1cl9zX2ZjbWNUb1VzZDBsaER3ekdONDZyRzgweHlxUTBtUGEwX0hqWkFjMzFqdGtOYkpaMUh0eEZuMlQyYktmX3dPRXRvN2hPRXlfdjY4S2stMjdGaTdNYkJ5SE01dERQU0VQa0x3VmItY0YwR3AweHFnaW1MbmNMWU1pQ2U2R3dnMDlxMlVGUVQ5ak4xLWRjQQ?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Meet Bharat Borah, from Assam's 'Hornbill Village' who has been saving injured birds and animals by build - The Times of India</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Meet Bharat Borah, from Assam's 'Hornbill Village' who has been saving injured birds and animals by build  The Times of India.</p>
+                <a href="https://news.google.com/rss/articles/CBMigANBVV95cUxPdGdkZWRXTkgyLXNaVVVYc05zN2UtSzdMVkFYdEh2cThscnZfSE5QX2lpZElFc2daWHBVX1M4TzdxX2VNRDdDNGNROW4tUjRubTlNM1ZkSXFSd3ZkampVaExZU2tQRTJNMEN0cnhNN2h1ZGMxVjItTHlxNjYtMzVsdW9WYnRqakRTS2FEdUFOZm5hOHlYeW45UlBOa2JWbVpOZHZJazVGaHhCSktLZGplNEQ4bFRwc29oQXZCdEc0dU1sN2h1UER3aGlHQ0ZaNXcwWDE1WVBRV1dhY1o0M0xFRlZtanV1QXdDUGpsdmRXbEJxTXJzY0RIQjUwdGtfZ2FjN0VTT0dMVnZWS0VMZ2ktQWpnSU1FZEtQWWx4VW9XWVViNnFXZ05ob09FeG1vSEs4RlRhWGt2LTVfM3Nsa241Nk1MNmJzWTFhUHVHVkR5VFM2NlFQVW5pM1lFYXhVSHRtWWNfblphRkV0d2RKc25QWEFfaGJpYWZwekxKU2hhRGTSAYYDQVVfeXFMTjFxaldwSnlxNVVMdHRMUzdTWnBqUktuYzdZWTVodjJESHVZdnRoT3Y2MkI4cGhPT096ZlUtZW9JSXF1RUFKVVZ3YUtuZ1FNc1Z2aE9FbXZvLTRpd1ZwNUlqdmRJdGlhZXRUd1NYUm1rV1E0T1kwdXRvbURlclRQbU45LW5NU1NrRDllZ3BEYmUwV2tfSVgyYjlNT3BnenZTWldwYXI1X3dMQ24tN0pETXlYRDBtZjFtVFh6cDFibmRaQ3dDa3BYOHpRZDhyalI1dTNkUWxaX0ltMnB4NTQ1MTNqVklJSTVVSlkzd2gzUVZFdGZTaTNfSHpuU2FUVFc0TDZ2QU9GcnRSWlA3NkEyYzdJMy1va1NiWWJVdnA1RWdycUtTRDhLcDdJZEViR2pnWHBjeGdmN0RvZVFvVzBkUkwtZVZ3Vklkak52VGFyS3d2ei1YaS05V2o3bHpYay16Vi1KZktBNHVRc2pIb3k4MlpFQ0FFRXNmSjVReXpmNE05YnRXSFJB?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Shri Bhupender Yadav chairs the 29th Meeting of the National Tiger Conservation Authority at Coimbatore - PIB</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Shri Bhupender Yadav chairs the 29th Meeting of the National Tiger Conservation Authority at Coimbatore  PIB.</p>
+                <a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxOWllGZ0N2RG9XZnRvU1loUGVVU0NPRnh2dXRCMHVIeHhZaFA5NjJzN0N1ZVVkbFRYbDl6VFN1UVhxNFNTNS14bkw5Vk16VjJrblBlZjlsbThrLXB2czc2S3YzaWx5RThtN1ZFZFhSY1B0TkhiSlg2UlNlQXhhVEtTVg?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Wildlife smuggling bid foiled, two Lemurs rescued from luggage of passengers at Mumbai airport - ThePrint</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Wildlife smuggling bid foiled, two Lemurs rescued from luggage of passengers at Mumbai airport  ThePrint.</p>
+                <a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPUG9sQjBDTl8tblMtZlNJZElZam1LSk5Ra09PS3ZEYng2aHB4M2NfamV6WS1XaklfZEdHRlBEQi1QTjRnS20wbmtKek9WQXVQYXFYcTJCVHhKa0F3dXJQeDFLSVFFZV8wZk5OcUVURHNTaVZyUnVXMU1fLUcyRXJSQkJfbkJWX0VqVnU4SGZFMTlORFRkTDBPR0pockJkWFNEQU5oR3gxY21WOHRVQTVTM1p2Q1czbHltTm5rQTA5UUh4NDhPUmJN0gHMAUFVX3lxTFBramNZZ29oZGVhZ1hIV0xodjB2ZWp2LUttRHk1RUZDMF84ZnFqenNCR2VHbVk0b29ndm1HcjYzWHA0RFZnUnR6U1ROd1pfREwwYVhjcFJvR0M2T002V1VwdGpIdWNpdjRnMC1uUzA0Um80N3BRWUFjY1BBWkR4dlhfTHAtQktsRWpBMHktWWlKVE45Tk1SVkQ4S3JVWUlRbFVIVFNseFBCQU5GYVBsRktvd0dYM1VHa2JiSS1JaGZDTk42TFVXNGFZbXJIRA?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Dead Calf Found on Seventh Sweep of Udupi Animal Hoarder’s House of Horrors, 17 More Animals Rescued—PETA India Demands Ban on Keeping of Any Animals - PETA India</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Dead Calf Found on Seventh Sweep of Udupi Animal Hoarder’s House of Horrors, 17 More Animals Rescued—PETA India Demands Ban on Keeping of Any Animals  PETA India.</p>
+                <a href="https://news.google.com/rss/articles/CBMiiwJBVV95cUxPZnNPR3BBVGxvSXFobks0anhydkFtejdDMjdrU0FqT1dNa3l0ZjZwMnVqWm96SVdMbENQUF9UVHVnTGhRbnlDUmgzakJ6aWJFNHI2Q1h2cEJEdkY5cjNDTzlycVBCMHdrNlRHeUZ0bVlRak8tNFQ1aWllTEJWVFA3WmJvQThZWjhqSkdtWHVjdmdpYWFsUndCbmNSTXl6ejk4R0poRXVhcEtTUzctTk1hXy1Camc4bWNvSExYWkx3b09QVFpBVlN6bUpFdHRyX2dndkZlWUp6ZFFFOG9xV2hMUnJkd0dJUDQxSFhQS3I0WXNkS1RrMzVBa2x3dGE2YjQweXh3R3dFanM3Wms?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">38 Additional Temporary/Transit Rescue, Rehab And Release Facilities To Be Set Up In Tiger Reserves Across India - ETV Bharat</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>38 Additional Temporary/Transit Rescue, Rehab And Release Facilities To Be Set Up In Tiger Reserves Across India  ETV Bharat.</p>
+                <a href="https://news.google.com/rss/articles/CBMi9AFBVV95cUxPYlh1aDh5YUx2UUFqemxtVmhpYVBQY2pNVlJpZGx0cUxnTlRuaHJIMU52aHJEQjEzOHdUaWJoSW95TmJWeDFRSkxKUmxwaFlWX0lHWEY1T2ZpeHdoRmlZSC1zbG5wVnBrRjRLUVc1LUtzLXdKbHdFaXFwU3NWNnFsNWpUUjMwVDlOT1drSlZKTWUyaW9icWp4Z05ENF9FZDJlUC16RHNTVFdoT29ESWVxTk1KX3ZmczlKeEp6LVJxdE5kMXlqYkJCTXNYX1J1N3F5NXFGU1gtSmtzeFllYVBwT2FXZnNLZU5ScVlFWGk5V2tBbFZw0gH6AUFVX3lxTFB2a0twTnZjNU14VVNrX3VzUmt5YXVqbjhBRTlnS2QzdmdpRVhjQ082aEdVWFo3cnZiR1VYZDFtcGNpc2tMckhveUFGOWh4LXpvZW9Ka2RDbXBEQVMzbVUzbW83WUVUQ1FQeXNSWEtScDJBamQ0QzlnRWhsYV9xb3VsMDl3MEFQNEtpU3M4dDBueGdKNm9kSlI3Z0gxVmtVdkFLQ3FKX2ZzQmZQSWFYbU91VFE4SkZ2dUZFUkgxenZpMG9yaXQyaDA2cnRpU2k2VGdPWngxdnhUMWFzLV9iWG5zbXJzUjF1eUFqcVNlaFdqMV9PMjVUYWVIbkE?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">One year after its inauguration by Narendra Modi, Vantara has expanded into a scaled, science-led wildlife rescue and rehabilitation initiative, strengthening clinical capacity and delivering measurable conservation impact. #indianstartupnews #ad #vantara - instagram.com</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>One year after its inauguration by Narendra Modi, Vantara has expanded into a scaled, science-led wildlife rescue and rehabilitation initiative, strengthening clinical capacity and delivering measurable conservation impact. #indianstartupnews #ad #vantara  instagram.com.</p>
+                <a href="https://news.google.com/rss/articles/CBMiVkFVX3lxTE9wSzc5THI1dHQ3clVwdldxdlZ5MDlveWpOQjZDQTY5Nk9KdVRDeXp5a084LWlLenJuSzhBNVNkR2tYYm1GcTRDM0hCUThvYjVMREZBN0ZR?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">The Wild Among Us: How India’s Wildlife Conservation Begins With Communities - Outlook Traveller</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>The Wild Among Us: How India’s Wildlife Conservation Begins With Communities  Outlook Traveller.</p>
+                <a href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPcF9LT3p3ek8xNV9YMjZqSnZIQjVKVk1qS1M0X1BsWllWdDVrTWJnQnlwZm03Wmo1Y1ZVYjNoVGNmN3RqTWl3TUpEQUlkWGV1akVpaUZtejYzeDl6MXZ0aXlNeVdxVlE4eFRXOUtpQlVwNU5ubTdRQTl4RWx4OGQ4S2xmNFl5U0JpRmVvZ2YydU0zVU52aUV2N25URXlKX1RKQ1RQdVUwLXhqYUIzRy1xRFgtdllqOVQ3OTFWLWl5VFZqSmN60gHSAUFVX3lxTE8tNkpUTFoyX0ZYOS1zMFR1ZWM1Yzk0YzJDbE5jYkx5Q3hSTDExWVlUNTdNbEstRFM1OHYyUWpNRURJZERPUUJGWXFENFdBczZ5SUlPZVQxeFBfUjdBX3RmbUdoZzcxSjBGTWd4VktmMkNPVXB4cHRtU0hLaXN3ODFzMEdTRmF3WGNXNVdBSUt0SDlZd214bTlndHJCVDRUYVpDZzUxaFBNV0VlLTZfWTBXUzlUczdNU0FlZHV1c1d2dmtBVVNJZ3NNUF9Ua2JHOUw1Zw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Duli and Atsu are finally living wild and free in India’s forests - International Fund for Animal Welfare | IFAW</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Duli and Atsu are finally living wild and free in India’s forests  International Fund for Animal Welfare | IFAW.</p>
+                <a href="https://news.google.com/rss/articles/CBMiggFBVV95cUxQLWFwQVVTbGs5NDlaeF9hdmJvNjE3MHNQVzVFbVdXUkRFbmRQWkhzeUo1a2FiZVMtSDNlZzk4YUl1bjBKbTd1YkUtWWRXNkFBMVltX3R6eXQyN2stQW1wNlNHQUI1RER5T1BjbVVkbXBtVDlGNXVxS3RXSjM4RWhydThB?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+
+            <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
+                <span class="card-tag">India Update &bull; Indian News Wire (Wildlife Rescue India)</span>
+                <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Vantara marks one year since inauguration, highlights wildlife rescue and rewilding milestones - Fortune India</h2>
+                <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
+                <p>Vantara marks one year since inauguration, highlights wildlife rescue and rewilding milestones  Fortune India.</p>
+                <a href="https://news.google.com/rss/articles/CBMi0AFBVV95cUxPWWxXbXQxRjFYUl9zMlZidVo0eEtnWi1DdkFzTXJkTGVhMDJKZnVFajh0cTJhUmRuMHZsaWh5U1QweWx0UTZZOXNtdldkRWFVUHFFY1pGWjl1N1dNSllULTFKU05seGpXNnVUNUpxZXZtSDF1dnhHZGgxZUI0dXgzV1BxNFFWY2x6dHNCMlNLS1RlcXhFYkhnc1djdS1kU0JfWHJJNUEtZDF5N184UHhIUDhGaTNCd2VfSmxyR2RNOTYyZ0pOX01aekZKWVVsUDFy0gHeAUFVX3lxTE5hTWgweEI5bGo1RFZweUM4amVzVEtXcWpPdnFNV2RDclRObElLMVlObkxJd1VMWHlTdlJpU1k4R1RVZDNZYVlBN2txdTh0N0RwOTMtcXVFaUVPak5jbEpHcG5pa01sS2swWEZxS2YwNDNLU0kxQnBlVnNxUFNLR25ySENtVmU1d2VCWUdhemdfdjZzN2trYXNuUmxPSFF3QUhWSjcxbnI2V1RRaXhqdmYtNnU2Zm1CR0Y1RTQxa25uaVB4QUFQT0hRRk4zdGVidWJ5a2Nqa2RLVFhTWkpaZw?oc=5" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
+            </div>
+</div>
 
             <div class="article-deep-dive">
                 <h2>The 19-Spot Regulatory Mandate: A Campus Analysis</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Published by Shubhamraj Pandey | Local Policy Feed</p>
                 <p>Recent public safety declarations have heavily restructured localized animal management workflows. In order to preserve standard structural safety parameters, open stray animal feeding is officially banned outside of exactly 19 highly regulated structural zone grids.</p>
-                <h3>Compliance Parameters & Liabilities</h3>
-                <p>Failure to stick strictly to the designated grid locations triggers immediate administrative citations. Penalties follow a scaling structural system, scaling up to ₹25,000 for systemic non-compliance by external entities or repeating operations.</p>
             </div>
         </main>
     </div>
@@ -715,15 +833,12 @@
     <div id="page-insights" class="page-view">
         <main>
             <div class="section-header"><h3 class="section-title">Ecological & Scientific Insights</h3></div>
+            <div id="automated-insights-feed"></div>
+
             <div class="article-deep-dive">
                 <h2>The Silent Tool: Plant-Based Shifts and Habitat Reclamation</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Data Science & Global Ecology Review</p>
                 <p>New analytical data published across bio-therapeutic networks maps a direct mathematical link between global dietary systems and wild biome integrity. By scaling down the systemic resource demands required to run animal feed infrastructures, natural biological corridors are given structural breathing room to rejoin and fix themselves.</p>
-                <h3>Key Ecological Metrics</h3>
-                <ul>
-                    <li><strong>33% Farmland Reclamation:</strong> Transitioning away from dense livestock models instantly drops global agricultural land space requirements by a clean one-third.</li>
-                    <li><strong>Rodent Pipeline Suppression:</strong> Eliminating scattered food remnants near living areas breaks up the high-calorie supply line that drives fast urban rodent breeding cycles inside residential environments.</li>
-                </ul>
             </div>
         </main>
     </div>
@@ -732,16 +847,13 @@
     <div id="page-events" class="page-view">
         <main>
             <div class="section-header"><h3 class="section-title">Community Events & Timelines</h3></div>
-            <div class="event-list">
+            <div id="automated-events-feed" class="event-list"></div>
+
+            <div class="event-list" style="margin-top: 1.5rem;">
                 <div class="event-item">
                     <div class="event-meta">AUGUST 2026 — FIRST WEEK</div>
                     <h3>Final Project Showcase</h3>
                     <p>An optional project showcase event tailored for developers and designers who want to present their finished platform builds, automated server connection frameworks, and deployment roadmaps.</p>
-                </div>
-                <div class="event-item">
-                    <div class="event-meta">ONGOING — WEEKLY</div>
-                    <h3>Campus Feeding Zone Inspections</h3>
-                    <p>Systematic field sweeps conducted across all 19 designated zone borders to track sanitation levels and keep public health metrics steady.</p>
                 </div>
             </div>
         </main>
@@ -753,10 +865,9 @@
             <div class="section-header"><h3 class="section-title">About the Platform</h3></div>
             <div class="article-deep-dive">
                 <h2>Our Editorial Mission</h2>
-                <p>Animal Chatter is a curated news hub and digital repository. We provide short summaries of important articles covering animal welfare, campus public health, and conservation science, directing you straight to the original sources across the web. We also share up-to-date details on local environmental conferences and community events.</p>
+                <p>Animal Chatter is a curated news hub and digital repository. We provide short summaries of important articles covering animal welfare, campus public health, and conservation science, directing you straight to the original sources across the web.</p>
                 <h3 style="margin-top:2rem;">Lead Publisher & Project Engineer</h3>
                 <p><strong>Shubhamraj Pandey</strong><br> Platform Engineer & Editorial Director</p>
-                <p style="margin-top:1rem;">Driven by a passion for sustainability and community action, this platform was built to make vital environmental journalism and local policy updates accessible to everyone at a single glance.</p>
             </div>
         </main>
     </div>
@@ -770,19 +881,15 @@
     <!-- Interactive Routing Script -->
     <script>
         function switchPage(pageId) {
-            // Hide all views
             const views = document.querySelectorAll('.page-view');
             views.forEach(view => view.classList.remove('active-view'));
 
-            // Deactivate all navigation buttons
             const links = document.querySelectorAll('nav a');
             links.forEach(link => link.classList.remove('active'));
 
-            // Activate specific view and button
             document.getElementById('page-' + pageId).classList.add('active-view');
             document.getElementById('nav-' + pageId).classList.add('active');
 
-            // Smooth scroll back to content start point
             window.scrollTo({ top: 350, behavior: 'smooth' });
         }
     </script>
