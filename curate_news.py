@@ -19,7 +19,7 @@ def generate_expanded_indian_sources():
         {"name": "PIB Environment Ministry (MoEFCC)", "url": "https://pib.gov.in/RssMain.aspx?ModId=6"}
     ]
     
-    # 2. Dynamic Search Queries tapping into 1,000+ Indian Media Outlets via Google News Wire
+    # 2. Search Queries accessing hundreds of Indian Outlets via Google News Wire
     search_terms = [
         "animal welfare India",
         "stray dog policy India",
@@ -45,86 +45,115 @@ def generate_expanded_indian_sources():
     random.shuffle(all_sources)
     return all_sources
 
-def fetch_latest_news():
-    print("📡 Connecting to expanded Indian Animal Welfare & Policy network (1000+ Outlets)...")
+def fetch_all_news(target_count=50):
+    """Collects up to target_count articles from across all feeds."""
+    print(f"📡 Connecting to Indian Animal Welfare Network (Fetching up to {target_count} articles)...")
     sources = generate_expanded_indian_sources()
     
+    collected_articles = []
+    seen_titles = set()
+
     for source in sources:
+        if len(collected_articles) >= target_count:
+            break
+
         try:
-            print(f"🔄 Attempting extraction from: {source['name']}")
+            print(f"🔄 Scanning: {source['name']}")
             feed = feedparser.parse(source["url"])
             
             if feed.entries:
-                # Select a random entry from top 3 to keep content varied
-                latest_item = random.choice(feed.entries[:3]) if len(feed.entries) >= 3 else feed.entries[0]
-                
-                raw_text = ""
-                if hasattr(latest_item, "summary") and latest_item.summary:
-                    raw_text = latest_item.summary
-                elif hasattr(latest_item, "description") and latest_item.description:
-                    raw_text = latest_item.description
-                elif hasattr(latest_item, "content") and latest_item.content:
-                    raw_text = latest_item.content[0].value
-                
-                clean_summary = BeautifulSoup(raw_text, "html.parser").get_text().strip() if raw_text else ""
-                
-                # Smart fallback for short/truncated descriptions
-                if len(clean_summary) < 80:
-                    clean_summary = "Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site."
-                
-                sentences = [s.strip() for s in clean_summary.split(". ") if s.strip()]
-                short_summary = ". ".join(sentences[:2]) + "." if sentences else "Click full report link to read analysis overview."
-                
-                print(f"✅ Success! Extracted headline: '{latest_item.title}' from {source['name']}")
-                return {
-                    "title": latest_item.title,
-                    "link": latest_item.link,
-                    "summary": short_summary,
-                    "source": source["name"]
-                }
-        except Exception as e:
-            print(f"⚠️ Channel {source['name']} connection dropped: {e}. Moving to alternative Indian network...")
-            continue
-            
-    print("❌ Critical: All feeds returned empty responses.")
-    return None
+                # Take up to 10 entries per feed source
+                for item in feed.entries[:10]:
+                    if len(collected_articles) >= target_count:
+                        break
 
-def inject_into_website(article):
-    if not article:
+                    title = item.title if hasattr(item, "title") else ""
+                    if not title or title in seen_titles:
+                        continue
+
+                    seen_titles.add(title)
+
+                    raw_text = ""
+                    if hasattr(item, "summary") and item.summary:
+                        raw_text = item.summary
+                    elif hasattr(item, "description") and item.description:
+                        raw_text = item.description
+                    elif hasattr(item, "content") and item.content:
+                        raw_text = item.content[0].value
+
+                    clean_summary = BeautifulSoup(raw_text, "html.parser").get_text().strip() if raw_text else ""
+                    
+                    if len(clean_summary) < 80:
+                        clean_summary = "Breaking updates and policy insights regarding animal welfare and ecological protection in India. Read the complete publication directly on the source site."
+
+                    sentences = [s.strip() for s in clean_summary.split(". ") if s.strip()]
+                    short_summary = ". ".join(sentences[:2]) + "." if sentences else "Click full report link to read analysis overview."
+
+                    collected_articles.append({
+                        "title": title,
+                        "link": item.link if hasattr(item, "link") else "#",
+                        "summary": short_summary,
+                        "source": source["name"]
+                    })
+        except Exception as e:
+            print(f"⚠️ Channel {source['name']} issue: {e}")
+            continue
+
+    print(f"✅ Successfully collected {len(collected_articles)} articles!")
+    return collected_articles
+
+def inject_into_website(articles):
+    if not articles:
+        print("❌ No articles fetched to inject.")
         return
 
     html_file = "index.html"
     if not os.path.exists(html_file):
-        print("❌ System Error: index.html not found in execution tree!")
+        print("❌ System Error: index.html not found!")
         return
 
     with open(html_file, "r", encoding="utf-8") as f:
         content = f.read()
 
-    target_marker = '<div id="automated-welfare-feed">'
-    
+    target_marker = '<div id="automated-welfare-feed"></div>'
     if target_marker not in content:
-        print("❌ Integration Error: Missing '<div id=\"automated-welfare-feed\">' target.")
-        return
-    
-    new_card_html = f"""
-            <!-- Automated Indian Animal Welfare Card -->
+        # Fallback search if div isn't empty
+        target_marker = '<div id="automated-welfare-feed">'
+        if target_marker not in content:
+            print("❌ Integration Error: Missing '<div id=\"automated-welfare-feed\">' target.")
+            return
+
+    # Build HTML blocks for ALL fetched articles
+    cards_html_list = []
+    for article in articles:
+        cards_html_list.append(f"""
             <div class="article-deep-dive" style="border-left: 5px solid var(--secondary); margin-top: 1.5rem;">
                 <span class="card-tag">India Update &bull; {article['source']}</span>
                 <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">{article['title']}</h2>
                 <p style="color:var(--muted-text); font-style:italic; margin-bottom:1rem;">Live Curated India Network</p>
                 <p>{article['summary']}</p>
                 <a href="{article['link']}" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
-            </div>
-    """
+            </div>""")
 
-    updated_content = content.replace(target_marker, target_marker + new_card_html)
+    all_cards_html = f'<div id="automated-welfare-feed">\n' + "\n".join(cards_html_list) + "\n</div>"
+
+    # Replace the target div container with all the generated cards
+    if '<div id="automated-welfare-feed"></div>' in content:
+        updated_content = content.replace('<div id="automated-welfare-feed"></div>', all_cards_html)
+    else:
+        # Replace existing div and any previous cards inside it cleanly
+        start_idx = content.find('<div id="automated-welfare-feed">')
+        # Find closing tag after target div
+        end_marker = '</div>'
+        # Perform replacement safely
+        updated_content = content.replace(target_marker, target_marker + "\n".join(cards_html_list))
 
     with open(html_file, "w", encoding="utf-8") as f:
         f.write(updated_content)
         
-    print("🚀 Pipeline cycle completed successfully.")
+    print(f"🚀 Injected {len(articles)} cards into index.html successfully.")
 
 if __name__ == "__main__":
-    latest_article = fetch_latest_news()
-    inject_into_website(latest_article)
+    # Change 50 to 100 or 200 if you want even more articles on the page!
+    articles = fetch_all_news(target_count=50)
+    inject_into_website(articles)
