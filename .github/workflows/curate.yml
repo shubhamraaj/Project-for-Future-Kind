@@ -31,5 +31,5 @@ jobs:
         run: |
           git config --global user.name "shubhamraaj"
           git config --global user.email "automation@github.com"
-          git add index.html
+          git add .
           git diff --quiet && git diff --staged --quiet || (git commit -m "Automated News Update [skip ci]" && git push)
