@@ -4,7 +4,7 @@ import feedparser
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Define Category Keywords for Intelligent Routing
 KEYWORDS = {
@@ -41,7 +41,7 @@ def build_card_html(title, snippet, url, category, source="Google News Wire"):
 
 def generate_rss_feed(articles, output_path="feed.xml"):
     """
-    Generates an RSS 2.0 feed (feed.xml) from curated articles.
+    Generates an RSS 2.0 feed (feed.xml) from curated articles using timezone-aware UTC datetimes.
     """
     rss = ET.Element("rss", version="2.0")
     channel = ET.SubElement(rss, "channel")
@@ -51,7 +51,7 @@ def generate_rss_feed(articles, output_path="feed.xml"):
     ET.SubElement(channel, "link").text = "https://shubhamraaj.github.io/Project-for-Future-Kind/"
     ET.SubElement(channel, "description").text = "Daily curated updates on wildlife conservation, domestic animal welfare, and livestock policy."
     ET.SubElement(channel, "language").text = "en-us"
-    ET.SubElement(channel, "lastBuildDate").text = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+    ET.SubElement(channel, "lastBuildDate").text = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
 
     # Add individual news items to RSS feed
     for item in articles:
@@ -64,7 +64,7 @@ def generate_rss_feed(articles, output_path="feed.xml"):
         category = item.get("category", "General")
         ET.SubElement(rss_item, "category").text = category
         
-        ET.SubElement(rss_item, "pubDate").text = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+        ET.SubElement(rss_item, "pubDate").text = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
             
         guid = ET.SubElement(rss_item, "guid", isPermaLink="false")
         guid.text = item.get("url", item.get("title", ""))
@@ -190,7 +190,7 @@ def main():
         json.dump(all_articles, f, indent=2)
     print(f"🔍 Successfully generated news-data.json with {len(all_articles)} searchable records!")
 
-    # 4. Generate RSS feed.xml (NEW)
+    # 4. Generate RSS feed.xml
     generate_rss_feed(all_articles, "feed.xml")
 
 if __name__ == "__main__":
