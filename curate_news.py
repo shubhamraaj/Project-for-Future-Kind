@@ -2,6 +2,9 @@ import os
 import json
 import feedparser
 from bs4 import BeautifulSoup
+import xml.etree.ElementTree as ET
+from xml.dom import minidom
+from datetime import datetime
 
 # Define Category Keywords for Intelligent Routing
 KEYWORDS = {
@@ -36,6 +39,47 @@ def build_card_html(title, snippet, url, category, source="Google News Wire"):
     </div>
     """
 
+def generate_rss_feed(articles, output_path="feed.xml"):
+    """
+    Generates an RSS 2.0 feed (feed.xml) from curated articles.
+    """
+    rss = ET.Element("rss", version="2.0")
+    channel = ET.SubElement(rss, "channel")
+
+    # RSS Channel Header Information
+    ET.SubElement(channel, "title").text = "Animal Chatter | Ecological & Wildlife News"
+    ET.SubElement(channel, "link").text = "https://shubhamraaj.github.io/Project-for-Future-Kind/"
+    ET.SubElement(channel, "description").text = "Daily curated updates on wildlife conservation, domestic animal welfare, and livestock policy."
+    ET.SubElement(channel, "language").text = "en-us"
+    ET.SubElement(channel, "lastBuildDate").text = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+    # Add individual news items to RSS feed
+    for item in articles:
+        rss_item = ET.SubElement(channel, "item")
+        
+        ET.SubElement(rss_item, "title").text = item.get("title", "Untitled Update")
+        ET.SubElement(rss_item, "link").text = item.get("url", "https://shubhamraaj.github.io/Project-for-Future-Kind/")
+        ET.SubElement(rss_item, "description").text = item.get("snippet", "No description available.")
+        
+        category = item.get("category", "General")
+        ET.SubElement(rss_item, "category").text = category
+        
+        ET.SubElement(rss_item, "pubDate").text = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
+            
+        guid = ET.SubElement(rss_item, "guid", isPermaLink="false")
+        guid.text = item.get("url", item.get("title", ""))
+
+    # Pretty format XML string
+    rough_string = ET.tostring(rss, encoding="utf-8")
+    reparsed = minidom.parseString(rough_string)
+    pretty_xml = reparsed.toprettyxml(indent="  ")
+
+    # Write feed.xml to disk
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(pretty_xml)
+        
+    print(f"📡 Successfully generated RSS feed at {output_path}!")
+
 def main():
     # RSS Feeds to aggregate from
     feeds = [
@@ -66,7 +110,7 @@ def main():
             
             category = classify_article(title, snippet)
             
-            # Store for Lunr.js search index JSON
+            # Store for Lunr.js search index JSON and RSS feed
             all_articles.append({
                 "title": title,
                 "snippet": snippet,
@@ -145,6 +189,9 @@ def main():
     with open("news-data.json", "w", encoding="utf-8") as f:
         json.dump(all_articles, f, indent=2)
     print(f"🔍 Successfully generated news-data.json with {len(all_articles)} searchable records!")
+
+    # 4. Generate RSS feed.xml (NEW)
+    generate_rss_feed(all_articles, "feed.xml")
 
 if __name__ == "__main__":
     main()
