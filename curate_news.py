@@ -50,11 +50,9 @@ def fetch_category_news(query_terms, target_count=50, label_name="Indian Network
 
     return collected_articles
 
-def update_html_container(content, container_id, articles, card_type="article"):
-    """Replaces or injects card blocks into a specific container ID in index.html."""
-    start_tag = f'<div id="{container_id}">'
-    empty_tag = f'<div id="{container_id}"></div>'
 
+def update_html_container(content, container_id, articles, card_type="article"):
+    """Replaces or injects card blocks into a specific container ID in index.html cleanly."""
     cards_html = []
     for article in articles:
         if card_type == "event":
@@ -75,22 +73,26 @@ def update_html_container(content, container_id, articles, card_type="article"):
                     <a href="{article['link']}" target="_blank" style="display: inline-block; margin-top: 1rem; color: var(--primary); font-weight: 700; text-decoration: none;">Read Full Report on Source Site →</a>
                 </div>""")
 
-    new_container_block = f'<div id="{container_id}">\n' + "\n".join(cards_html) + "\n</div>"
+    # Strictly form the full enclosed block
+    full_block = f'<div id="{container_id}">\n' + "\n".join(cards_html) + "\n</div>"
 
+    empty_tag = f'<div id="{container_id}"></div>'
     if empty_tag in content:
-        return content.replace(empty_tag, new_container_block)
-    elif start_tag in content:
+        return content.replace(empty_tag, full_block)
+
+    start_tag = f'<div id="{container_id}">'
+    if start_tag in content:
         start_idx = content.find(start_tag)
         end_idx = content.find('</div>', start_idx) + 6
-        return content[:start_idx] + new_container_block + content[end_idx:]
-    else:
-        print(f"⚠️ Target marker '<div id=\"{container_id}\">' not found in HTML.")
-        return content
+        return content[:start_idx] + full_block + content[end_idx:]
+
+    return content
+
 
 def main():
     print("📡 Initializing Multi-Section Aggregator (Welfare, Insights, Events)...")
 
-    # 1. Define distinct search queries for each section
+    # 1. Define query buckets
     welfare_queries = [
         "animal welfare policy India",
         "stray dog policy India",
@@ -115,7 +117,7 @@ def main():
         "animal rights campaign event India"
     ]
 
-    # 2. Fetch up to 50 items for Welfare & Insights, and 20 for Events
+    # 2. Collect content
     print("🔄 Fetching Welfare News...")
     welfare_articles = fetch_category_news(welfare_queries, target_count=50, label_name="Welfare Wire")
 
@@ -134,16 +136,17 @@ def main():
     with open(html_file, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # 4. Inject into all three target containers
+    # 4. Perform replacements
     content = update_html_container(content, "automated-welfare-feed", welfare_articles, card_type="article")
     content = update_html_container(content, "automated-insights-feed", insights_articles, card_type="article")
     content = update_html_container(content, "automated-events-feed", events_articles, card_type="event")
 
-    # 5. Save updated HTML
+    # 5. Write back to index.html
     with open(html_file, "w", encoding="utf-8") as f:
         f.write(content)
 
-    print(f"🚀 Success! Updated Welfare ({len(welfare_articles)}), Insights ({len(insights_articles)}), and Events ({len(events_articles)}).")
+    print(f"🚀 Success! Injected Welfare ({len(welfare_articles)}), Insights ({len(insights_articles)}), and Events ({len(events_articles)}) into index.html cleanly.")
+
 
 if __name__ == "__main__":
     main()
