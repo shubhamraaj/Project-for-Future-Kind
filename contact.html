@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Animal Chatter</title>
 
-<!-- Open Graph / Social Media Preview Tags -->
+  <!-- Favicon Icons -->
+  <link rel="icon" type="image/x-icon" href="https://shubhamraaj.github.io/Project-for-Future-Kind/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://shubhamraaj.github.io/Project-for-Future-Kind/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://shubhamraaj.github.io/Project-for-Future-Kind/apple-touch-icon.png">
+
+  <!-- Open Graph / Social Media Preview Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shubhamraaj.github.io/Project-for-Future-Kind/">
   <meta property="og:title" content="Animal Chatter | Local Ecological Journalism Hub">
@@ -19,7 +24,6 @@
   <meta name="twitter:description" content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock.">
   <meta name="twitter:image" content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg">
 
-
   <style>
     /* Reset & Base Styles */
     * {
@@ -32,6 +36,62 @@
       background-color: #f8fafc;
       color: #1e293b;
       line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark Theme Overrides */
+    [data-theme="dark"] {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+    }
+
+    [data-theme="dark"] header {
+      background-color: #021a30 !important;
+    }
+
+    [data-theme="dark"] .page-title {
+      color: #38bdf8 !important;
+    }
+
+    [data-theme="dark"] .page-subtitle {
+      color: #94a3b8 !important;
+      border-bottom-color: #334155 !important;
+    }
+
+    [data-theme="dark"] .info-card,
+    [data-theme="dark"] .form-card {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    [data-theme="dark"] .info-card h3 {
+      color: #38bdf8 !important;
+    }
+
+    [data-theme="dark"] .info-item label,
+    [data-theme="dark"] .form-group label {
+      color: #94a3b8 !important;
+    }
+
+    [data-theme="dark"] .info-item p {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .form-control {
+      background-color: #0f172a !important;
+      border-color: #334155 !important;
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .form-control:focus {
+      border-color: #38bdf8 !important;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2) !important;
+    }
+
+    [data-theme="dark"] footer {
+      background-color: #021a30 !important;
+      border-top: 1px solid #1e293b;
     }
 
     /* Header & Navigation */
@@ -43,6 +103,7 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
     }
     .header-container {
       max-width: 1200px;
@@ -50,6 +111,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .logo {
       font-size: 1.5rem;
@@ -61,7 +124,9 @@
     }
     nav {
       display: flex;
-      gap: 1.25rem;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: #cbd5e1;
@@ -77,6 +142,27 @@
       background-color: rgba(255, 255, 255, 0.15);
     }
 
+    /* Theme Toggle Button Styling */
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      margin-left: 0.5rem;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
     /* Main Layout */
     main {
       max-width: 1000px;
@@ -89,6 +175,7 @@
       font-weight: 800;
       color: #033666;
       margin-bottom: 0.5rem;
+      transition: color 0.3s ease;
     }
 
     .page-subtitle {
@@ -97,6 +184,7 @@
       margin-bottom: 2rem;
       border-bottom: 2px solid #e2e8f0;
       padding-bottom: 1rem;
+      transition: color 0.3s ease, border-color 0.3s ease;
     }
 
     .contact-grid {
@@ -119,12 +207,14 @@
       padding: 2rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       height: fit-content;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .info-card h3 {
       color: #033666;
       font-size: 1.25rem;
       margin-bottom: 1rem;
+      transition: color 0.3s ease;
     }
 
     .info-item {
@@ -138,12 +228,14 @@
       color: #64748b;
       text-transform: uppercase;
       margin-bottom: 0.25rem;
+      transition: color 0.3s ease;
     }
 
     .info-item p {
       color: #0f172a;
       font-weight: 600;
       font-size: 1rem;
+      transition: color 0.3s ease;
     }
 
     /* Form Styling */
@@ -153,6 +245,7 @@
       border: 1px solid #e2e8f0;
       padding: 2rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .form-group {
@@ -165,6 +258,7 @@
       color: #334155;
       margin-bottom: 0.5rem;
       font-size: 0.95rem;
+      transition: color 0.3s ease;
     }
 
     .form-control {
@@ -174,7 +268,7 @@
       border-radius: 6px;
       font-size: 1rem;
       outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
       background: #f8fafc;
     }
 
@@ -214,6 +308,7 @@
       padding: 2rem;
       font-size: 0.9rem;
       margin-top: auto;
+      transition: background-color 0.3s ease;
     }
   </style>
 </head>
@@ -231,6 +326,12 @@
         <a href="about.html">About</a>
         <a href="contact.html" class="active">Contact</a>
         <a href="search.html">Search</a>
+
+        <!-- Theme Switcher Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text">Dark</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -253,7 +354,7 @@
 
         <div class="info-item">
           <label>Focus Areas</label>
-          <p>Campus Welfare, Animal Rights Policy & Ecological Science</p>
+          <p>Campus Welfare, Animal Rights Policy &amp; Ecological Science</p>
         </div>
 
         <div class="info-item">
@@ -300,6 +401,45 @@
   <footer>
     &copy; Animal Chatter | Ecological Journalism Hub
   </footer>
+
+  <!-- Dark Mode Switcher JavaScript -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    // Load saved preference or check system preferences
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+      themeText.textContent = 'Light';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.textContent = '🌙';
+      themeText.textContent = 'Dark';
+    }
+
+    // Toggle theme on button click
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      let newTheme = 'light';
+
+      if (currentTheme === 'light') {
+        newTheme = 'dark';
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
 
 </body>
 </html>
