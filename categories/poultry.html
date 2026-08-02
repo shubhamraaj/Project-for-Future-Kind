@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Poultry &amp; Farmed Animals | Animal Chatter</title>
-<!-- Open Graph / Social Media Preview Tags -->
-<meta content="website" property="og:type"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" property="og:url"/>
-<meta content="Animal Chatter | Local Ecological Journalism Hub" property="og:title"/>
-<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." property="og:description"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" property="og:image"/>
-<!-- Twitter / X Card Tags -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" name="twitter:url"/>
-<meta content="Animal Chatter | Local Ecological Journalism Hub" name="twitter:title"/>
-<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." name="twitter:description"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" name="twitter:image"/>
-<style>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Poultry &amp; Farmed Animals | Animal Chatter</title>
+
+  <!-- Favicon Icons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <!-- Open Graph / Social Media Preview Tags -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" property="og:url"/>
+  <meta content="Animal Chatter | Local Ecological Journalism Hub" property="og:title"/>
+  <meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." property="og:description"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" property="og:image"/>
+
+  <!-- Twitter / X Card Tags -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" name="twitter:url"/>
+  <meta content="Animal Chatter | Local Ecological Journalism Hub" name="twitter:title"/>
+  <meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." name="twitter:description"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" name="twitter:image"/>
+
+  <style>
     /* Reset & Base Styles */
     * {
       box-sizing: border-box;
@@ -29,6 +36,40 @@
       background-color: #f8fafc;
       color: #1e293b;
       line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark Theme Overrides */
+    [data-theme="dark"] {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+    }
+
+    [data-theme="dark"] header {
+      background-color: #021a30 !important;
+    }
+
+    [data-theme="dark"] .card {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    [data-theme="dark"] .card-title {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .card-snippet {
+      color: #94a3b8 !important;
+    }
+
+    [data-theme="dark"] .card-link {
+      color: #fbbf24 !important;
+    }
+
+    [data-theme="dark"] footer {
+      background-color: #021a30 !important;
+      border-top: 1px solid #1e293b;
     }
 
     /* Header & Navigation */
@@ -40,6 +81,7 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
     }
     .header-container {
       max-width: 1200px;
@@ -47,6 +89,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .logo {
       font-size: 1.5rem;
@@ -58,7 +102,9 @@
     }
     nav {
       display: flex;
-      gap: 1.25rem;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: #cbd5e1;
@@ -72,6 +118,27 @@
     nav a:hover, nav a.active {
       color: #ffffff;
       background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Theme Toggle Button Styling */
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      margin-left: 0.5rem;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     /* Category Hero Banner */
@@ -117,7 +184,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
     }
     .card:hover {
       transform: translateY(-2px);
@@ -136,11 +203,13 @@
       color: #0f172a;
       margin-bottom: 0.75rem;
       line-height: 1.4;
+      transition: color 0.3s ease;
     }
     .card-snippet {
       font-size: 0.95rem;
       color: #334155;
       margin-bottom: 1.25rem;
+      transition: color 0.3s ease;
     }
     .card-link {
       display: inline-block;
@@ -148,6 +217,7 @@
       font-weight: 700;
       font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     .card-link:hover {
       text-decoration: underline;
@@ -161,36 +231,93 @@
       padding: 2rem;
       font-size: 0.9rem;
       margin-top: auto;
+      transition: background-color 0.3s ease;
     }
   </style>
 </head>
 <body>
-<!-- Navigation Header -->
-<header>
-<div class="header-container">
-<a class="logo" href="../index.html">Animal Chatter</a>
-<nav>
-<a href="../index.html">Home</a>
-<a href="wildlife.html">Wildlife</a>
-<a href="domestic.html">Domestic</a>
-<a class="active" href="poultry.html">Poultry</a>
-<a href="../about.html">About</a>
-<a href="../contact.html">Contact</a>
-<a href="../search.html">Search</a>
-</nav>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<h1>Poultry &amp; Farmed Animal Welfare</h1>
-<p>Investigating factory farming regulations, poultry transport policies, egg industry standards, slaughterhouse hygiene, and plant-based alternatives.</p>
-</section>
-<!-- Main Content Grid -->
-<main>
-<div class="news-grid" id="poultry-news-grid"><div class="card"><div class="card-tag">Stream</div><h3 class="card-title">No recent articles found in this stream.</h3><p class="card-snippet">Check back soon for automated updates.</p></div></div>
-</main>
-<footer>
-    © Animal Chatter | Ecological Journalism Hub
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a class="logo" href="../index.html">Animal Chatter</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="wildlife.html">Wildlife</a>
+        <a href="domestic.html">Domestic</a>
+        <a class="active" href="poultry.html">Poultry</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../search.html">Search</a>
+
+        <!-- Theme Switcher Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text">Dark</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Poultry &amp; Farmed Animal Welfare</h1>
+    <p>Investigating factory farming regulations, poultry transport policies, egg industry standards, slaughterhouse hygiene, and plant-based alternatives.</p>
+  </section>
+
+  <!-- Main Content Grid -->
+  <main>
+    <div class="news-grid" id="poultry-news-grid">
+      <div class="card">
+        <div class="card-tag">Stream</div>
+        <h3 class="card-title">No recent articles found in this stream.</h3>
+        <p class="card-snippet">Check back soon for automated updates.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; Animal Chatter | Ecological Journalism Hub
   </footer>
+
+  <!-- Dark Mode Switcher JavaScript -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    // Load saved preference or check system preferences
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+      themeText.textContent = 'Light';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.textContent = '🌙';
+      themeText.textContent = 'Dark';
+    }
+
+    // Toggle theme on button click
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      let newTheme = 'light';
+
+      if (currentTheme === 'light') {
+        newTheme = 'dark';
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
 </body>
 </html>

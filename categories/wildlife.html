@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Wildlife &amp; Conservation | Animal Chatter</title>
-<!-- Open Graph / Social Media Preview Tags -->
-<meta content="website" property="og:type"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" property="og:url"/>
-<meta content="Animal Chatter | Local Ecological Journalism Hub" property="og:title"/>
-<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." property="og:description"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" property="og:image"/>
-<!-- Twitter / X Card Tags -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" name="twitter:url"/>
-<meta content="Animal Chatter | Local Ecological Journalism Hub" name="twitter:title"/>
-<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." name="twitter:description"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" name="twitter:image"/>
-<style>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Wildlife &amp; Conservation | Animal Chatter</title>
+
+  <!-- Favicon Icons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <!-- Open Graph / Social Media Preview Tags -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" property="og:url"/>
+  <meta content="Animal Chatter | Local Ecological Journalism Hub" property="og:title"/>
+  <meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." property="og:description"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" property="og:image"/>
+
+  <!-- Twitter / X Card Tags -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" name="twitter:url"/>
+  <meta content="Animal Chatter | Local Ecological Journalism Hub" name="twitter:title"/>
+  <meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." name="twitter:description"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" name="twitter:image"/>
+
+  <style>
     /* Reset & Base Styles */
     * {
       box-sizing: border-box;
@@ -29,6 +36,40 @@
       background-color: #f8fafc;
       color: #1e293b;
       line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark Theme Overrides */
+    [data-theme="dark"] {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+    }
+
+    [data-theme="dark"] header {
+      background-color: #021a30 !important;
+    }
+
+    [data-theme="dark"] .card {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    [data-theme="dark"] .card-title {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .card-snippet {
+      color: #94a3b8 !important;
+    }
+
+    [data-theme="dark"] .card-link {
+      color: #34d399 !important;
+    }
+
+    [data-theme="dark"] footer {
+      background-color: #021a30 !important;
+      border-top: 1px solid #1e293b;
     }
 
     /* Header & Navigation */
@@ -40,6 +81,7 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
     }
     .header-container {
       max-width: 1200px;
@@ -47,6 +89,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .logo {
       font-size: 1.5rem;
@@ -58,7 +102,9 @@
     }
     nav {
       display: flex;
-      gap: 1.25rem;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: #cbd5e1;
@@ -72,6 +118,27 @@
     nav a:hover, nav a.active {
       color: #ffffff;
       background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Theme Toggle Button Styling */
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      margin-left: 0.5rem;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     /* Category Hero Banner */
@@ -117,7 +184,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
     }
     .card:hover {
       transform: translateY(-2px);
@@ -136,11 +203,13 @@
       color: #0f172a;
       margin-bottom: 0.75rem;
       line-height: 1.4;
+      transition: color 0.3s ease;
     }
     .card-snippet {
       font-size: 0.95rem;
       color: #334155;
       margin-bottom: 1.25rem;
+      transition: color 0.3s ease;
     }
     .card-link {
       display: inline-block;
@@ -148,6 +217,7 @@
       font-weight: 700;
       font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     .card-link:hover {
       text-decoration: underline;
@@ -161,124 +231,175 @@
       padding: 2rem;
       font-size: 0.9rem;
       margin-top: auto;
+      transition: background-color 0.3s ease;
     }
   </style>
 </head>
 <body>
-<!-- Navigation Header -->
-<header>
-<div class="header-container">
-<a class="logo" href="../index.html">Animal Chatter</a>
-<nav>
-<a href="../index.html">Home</a>
-<a class="active" href="wildlife.html">Wildlife</a>
-<a href="domestic.html">Domestic</a>
-<a href="poultry.html">Poultry</a>
-<a href="../about.html">About</a>
-<a href="../contact.html">Contact</a>
-<a href="../search.html">Search</a>
-</nav>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<h1>Wildlife &amp; Forest Conservation</h1>
-<p>Tracking tiger corridors, forest reserve policies, anti-poaching initiatives, and human-wildlife coexistence models across India.</p>
-</section>
-<!-- Main Content Grid -->
-<main>
-<div class="news-grid" id="wildlife-news-grid">
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit - GujaratSamachar English</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit  GujaratSamachar English</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxOZE5xTHZhblJwNlphV1dBdXAzLUFiRmJ2c3BGcS05UnNKQldkQ3RubFBvX1RGc2ZibWNkckJvdWZZd3MyOC1qXzRrNXZqWE1qT0wtakt1LVNYV2xZZDY2c0NRc2FnbFZ5M1R2aDlPVUhFOXNQVElqT2h3bzU2bFM1NkVKRUtoc3pTdFZBbEFGUkpfY1Z1QnNyOFpraXhwam9jM3BaTUhsUjRVRHdsaVFqYV83T1B5aWxRdHVITGRnN2dHZ2l5LWFzSHgwaW5zMXpYRlowdy02RC03Z3RnWHVoZHFETzk4dFk?oc=5" target="_blank">Read Full Article →</a>
-</div>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing - Vajiram &amp; Ravi</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing  Vajiram &amp; Ravi</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMibEFVX3lxTE53UmdDYU9MSTJQakFobjg5SnFDc2RGYnhSRWRZWXYzbUxpSWt3ZUZzdG9EVDdicHljQmVvNldBV1gxU0JZQ195cjFRNndURVFxVWhBWEpaOUxuOTNTMFVkS2tUdi1CX2NWRDlsNQ?oc=5" target="_blank">Read Full Article →</a>
-</div>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a class="logo" href="../index.html">Animal Chatter</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a class="active" href="wildlife.html">Wildlife</a>
+        <a href="domestic.html">Domestic</a>
+        <a href="poultry.html">Poultry</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../search.html">Search</a>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">Department of Animal Husbandry &amp; Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethical and Responsible Research - PIB</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Department of Animal Husbandry &amp; Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethi...</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQdFpiUnBud3c2X1pqcWFxbGN4RnVXQTY3UVBqSy1sNXcwYm1mcG1rLXJ3MkRDc1NlaVMzZzdfczNYWkhqd2FVZWpPY21uN2NiaTZMVFdRaXQ0N1FEMWlyZnplOVpGZm12eVVfNFg1WlIwQk9VMVgwYm9hZ1AyRGZDcXZPQ3E5a19QVjYydk9Mcm9KVkxNZk1sWQ?oc=5" target="_blank">Read Full Article →</a>
-</div>
+        <!-- Theme Switcher Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text">Dark</span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">Request for Proposals: Supporting Animal Welfare Through Strategic Funding (India) - fundsforNGOs</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Request for Proposals: Supporting Animal Welfare Through Strategic Funding (India)  fundsforNGOs</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMivwFBVV95cUxONkJVazJmbDVveFE5aWdVeERFZEhWelY5SDFqQWxZTkJuaENoME1xWG9vZGE1bDlVNjdoRk9SSWNTNUxwT2Zic09faWhxNmxhYjdLUHNLS1V5YWw3X3dfelpBb0JiU25RRlhKUElBYm5qMnVNdS13clQ0SmpzRkd3OGJwb0ExMXd4Q3BzODl2YndiUVFYdWREcGpTbEZCVG1MY0FrY0hnTm9GVTByLVZ3X0FXVEU1Nk1BTHJLcUxaNNIBxAFBVV95cUxNamhMbVJKLWwzYzFQc3dySjRqRmplVWExb0tkVVJZVHpid2l0akNkT0lDLVRpUUVwY1BBaW9uTDY4c21KZjIxQWtMWHJ3YUxJTjUzZjRHWm9sQ3hPd0dodDNrcnN3R0V1QzhVcUFwajhzc0dwaEc5RVRUU2hDUlQydWRJQVVTc2p1SGVKaE53Ni1sTHdIakJHTGtYMmZfMGxKem5RWENvUnY0Z3VZZHcwbE5DOWNkaDJIUzlGV2xKYnhyOXRh?oc=5" target="_blank">Read Full Article →</a>
-</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Wildlife &amp; Forest Conservation</h1>
+    <p>Tracking tiger corridors, forest reserve policies, anti-poaching initiatives, and human-wildlife coexistence models across India.</p>
+  </section>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">India’s tiger numbers are rising. Protecting their pathways is next - news - Mongabay</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">India’s tiger numbers are rising. Protecting their pathways is next  news - Mongabay</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPamoyaXg4Z2R6UmJZajdqazJ4Vm9LYmM0aWEySDZpSHlPMWxrQm12STFUbGJyT3NvYTRDV2xUMWtoTzB6MnlMM3MyYnZwTnI0amZFUlRZckVnTTRoOGVpTk8tbHhIZXFUYXR4ak9Ud1VpZmJxUEd4cnFRMFRVWXdOR21XejRJLXA4bkJJOUNHZm5JNjBHU3hPU0lSRTVjcXJXSVHSAacBQVVfeXFMT0ZzYmZlTWJXOERrb1Fjd3lOVUZvNVpObENTbWdTOTk0cHFNRUZHUHFiN3hqdVNlR3pwWHFBa0FRaHNNQ2RXcS1EVnZNMnB2NTF3cmFBOVprYW1NZXlLdXNreVd1blhuMXdFQ1RldEtzYjQ3U3NJSHVxbXpXMDBBbG1fdkN0Mm11MVd6bDByZW56Si1yTjBaaE5Jc2NkclpUWTkxTzNUY3c?oc=5" target="_blank">Read Full Article →</a>
-</div>
+  <!-- Main Content Grid -->
+  <main>
+    <div class="news-grid" id="wildlife-news-grid">
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit - GujaratSamachar English</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Gujarat High Court Issues Notice To Animal Welfare Board In State-Wide Glue Trap Ban Suit  GujaratSamachar English</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxOZE5xTHZhblJwNlphV1dBdXAzLUFiRmJ2c3BGcS05UnNKQldkQ3RubFBvX1RGc2ZibWNkckJvdWZZd3MyOC1qXzRrNXZqWE1qT0wtakt1LVNYV2xZZDY2c0NRc2FnbFZ5M1R2aDlPVUhFOXNQVElqT2h3bzU2bFM1NkVKRUtoc3pTdFZBbEFGUkpfY1Z1QnNyOFpraXhwam9jM3BaTUhsUjRVRHdsaVFqYV83T1B5aWxRdHVITGRnN2dHZ2l5LWFzSHgwaW5zMXpYRlowdy02RC03Z3RnWHVoZHFETzk4dFk?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">Rethinking conservation: India needs a new framework for conserving tigers - Down To Earth</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Rethinking conservation: India needs a new framework for conserving tigers  Down To Earth</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPVFlXWTRDR0hUSmlqY1BvcEVlMDJYX3d3d3kxNllSa09tZU12RkNiVGtzcVB5VHNiZVd0cWVjSVA1U3YweXZmMGtWVDNsNnlNWjVvRmM3V09TeTY3VnFoX1FVTGVnRHNDTDV0MGhtODJiQ0dZcV9SdTU1c1ZmRWpPeEMtc1hNU3JldDUyZVdKWF9DTnZHd3d6N1RjWXVidFoxZjU0UEtIOE5zUmhpbHlkRlBQZ0c2SG5zdlJwb0VYMTgyaVBD0gHSAUFVX3lxTE5oc05tSC1neHhqd1hnZ0tXSWhKUnVxSU8wM3NYVkwxN0x5aXV1ZU82VU54NHhnbHNzRmJLWDVMZ1U3RElmdzA0YzM1S09BdzUtMXozNElWSXRhbm82Z3VQdFpiWmFuTmdHbXEyak9GdHYxN1doaXNDODdxQXJDb0U4eFJaWUtlbFBZVjg3UzRKYWZRQTRxM0phbzQ1c0hsVkFaNzl0a0VESzJRRVIwczA1ZGZVMmtsNDhncEh0YW5uQldfVllYbFYxbU55ekVXa2Y4UQ?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing - Vajiram &amp; Ravi</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">NSE Ahimsa Index: India’s New Benchmark for Ethical and Animal Welfare Investing  Vajiram &amp; Ravi</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMibAFVX3lxTE53UmdDYU9MSTJQakFobjg5SnFDc2RGYnhSRWRZWXYzbUxpSWt3ZUZzdG9EVDdicHljQmVvNldBV1gxU0JZQ195cjFRNndURVFxVWhBWEpaOUxuOTNTMFVkS2tUdi1CX2NWRDlsNQ?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">India emerges as a global leader in tiger conservation with science-based policies and community participation - ddnews.gov.in</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">India emerges as a global leader in tiger conservation with science-based policies and community participation  ddnews.gov.in</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxQNGdNNDBGYUtxbHNsRkpobDBBWXJBQ2dvN3J4cVZZX1REaWdHenJqWGg1ZUpsbjVjTk4zdWphWVRSdFVaMFRlWFRXaHg0WWdveS1RMUhmZGhHVHZFYk9WaUY3R0k0anBOT09JMjdOWWxUN0ZjejNSYXg0d3Z3T0ZWT0hMQnpwUnhrcmlHRC1xYU5wcUIwT1ZLMnhiN3laMlZTcXl0RHpkbGpTU3BETi1LN3k1UEp3M1FrSEtwZW5HN3ZkeENRR3NER1ZGS013ckdiOGc?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">Department of Animal Husbandry &amp; Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethical and Responsible Research - PIB</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Department of Animal Husbandry &amp; Dairying, Government of India Organises National Conference on Laboratory Animal Welfare to Promote Ethi...</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMimAFBVV95cUxQdFpiUnBud3c2X1pqcWFxbGN4RnVXQTY3UVBqSy1sNXcwYm1mcG1rLXJ3MkRDc1NlaVMzZzdfczNYWkhqd2FVZWpPY21uN2NiaTZMVFdRaXQ0N1FEMWlyZnplOVpGZm12eVVfNFg1WlIwQk9VMVgwYm9hZ1AyRGZDcXZPQ3E5a1_QVY62vOLroJVLMfMlY?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">India Leads the Wilderness in Tiger Conservation: From Saving a Species to Securing an Ecosystem - kashmirconvener.com</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">India Leads the Wilderness in Tiger Conservation: From Saving a Species to Securing an Ecosystem  kashmirconvener.com</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxPRkVXZG9xQUktLW5hYlZrc0gxNE5PdURUQVZ1NW1ScDJTZm9BZERkcjRFZVF1NUZjcHhqbDdZdGE0NWZMVUpNU1cwakYzRHlTanQ2VHpVbjdIQ3VvVTlvY3ZJSWhGTExGcWhldVBNbDFLSFdSY1lsTk84aHZMRlN6azV5VXJ0WmZVNDNXa3dZR0k3S2xfb0pBd3ZpemZ5S2FyN1pfVHlUVldsdGtmTXlSNmZSdUpZNkxTYS1uQ1doT0lLdw?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">Request for Proposals: Supporting Animal Welfare Through Strategic Funding (India) - fundsforNGOs</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Request for Proposals: Supporting Animal Welfare Through Strategic Funding (India)  fundsforNGOs</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMivwFBVV95cUxONkJVazJmbDVveFE5aWdVeERFZEhWelY5SDFqQWxZTkJuaENoME1xWG9vZGE1bDlVNjdoRk9SSWNTNUxwT2Zic09faWhxNmxhYjdLUHNLS1V5YWw3X3dfelpBb0JiU25RRlhKUElBYm5qMnVNdS13clQ0SmpzRkd3OGJwb0ExMXd4Q3BzODl2YndiUVFYdWREcGpTbEZCVG1MY0FrY0hnTm9GVTByLVZ3X0FXVEU1Nk1BTHJLcUxaNNIBxAFBVV95cUxNajhMbVJKLWwzYzFQc3dySjRqRmplVWExb0tkVVJZVHpid2l0akNkT0lDLVRpUUVwY1BBaW9uTDY4c21KZjIxQWtMWHJ3YUxJTjUzZjRHWm9sQ3hPd0dodDNrcnN3R0V1QzhVcUFwajhzc0dwaEc5RVRUU2hDUlQydWRJQVVTc2p1SGVKaE53Ni1sTHdIakJHTGtYMmZfMGxKem5RWENvUnY0Z3VZZHcwbE5DOWNkaDJIUzlGV2xKYnhyOXRh?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">Video of Can We Protect Endangered Wildlife in India? - Encyclopedia Britannica</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Video of Can We Protect Endangered Wildlife in India?  Encyclopedia Britannica</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPM1VSZGwtd2RSSjFWOFB6Um9qYmxSNjBXMDI0dy16T1RpTmI3YUl6NnhrOEptTzRPaTJLa2dLeVVfcXd3d0NvZXlTLWZhTEFmdkJqcGwxNnlOeFV4ei1Ldkg5bUkwbHM1QVpRMUoyU2M1eWEwd08wbzRDaGFhanllYzk5Y2Rwczc1czNSTHFUMVliOUcwQUZHN2g3RUxvT2NwZXVtSg?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">India’s tiger numbers are rising. Protecting their pathways is next - news - Mongabay</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">India’s tiger numbers are rising. Protecting their pathways is next  news - Mongabay</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPamoyaXg4Z2R6UmJZajdqazJ4Vm9LYmM0aWEySDZpSHlPMWxrQm12STFUbGJyT3NvYTRDV2xUMWtoTzB6MnlMM3MyYnZwTnI0amZFUlRZckVnTTRoOGVpTk8tbHhIZXFUYXR4ak9Ud1VpZmJxUEd4cnFRMFRVWXdOR21XejRJLXA4bkJJOUNHZm5JNjBHU3hPU0lSRTVjcXJXSVHSAacBQVVfeXFMT0ZzYmZlTWJXOERrb1Fjd3lOVUZvNVpObENTbWdTOTk4cHFNRUZHUHFiN3hqdVNlR3pwWHFBa0FRaHNNQ2RXcS1EVnZNMnB2NTF3cmFBOVprYW1NZXlLdXNreVd1blhuMXdFQ1RldEtzYjQ3U3NJSHVxbXpXMDBBbG1fdkN0Mm11MVd6bDByZW56Si1yTjBaaE5Jc2NkclpUWTkxTzNUY3c?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">Vedanta strengthens its commitment to India's tiger landscapes - Fortune India</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Vedanta strengthens its commitment to India's tiger landscapes  Fortune India</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQb1NISndYYzdVcGYyaTR0bTQyR0JJNlYwU1Ffcko2dHd4Wk5yY2VkUmhtdHd6eUdIeWN4SUpCVnFDT3oyVFd6S3FWRkp2NlEzMzFmMl9ZSjRXancwSHFmVmdHd3FObHJIcVNBU2hMXzVsVjYtZGx6T0NuTGhnc3hRaURfVm0wUXRNTDhtOW1jb3UyU2M0b1doSEU0MXI3ZlV5UDduSzNB0gGzAUFVX3lxTE9WcHNPS1VqdnhDcjhoVEZGbXNjR1p0U1ozbWVnTTU4TlpzMlJjdDFkbEY3SGRZNzVqZmJqLW5pUHFRRXItVnN1V3l6ZTZIU2p0N0JrN3NSSUtndURXY0hUMUtnbDg5cVE5QkFGckU0eG9rdy01OXJ0WlIwYVdweDVlZmJMVVNoTFA4RnZ1cDRDYW5udHI5cTBmZHlTZnhHYmZUU1FsRHUxQWQ2TzlxMEZNV1Uw?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">Rethinking conservation: India needs a new framework for conserving tigers - Down To Earth</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Rethinking conservation: India needs a new framework for conserving tigers  Down To Earth</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMixAFBVV95cUxPVFlXWTRDR0hUSmlqY1BvcEVlMDJYX3d3d3kxNllSa09tZU12RkNiVGtzcVB5VHNiZVd0cWVjSVA1U3YweXZmMGtWVDNsNnlNWjVvRmM3V09TeTY3VnFoX1FVTGVnRHNDTDV0MGhtODJiQ0dZcV9SdTU1c1ZmRWpPeEMtc1hNU3JldDUyZVdKWF9DTnZHd3d6N1RjWXVidFoxZjU0UEtIOE5zUmhpbHlkRlBQZ0c2SG5zdlJwb0VYMTgyaVBD0gHSAUFVX3lxTE5oc05tSC1neHhqd1hnZ0tXSWhKUnVxSU8wM3NYVkwxN0x5aXV1ZU82VU54NHhnbHNzRmJLWDVMZ1U3RElmdzA0YzM1S09BdzUtMXozNElWSXRhbm82Z3VQdFpiWmFuTmdHbXEyak9GdHYxN1doaXNDODdxQXJDb0U4eFJaWUtlbFBZVjg3UzRKYWZRQTRxM0phbzQ1c0hsVkFaNzl0a0VESzJRRVIwczA1ZGZVMmtsNDhncEh0YW5uQldfVllYbFYxbU55ekVXa2Y4UQ?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #059669;">WILDLIFE</div>
-<h3 class="card-title">India leads global tiger conservation with 3,682 tigers, science-based policies and technology-driven monitoring - organiser.org</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">India leads global tiger conservation with 3,682 tigers, science-based policies and technology-driven monitoring  organiser.org</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMi7wFBVV95cUxQWEVQQVMzMldremdZay13V1JBVWYxMnZSZ1lZSUJoWWhBUHV2c3c4bklXNFV3LS1DYXJrMWJweWtWRjVYaGQ2SjZsTzlJMnFFcGxhdWg0OGVEWllwMmlNVjNtOXVYMGJCRjZQdFM5ZEx6d1NTb1FZOVFuLV9tcm1UYmhHa1hPVGlvU25OXzVzWDF2YnpydkdWdkx2LXR5OTNrM01GaFd4LXJJeTJMaWtUSmlPRWhnRDhpQVJncFhVRWxIcWY3amdIUnVBWFFaZGg5TjM0Ul8xWVBHc1RKWUZOQXNkMTJfSDE3SnFMR1VwNNIB9AFBVV95cUxQYlBYalFpbUhQd3VaTk05VG5NRXpJTFJkb1dpbVMtcUo5dkRqcElKM3E5V1B5YkNHM2NlQkVhYm93STIxbEZGVy0tN21Cc1UzR2NaUUtWM0ZPYzdmQlc2dVd4Yy1KODF0NGhDdkFEakFNMUtJSm9Sd3I1bmJkWVh0UXlwcXZ4QXA0eHdkVUhOUHgwMmFqbDdWVUI1Z1I2d01HUmp3R2hEb3llNHhkbHlaUzlRSVExMVRPMkZLVTBTcnA2NjlGSExMSnFHX3l1RkJfbFFZcGhqcTdQeVV2TGQ4X3dkdzZJalJEc3ZXOVFEYUJURWZJ?oc=5" target="_blank">Read Full Article →</a>
-</div>
-</div>
-</main>
-<footer>
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">India emerges as a global leader in tiger conservation with science-based policies and community participation - ddnews.gov.in</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">India emerges as a global leader in tiger conservation with science-based policies and community participation  ddnews.gov.in</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMi0gFBVV95cUxQNGdNNDBGYUtxbHNsRkpobDBBWXJBQ2dvN3J4cVZZX1REaWdHenJqWGg1ZUpsbjVjTk4zdWphWVRSdFVaMFRlWFRXaHg0WWdveS1RMUhmZGhHVHZFYk9WaUY3R0k0anBOT09JMjdOWWxUN0ZjejNSYXg0d3Z3T0ZWT0hMQnpwUnhrcmlHRC1xYU5wcUIwT1ZLMnhiN3laMlZTcXl0RHpkbGpTU3BETi1LN3k1UEp3M1FrSEtwZW5HN3ZkeENRR3NER1ZGS013ckdiOGc?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">India Leads the Wilderness in Tiger Conservation: From Saving a Species to Securing an Ecosystem - kashmirconvener.com</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">India Leads the Wilderness in Tiger Conservation: From Saving a Species to Securing an Ecosystem  kashmirconvener.com</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxPRkVXZG9xQUktLW5hYlZrc0gxNE5PdURUQVZ1NW1ScDJTZm9BZERkcjRFZVF1NUZjcHhqbDdZdGE0NWZMVUpNU1cwakYzRHlTanQ2VHpVbjdIQ3VvVTlvY3ZJSWhGTExGcWhldVBNbDFLSFdSY1lsTk84aHZMRlN6azV5VXJ0WmZVNDNXa3dZR0k3S2xfb0pBd3ZpemZ5S2FyN1pfVHlUVldsdGtmTXlSNmZSdUpZNkxTYS1uQ1doT0lLdw?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">Video of Can We Protect Endangered Wildlife in India? - Encyclopedia Britannica</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Video of Can We Protect Endangered Wildlife in India?  Encyclopedia Britannica</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPM1VSZGwtd2RSSjFWOFB6Um9qYmxSNjBXMDI0dy16T1RpTmI3YUl6NnhrOEptTzRPaTJLa2dLeVVfcXd3d0NvZXlTLWZhTEFmdkJqcGwxNnlOeFV4ei1Ldkg5bUkwbHM1QVpRMUoyU2M1eWEwd08wbzRDaGFhanllYzk5Y2Rwczc1czNSTHFUMVliOUcwQUZHN2g3RUxvT2NwZXVtSg?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">Vedanta strengthens its commitment to India's tiger landscapes - Fortune India</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Vedanta strengthens its commitment to India's tiger landscapes  Fortune India</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQb1NISndYYzdVcGYyaTR0bTQyR0JJNlYwU1Ffcko2dHd4Wk5yY2VkUmhtdHd6eUdIeWN4SUpCVnFDT3oyVFd6S3FWRkp2NlEzMzFmMl_ZSjRXancwSHFmVmdHd3FObHJIcVNBU2hMXzVsVjYtZGx6T0NuTGhnc3hRaURfVm0wUXRNTDhtOW1jb3UyU2M0b2doSEU0MXI3ZlV5UDduSzNB0gGzAUFVX3lxTE9WcHNPS1VqdnhDcjhoVEZGbXNjR1p0U1ozbWVnTTU4TlpzMlJjdDFkbEY3SGRZNzVqZmJqLW5pUHFRRXItVnN1V3l6ZTZIU2p0N0JrN3NSSUtndURXY0hUMUtnbDg5cVE5QkFGckU0eG9rdy01OXJ0WlIwYVdweDVlZmJMVVNoTFA4RnZ1cDRDYW5udHI5cTBmZHlTZnhHYmZUU1FsRHUxQWQ2TzlxMEZNV1Uw?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #059669;">WILDLIFE</div>
+        <h3 class="card-title">India leads global tiger conservation with 3,682 tigers, science-based policies and technology-driven monitoring - organiser.org</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">India leads global tiger conservation with 3,682 tigers, science-based policies and technology-driven monitoring  organiser.org</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMi7wFBVV95cUxQWEVQQVMzMldremdZay13V1JBVWYxMnZSZ1lZSUJoWWhBUHV2c3c4bklXNFV3LS1DYXJrMWJweWtWRjVYaGQ2SjZsTzlJMnFFcGxhdWg0OGVEWllwMmlNVjNtOXVYMGJCRjZQdFM5ZEx6d1NTb1FZOVFuLV9tcm1UYmhHa1hPVGlvU25OXzVzWDF2YnpydkdWdkx2LXR5OTNkM01GaFd4LXJJeTJMaWtUSmlPRWhnRDhpQVJncFhVRWxIcWY3amdIUnVBWFFaZGg5TjM0Ul8xWVBHc1RKWUZOQXNkMTJfSDE3JnFMR1VwNNIB9AFBVV95cUxQYlBYalFpbUhQd3VaTk05VG5NRXpJTFJkb1dpbVMtcUo5dkRqcElKM3E5V1B5YkNHM2NlQkVhYm93STIxbEZGVy0tN21Cc1UzR2NaUUtWM0ZPYzdmQlc2dVd4Yy1KODF0NGhDdkFEakFNMUtJSm9Sd3I1bmJkWVh0UXlwcXZ4QXA0eHdkVUhOUHgwMmFqbDdWVUI1Z1I2d01HUmp3R2hEb3llNHhkbHlaUzlRSVExMVRPMkZLVTBTcnA2NjlGSExMSnFHX3l1RkJfbFFZcGhqcTdQeVV2TGQ4X3dkdzZJalJEc3ZXOVFEYUJURWZJ?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
     © Animal Chatter | Ecological Journalism Hub
   </footer>
+
+  <!-- Dark Mode Switcher JavaScript -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    // Load saved preference or check system preferences
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+      themeText.textContent = 'Light';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.textContent = '🌙';
+      themeText.textContent = 'Dark';
+    }
+
+    // Toggle theme on button click
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      let newTheme = 'light';
+
+      if (currentTheme === 'light') {
+        newTheme = 'dark';
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
 </body>
 </html>

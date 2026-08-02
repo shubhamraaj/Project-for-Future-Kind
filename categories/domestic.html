@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Domestic &amp; Campus Welfare | Animal Chatter</title>
-<!-- Open Graph / Social Media Preview Tags -->
-<meta content="website" property="og:type"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" property="og:url"/>
-<meta content="Animal Chatter | Local Ecological Journalism Hub" property="og:title"/>
-<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." property="og:description"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" property="og:image"/>
-<!-- Twitter / X Card Tags -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" name="twitter:url"/>
-<meta content="Animal Chatter | Local Ecological Journalism Hub" name="twitter:title"/>
-<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." name="twitter:description"/>
-<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" name="twitter:image"/>
-<style>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Domestic &amp; Campus Welfare | Animal Chatter</title>
+
+  <!-- Favicon Icons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <!-- Open Graph / Social Media Preview Tags -->
+  <meta content="website" property="og:type"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" property="og:url"/>
+  <meta content="Animal Chatter | Local Ecological Journalism Hub" property="og:title"/>
+  <meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." property="og:description"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" property="og:image"/>
+
+  <!-- Twitter / X Card Tags -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" name="twitter:url"/>
+  <meta content="Animal Chatter | Local Ecological Journalism Hub" name="twitter:title"/>
+  <meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." name="twitter:description"/>
+  <meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" name="twitter:image"/>
+
+  <style>
     /* Reset & Base Styles */
     * {
       box-sizing: border-box;
@@ -29,6 +36,40 @@
       background-color: #f8fafc;
       color: #1e293b;
       line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark Theme Overrides */
+    [data-theme="dark"] {
+      background-color: #0f172a !important;
+      color: #f8fafc !important;
+    }
+
+    [data-theme="dark"] header {
+      background-color: #021a30 !important;
+    }
+
+    [data-theme="dark"] .card {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4) !important;
+    }
+
+    [data-theme="dark"] .card-title {
+      color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .card-snippet {
+      color: #94a3b8 !important;
+    }
+
+    [data-theme="dark"] .card-link {
+      color: #38bdf8 !important;
+    }
+
+    [data-theme="dark"] footer {
+      background-color: #021a30 !important;
+      border-top: 1px solid #1e293b;
     }
 
     /* Header & Navigation */
@@ -40,6 +81,7 @@
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
     }
     .header-container {
       max-width: 1200px;
@@ -47,6 +89,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .logo {
       font-size: 1.5rem;
@@ -58,7 +102,9 @@
     }
     nav {
       display: flex;
-      gap: 1.25rem;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: #cbd5e1;
@@ -72,6 +118,27 @@
     nav a:hover, nav a.active {
       color: #ffffff;
       background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Theme Toggle Button Styling */
+    .theme-toggle-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+      margin-left: 0.5rem;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     /* Category Hero Banner */
@@ -117,7 +184,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
     }
     .card:hover {
       transform: translateY(-2px);
@@ -136,11 +203,13 @@
       color: #0f172a;
       margin-bottom: 0.75rem;
       line-height: 1.4;
+      transition: color 0.3s ease;
     }
     .card-snippet {
       font-size: 0.95rem;
       color: #334155;
       margin-bottom: 1.25rem;
+      transition: color 0.3s ease;
     }
     .card-link {
       display: inline-block;
@@ -148,6 +217,7 @@
       font-weight: 700;
       font-size: 0.9rem;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     .card-link:hover {
       text-decoration: underline;
@@ -161,116 +231,167 @@
       padding: 2rem;
       font-size: 0.9rem;
       margin-top: auto;
+      transition: background-color 0.3s ease;
     }
   </style>
 </head>
 <body>
-<!-- Navigation Header -->
-<header>
-<div class="header-container">
-<a class="logo" href="../index.html">Animal Chatter</a>
-<nav>
-<a href="../index.html">Home</a>
-<a href="wildlife.html">Wildlife</a>
-<a class="active" href="domestic.html">Domestic</a>
-<a href="poultry.html">Poultry</a>
-<a href="../about.html">About</a>
-<a href="../contact.html">Contact</a>
-<a href="../search.html">Search</a>
-</nav>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<h1>Domestic &amp; Campus Animal Welfare</h1>
-<p>Monitoring street dog population management (ABC rules), campus feeding guidelines, shelter initiatives, rabies drives, and pet regulation policies.</p>
-</section>
-<!-- Main Content Grid -->
-<main>
-<div class="news-grid" id="domestic-news-grid">
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali Jatra - PETA India</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali...</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMihgJBVV95cUxNTE05SDVtNEx2WGVGZVdudTBZN3hPNGFaN1B4T3dXMEFqU05tYTE1ZFlRYzM5RXk5el9kZXVWYXNROEtldWYzUm4xbzZ3Y20xWms2eS16clRlOG5YOXNPUnJMWTMtZjhJOE92Wlo3U19kNXhpU1o2OTVRclNnc2NEcWxNbzRkM0ZSWV9OODFhSTVZYnN0Qi0xN1JvOEhJakdDNThmWk1wNEFneTFrNG9Ic3UtdEZxSWhBYVQ5T0Z0TUI3ZXRjVmtrb090TXlBc19TN1FEZTBOTnV1bmppeGE5ckdZMWdJUllUSjRKVVNfTlFVbmtjdkpvTjZNUFk4anVkZ3daejRR?oc=5" target="_blank">Read Full Article →</a>
-</div>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">Meet Nehemiah Turner: The 11-year-old Florida boy who spent more than 100 hours reading to shelter animal - The Times of India</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Meet Nehemiah Turner: The 11-year-old Florida boy who spent more than 100 hours reading to shelter animal  The Times of India</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMi5gJBVV95cUxPbGh1dUQzV0NpaGE4OGw3VWtCSmFzRC1LdlFUQXRLLWJmdHFscS1UeTl2UEM3RUo1dzJ5eW5DVGJjbUR6bHZvMDdfdWt3Q2VHVFc0aHpqeloyU2FjMTY5c3k0M2dFNjN2am1ndi0zY29WZHd6cGhvUHF1NGlXYXByRGdkRFlQT0VMLXJyZ3ItcExYTnVxMm0xY0FSR05UWV8xcUtxOVVScHZuanYwd1FKZGwwcTFuN2J5LTJhVVFjOXV6ZURpaWMtYzEzeE5zWW1adUdZelVJVHhpY0hzOGpSdEhBSTNSYTFRQTU5RS1pWW9mbG43TDhrNENHUi1uUnZFUzg0TTFHYl85X1R0U1JMZmZaTWtpV2Z2NFFGTmw0RlA4aU1tak5oV3VPY2N4SGxDM3k4MEY0ZFpBSEJ2QkZKTlJQSUViWWpwOHRsMzNQTXNvV1A2UzhscVVwSTVIQUUyZWZabGV30gHrAkFVX3lxTE1LSmVmZXBWWC1KNzF1RG9GRktuR1dWUC1oUFBlSFF5c0pWaDd6UzdUTmdGSHFkNGpYblFvRS1IbTExTTY0Y3B6d3ZQZDBMTVg0S1p2dWVTaHdURHpYYk9sUEhJMWEzejk0c0Fnck00cURhNThlUWVieXlkVS1NWUE2SXNuUFBld0VBajQ2djBiZWEtNUhIdE5TSVAyeU5FWGtMcGViZUt1R25XbG5KU0VrUFZ6bENtUllKYnZRMDkzN3Q4Mkh2bU9kMlRlLWxCUk1TeW5fYjg4YkJjeWozdjhhc0hTakZPUmF3V0xfYklSdDloekxfLW5iYTVFYnpELTVOdDA5bkhVcktyQ3VKVDB1X3k0VTZHaE5zNlFhV1dkNHdkY29WMVp1c1dlYWlOTm5WT2dONVVqc3ZlQnpMM0d0Yk1OUFFacHpNNFdnak9wZ01TLVJiTmgwT1d2WG9MdXJ0cmRSeWtNN2xsWQ?oc=5" target="_blank">Read Full Article →</a>
-</div>
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a class="logo" href="../index.html">Animal Chatter</a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="wildlife.html">Wildlife</a>
+        <a class="active" href="domestic.html">Domestic</a>
+        <a href="poultry.html">Poultry</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../search.html">Search</a>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">Maharashtra bars return of sterilised stray dogs to schools, hospitals, airports - India Today</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Maharashtra bars return of sterilised stray dogs to schools, hospitals, airports  India Today</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPQ3lDTXBSZkdDUlNzLWpxRThrOVc4SXA2anA5STNadDlZSXlHV0I0ZVlkWF9sYlBvYWdXUlQ5UDBhelFRa1lLNVpsRDd0M3NKeXZMSFVaSTd1OTFONnA2RWtOZk91VzdnTnBKSGZnemNwRXFKeTdNcDNuc2RIUVNoZjBPbmtMd1lvM1phT0R1T0RsT2pzVmMtUjZ2c3hkaE9IZWxFNExORVJkZGU5MWQ2cDczZzY1N1V3dzZjUnQ2bmNZcl82NzhhTGpB0gHPAUFVX3lxTE5MQzdRMHBGN241SE1aYnRQMWdRYnBwTm0wTmdJNHlRY3VPRzVPNHYxVnZERU5SX1UydTNWUjRvTWVmcDVVbnZncDJCNHV3TDQyclV4RUJob3VldWdIN2lrN2gwVE9sM2F1RVdsaHdmYWZzV2o2cHo1S3pHM2JDY0pLRmZKRFV4WnpDTVBCNmpRT1M0Smh4RGs2NGpxd1lPVEwwSG54SGdvNnJTb2FJb3NGSmluOGlzdDNVRnY5MEMyS3hseFJVQXZ3eDJxVFZ3bw?oc=5" target="_blank">Read Full Article →</a>
-</div>
+        <!-- Theme Switcher Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+          <span id="theme-text">Dark</span>
+        </button>
+      </nav>
+    </div>
+  </header>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">PETA India’s Point-by-Point on the Supreme Court’s Dog and Cattle Directions - petaindia.com</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">PETA India’s Point-by-Point on the Supreme Court’s Dog and Cattle Directions  petaindia.com</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPLVJHOENzVFJTdGhKY1ZNUmhpTy1HcDZvYkFQNDBWcV9uRmlRa3FMVGZFeG1KeFBrRUdvQ0lsdFNwNEM0M3VWc2lwT1hhcWtqZmJ5R0o5cE8tN0hsRDIxS3VmUVJ6cUpwYXV4a3FFY29KZUlzeGlYckZIQWpOTWswdHQxdFNPanRSX1NWZ20tZWZ0a0FPYzhyM3ZTQVJZU3o4ckxJQmdHMUpvdw?oc=5" target="_blank">Read Full Article →</a>
-</div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Domestic &amp; Campus Animal Welfare</h1>
+    <p>Monitoring street dog population management (ABC rules), campus feeding guidelines, shelter initiatives, rabies drives, and pet regulation policies.</p>
+  </section>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">Indian Supreme Court's order seeks to take bite out of stray dog problem. Observers say it's mostly bark. - ABC News - Breaking News, Latest News and Videos</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Indian Supreme Court's order seeks to take bite out of stray dog problem. Observers say it's mostly bark.  ABC News - Breaking News, Late...</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPR2E0VXZDU3VKRG81TTgtZE9BRk1lTmRCWWRYWHp5X094TDFKREhpcVJReEZSbXlySnFRMzVUTjFtTFBtNGVyal9zeFN2ZktEcXktSzY3YVJlUVVZQzNUVThVaFRjU3hqckdpNXVwSDN3TkViVnpSSmZEZGVpWkc5VGRzR2hoQXBWM1NGTUo3Z2kzYTVsMEwwVGFCa2FlSy1YRHpz0gGoAUFVX3lxTE1reEFBR1FzUlEyLTlDeVZMbGt6dEM1bjJfVUJ3eEUwVnpfOUZMdlluZVNxM3RNcjZmenk3N2kyNFlON3Q0S3ZJVktkYzF3Rkk3RHMyaFZvZlNfR3VDVFRrYXd2WFVTVm9PSXU3TkNrRVhOQm1nU0I3VGd5RHJMaE0xYzhmMUhpVS1VTWxxQUxXWm1KbkJkYkVtRjlOb1pJN0ctaUpTb2JLbg?oc=5" target="_blank">Read Full Article →</a>
-</div>
+  <!-- Main Content Grid -->
+  <main>
+    <div class="news-grid" id="domestic-news-grid">
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali Jatra - PETA India</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Belagavi Administration Invites PETA India to Conduct Workshop for Over 150 Officials on Safe and Animal-Friendly Transport for Chinchali...</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMihgJBVV95cUxNTE05SDVtNEx2WGVGZVdudTBZN3hPNGFaN1B4T3dXMEFqU05tYTE1ZFlRYzM5RXk5el9kZXVWYXNROEtldWYzUm4xbzZ3Y20xWms2eS16clRlOG5YOXNPUnJMWTMtZjhJOE92Wlo3U19kNXhpU1o2OTVRclNnc2NEcWxNbzRkM0ZSWV9OODFhSTVZYnN0Qi0xN1JvOEhJakdDNThmWk1wNEFneTFrNG9Ic3UtdEZxSWhBYVQ5T0Z0TUI3ZXRjVmtrb090TXlBc1_S3dFE0NNdXVuanhpeGE5ckdZMWdJUllUSjRKVVNfTlFVbmtjdkpvTjZNUFk4anVkZ3daejRR?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">60 million stray dogs in India: Supreme Court weighs a policy that has never fully worked - Futura, le média qui explore le monde</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">60 million stray dogs in India: Supreme Court weighs a policy that has never fully worked  Futura, le média qui explore le monde</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMixAFBVV95cUxOSXI3UjZkTGdMeWFyaUlET3k1bmljUmhYLUVOSm9wSUhOZUhoWW42Qjd2Nk1oRjJTMm5yZGdmWkloSEpQU1N6ckNLejFBV2FHd2htT05EelZqNmx5YnZGdWdpV1d0Q01WcUVTQnNGTDk0ZXlYdEw5S1MybWdfd2FvTGZOMnRqdDVaUHJJN3MwcUlMRzFXNE5NLUMxY0NWbUhmNE8waFBJSEd3XzZlSVMxNnVfTVpRcnhWaVJTb0JKX2pRTjJ2?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">Meet Nehemiah Turner: The 11-year-old Florida boy who spent more than 100 hours reading to shelter animal - The Times of India</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Meet Nehemiah Turner: The 11-year-old Florida boy who spent more than 100 hours reading to shelter animal  The Times of India</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMi5gJBVV95cUxPbGh1dUQzV0NpaGE4OGw3VWtCSmFzRC1LdlFUQXRLLWJmdHFscS1UeTl2UEM3RUo1dzJ5eW5DVGJjbUR6bHZvMDdfdWt3Q2VHVFc0aHpqeloyU2FjMTY5c3k0M2dFNjN2am1ndi0zY29WZHd6cGhvUHF1NGlXYXByRGdkRFlQT0VMLXJyZ3ItcExYTnVxMm0xY0FSR05UWV8xcUtxOVVScHZuanYwd1FKZGwwcTFuN2J5LTJhVVFjOXV6ZURpaWMtYzEzeE5zWW1adUdZelVJVHhpY0hzOGpSdEhBSTNSYTFRQTU5RS1pWW9mbG43TDhrNENHUi1uUnZFUzg0TTFHYl85X1R0U1JMZmZaTWtpV2Z2NFFGTmw0RlA4aU1tak5oV3VPY2N4SGxDM3k4MEY0ZFpBSEJ2QkZKTlRPUElFYllqcDh0bDMzUE1zb1dQNlM4bHFVcEk1SEFFMmVmWmxldz0?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">India’s Supreme Court Reserves Decision on Stray Dogs - IDA - In Defense of Animals</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">India’s Supreme Court Reserves Decision on Stray Dogs  IDA - In Defense of Animals</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOaGRHRWhoTjdNQVlrYlg0UnZQNEQtLV84WUZYbGtOVmFqVDV1OVBySFFvdFFBQXFMQVI4SXFaV3NKaGp5SG52a1EteVdFeENKbmdSdTJLcTU4RWduNjBrdTBUYkYtd21EcUlWY2Q0VnpXbE1XWGRsZDh0QkNRa2kzNms1aTlyN1pGZndybHlPUzlNczNlOVg4bjJJSkRGekRMa1FNTWt3?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">Maharashtra bars return of sterilised stray dogs to schools, hospitals, airports - India Today</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Maharashtra bars return of sterilised stray dogs to schools, hospitals, airports  India Today</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPQ3lDTXBSZkdDUlNzLWpxRThrOVc4SXA2anA5STNadDlZSXlHV0I0ZVlkWF9sYlBvYWdXUlQ5UDBhelFRa1lLNVpsRDd0M3NKeXZMSFVaSTd1OTFONnA2RWtOZk91VzdnTnBKSGZnemNwRXFKeTdNcDNuc2RIUVNoZjBPbmtMd1lvM1phT0R1T0RsT2pzVmMtUjZ2c3hkaE9IZWxFNExORVJkZGU5MWQ2cDczZzY1N1V3dzZjUnQ2bmNZcl82NzhhTGpB0gHPAUFVX3lxTE5MQzdRMHBGN241SE1aYnRQMWdRYnBwTm0wTmdJNHlRY3VPRzVPNHYxVnZERU5SX1UydTNWUjRvTWVmcDVVbnZncDJCNHV3TDQyclV4RUJob3VldWdIN2lrN2gwVE9sM2F1RVdsaHdmYWZzV2o2cHo1S3pHM2JDY0pLRmZKRFV4WnpDTVBCNmpRT1M0Smh4RGs2NGpxd1lPVEwwSG54SGdvNnJTb2FJb3NGSmluOGlzdDNVRnY5MEMyS3hseFJVQXZ3eDJxVFZ3bw?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">India: India's Supreme Court changes dog policy - Wild beim Wild</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">India: India's Supreme Court changes dog policy  Wild beim Wild</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBCU0xmYVlaSUF2ZFd1bi1Fc19zYnF0NWFKc2Q1eHR4b3RPQU1WV3R5eGpWV1VXaW94MHlkZ25UamFrZHQ2MExkQjc1V25QdDhnQjdmTXhtRXo1U3FTVjFQbEM5Zkc4emNSdjlpdlA0QUpsclVpOFNnSzhNbjk?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">PETA India’s Point-by-Point on the Supreme Court’s Dog and Cattle Directions - petaindia.com</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">PETA India’s Point-by-Point on the Supreme Court’s Dog and Cattle Directions  petaindia.com</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxPLVJHOENzVFJTdGhKY1ZNUmhpTy1HcDZvYkFQNDBWcV9uRmlRa3FMVGZFeG1KeFBrRUdvQ0lsdFNwNEM0M3VWc2lwT1hhcWtqZmJ5R0o5cE8tN0hsRDIxS3VmUVJ6cUpwYXV4a3FFY29KZUlzeGlYckZIQWpOTWswdHQxdFNPanRSX1NWZ20tZWZ0a0FPYzhyM3ZTQVJZU3o4ckxJQmdHMUpvdw?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">Key Takeaways from Supreme Court's Stray Dogs Case Verdict | SCC Times - SCC Online</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Key Takeaways from Supreme Court's Stray Dogs Case Verdict | SCC Times  SCC Online</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPeVVBN0VIV2JkdG1LRUk1MFRSdnNoM2FvSjJrTXZUNFo4OHBHTFBGdW1FRW1CUzVicTBiVDBmVmo3bGlieUlZUktTbzNVN0dNRjl2TWl1NzR3Um9QUnFXa2x2SDVmUjlIcGtfOUxEak80YUZYeEFJYmtxN3lBOEdvbDVnZUtLY1BBUHlTa1V0Q19Zc2dsR1BpMUNB?oc=5" target="_blank">Read Full Article →</a>
-</div>
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">Indian Supreme Court's order seeks to take bite out of stray dog problem. Observers say it's mostly bark. - ABC News - Breaking News, Latest News and Videos</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Indian Supreme Court's order seeks to take bite out of stray dog problem. Observers say it's mostly bark.  ABC News - Breaking News, Late...</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxPR2E0VXZDU3VKRG81TTgtZE9BRk1lTmRCWWRYWHp5X094TDFKREhpcVJReEZSbXlySnFRMzVUTjFtTFBtNGVyal9zeFN2ZktEcXktSzY3YVJlUVVZQzNUVThVaFRjU3hqckdpNXVwSDN3TkViVnpSSmZEZGVpWkc5VGRzR2hoQXBWM1NGTUo3Z2kzYTVsMEwwVGFCa2FlSy1YRHpz0gGoAUFVX3lxTE1reEFBR1FzUlEyLTlDeVZMbGt6dEM1bjJfVUJ3eEUwVnpfOUZMdlluZVNxM3RNcjZmenk3N2kyNFlON3Q0S3ZJVktkYzF3Rkk3RHMyaFZvZlNfR3VDVFRrYXd2WFVTVm9PSXU3TkNrRVhOQm1nU0I3VGd5RHJMaE0xYzhmMUhpVS1VTWxxQUxXWm1KbkJkYkVtRjlOb1pJN0ctaUpTb2JLbg?oc=5" target="_blank">Read Full Article →</a>
+      </div>
 
-<div class="card">
-<div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
-<h3 class="card-title">Stray Dog Row| ‘We’ll Show You What Humanity Is’: SC Pushes Back on ‘Inhuman’ MCD Rules Claim - LawBeat</h3>
-<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
-<p class="card-snippet">Stray Dog Row| ‘We’ll Show You What Humanity Is’: SC Pushes Back on ‘Inhuman’ MCD Rules Claim  LawBeat</p>
-<a class="card-link" href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPZDNNZXVVUll0SGtlNFlBekR2Z3NvM2dkUUxqMWpFTURRMU52OV9iUDI3NmtCUmRZZEtVenp6Ukp6OXpnaV9SRmQzSC1LVjVvUk9jTkpvUExidldzLVpGQ0FnbEl5dlhHR0t4UzRnQ1gwWnI0dXYzeWFXcDFidUtWd2Q2cWg5RE9XMF9qdVl4Y2dURVMyUXlnUDdHOURmWGtmUkVJSFFBNXFNbnU0R2xXblpBai1YZHhXdmpHNllobHJlam_SAcgBQVVfeXFMTk9Ua2dPcGVGRzN2SHBzcFN6MHFFX0tJWVBCWTBiRlNYeHFnQ2pnb3JyTXZJdlNhVXRtOThXRWtLcmxtVFFYYnFBSkN3X0xSVnJzV1djM2pYaFNnVlBWZElnemZvSFZwQWFMMjBZR2ItajFzSU9ac1N2V1YwOEh0QXpSUUdMdmdQazhtQjhzT3dFNXNnZmlheXh4dmxTUWQ4N3BkNWtqczcwdFhlZnlVN28zVlIyQ0FMV0l6VXV0WEQ0NzhOVHMyY0I?oc=5" target="_blank">Read Full Article →</a>
-</div>
-</div>
-</main>
-<footer>
-    © Animal Chatter | Ecological Journalism Hub
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">60 million stray dogs in India: Supreme Court weighs a policy that has never fully worked - Futura, le média qui explore le monde</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">60 million stray dogs in India: Supreme Court weighs a policy that has never fully worked  Futura, le média qui explore le monde</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMixAFBVV95cUxOSXI3UjZkTGdMeWFyaUlET3k1bmljUmhYLUVOSm9wSUHNeEhoWW42Qjd2Nk1oRjJTMm5yZGdmWkloSEpQU1N6ckNLejFBV2FHd2htT05EelZqNmx5YnZGdWdpV1d0Q01WcUVTQnNGTDk0ZXlYdEw5S1MybWdfd2FvTGZOMnRqdDVaUHJJN3MwcUlMRzFXNE5NLUMxY0NWbUhmNE8waFBJSEd3XzZlSVMxNnVfTVpRcnhWaVJTb0JKX2pRTjJ2?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">India’s Supreme Court Reserves Decision on Stray Dogs - IDA - In Defense of Animals</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">India’s Supreme Court Reserves Decision on Stray Dogs  IDA - In Defense of Animals</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOaGRHRWhoTjdNQVlrYlg0UnZQNEQtLV84WUZYbGtOVmFqVDV1OVBySFFvdFFBQXFMQVI4SXFaV3NKaGp5SG52a1EteVdFeENKbmdSdTJLcTU4RWduNjBrdTBUYkYtd21EcUlWY2Q0VnpXbE1XWGRsZDh0QkNRa2kzNms1aTlyN1pGZndybHlPUzlNczNlOVg4bjJJSkRGekRMa1FNTWt3?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">India: India's Supreme Court changes dog policy - Wild beim Wild</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">India: India's Supreme Court changes dog policy  Wild beim Wild</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMifEFVX3lxTFBCU0xmYVlaSUF2ZFd1bi1Fc1_zYnF0NWFKc2Q1eHR4b3RPQU1WV3R5eGpWV1VXaW94MHlkZ25UamFrZHQ2MExkQjc1V25QdDhnQjdmTXhtRXo1U3FTVjFQbEM5Zkc4emNSdjlpdlA0QUpsclVpOFNnSzhNbjk?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">Key Takeaways from Supreme Court's Stray Dogs Case Verdict | SCC Times - SCC Online</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Key Takeaways from Supreme Court's Stray Dogs Case Verdict | SCC Times  SCC Online</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMimgFBVV95cUxPeVVBN0VIV2JkdG1LRUk1MFRSdnNoM2FvSjJrTXZUNFo4OHBHTFBGdW1FRW1CUzVicTBiVDBmVmo3bGlieUlZUktTbzNVN0dNRjl2TWl1NzR3Um9QUnFXa2x2SDVmUjlIcGtfOUxEak80YUZYeEFJYmtxN3lBOEdvbDVnZUtLY1BBUHlTa1V0Q1_Yc2dsR1BpMUNB?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-tag" style="color: #0284c7;">DOMESTIC</div>
+        <h3 class="card-title">Stray Dog Row| ‘We’ll Show You What Humanity Is’: SC Pushes Back on ‘Inhuman’ MCD Rules Claim - LawBeat</h3>
+        <div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+        <p class="card-snippet">Stray Dog Row| ‘We’ll Show You What Humanity Is’: SC Pushes Back on ‘Inhuman’ MCD Rules Claim  LawBeat</p>
+        <a class="card-link" href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPZDNNZXVVUll0SGtlNFlBekR2Z3NvM2dkUUxqMWpFTURRMU52OV9iUDI3NmtCUmRZZEtUznp6Ukp6OXpnaV9SRmQzSC1LVjVvUk9jTkpvUExidldzLVpGQ0FnbEl5dlHHR0t4UzRnQ1gwWnI0dXYzeWFXcDFidUtWd2Q2cWg5RE9XMF_qdFl4Y2dURVMyUXlnUDdHOURmWGtmUkVJSFFBNXFNbnU0R2xXblpBai1YZHhXdmpHNllobHJlam_SAcgBQVVfeXFMTk9Ua2dPcGVGRzN2SHBzcFN6MHFFX0tJWVBCWTBiRlNYeHFnQ2pnb3JyTXZJdlNhVXRtOThXRWtLcmxtVFFYYnFBSkN3X0xSVnJzV1djM2pYaFNnVlBWZElnemZvSFZwQWFMMjBZR2ItajFzSU9ac1N2V1YwOEh0QXpSUUdMdmdQazhtQjhzT3dFNXNnZmlheXh4dmxTUWQ4N3BkNWtqczcwdFhlZnlVN28zVlIyQ0FMV0l6VXV0WEQ0NzhOVHMyY0I?oc=5" target="_blank">Read Full Article →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; Animal Chatter | Ecological Journalism Hub
   </footer>
+
+  <!-- Dark Mode Switcher JavaScript -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    // Load saved preference or check system preferences
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeIcon.textContent = '☀️';
+      themeText.textContent = 'Light';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeIcon.textContent = '🌙';
+      themeText.textContent = 'Dark';
+    }
+
+    // Toggle theme on button click
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      let newTheme = 'light';
+
+      if (currentTheme === 'light') {
+        newTheme = 'dark';
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
+
 </body>
 </html>
