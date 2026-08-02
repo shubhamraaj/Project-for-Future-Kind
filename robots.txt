@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shubhamraaj.github.io/Project-for-Future-Kind/sitemap.xml
