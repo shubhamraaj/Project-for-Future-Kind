@@ -1,30 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animal Chatter | Local Ecological Journalism Hub</title>
-
-  <!-- Favicon Icons -->
-  <link rel="icon" type="image/x-icon" href="https://shubhamraaj.github.io/Project-for-Future-Kind/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://shubhamraaj.github.io/Project-for-Future-Kind/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://shubhamraaj.github.io/Project-for-Future-Kind/apple-touch-icon.png">
-
-  <!-- Open Graph / Social Media Preview Tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shubhamraaj.github.io/Project-for-Future-Kind/">
-  <meta property="og:title" content="Animal Chatter | Local Ecological Journalism Hub">
-  <meta property="og:description" content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock.">
-  <meta property="og:image" content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg">
-
-  <!-- Twitter / X Card Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://shubhamraaj.github.io/Project-for-Future-Kind/">
-  <meta name="twitter:title" content="Animal Chatter | Local Ecological Journalism Hub">
-  <meta name="twitter:description" content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock.">
-  <meta name="twitter:image" content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Animal Chatter | Local Ecological Journalism Hub</title>
+<!-- Favicon Icons -->
+<link href="https://shubhamraaj.github.io/Project-for-Future-Kind/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://shubhamraaj.github.io/Project-for-Future-Kind/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://shubhamraaj.github.io/Project-for-Future-Kind/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<!-- Open Graph / Social Media Preview Tags -->
+<meta content="website" property="og:type"/>
+<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" property="og:url"/>
+<meta content="Animal Chatter | Local Ecological Journalism Hub" property="og:title"/>
+<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." property="og:description"/>
+<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" property="og:image"/>
+<!-- Twitter / X Card Tags -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/" name="twitter:url"/>
+<meta content="Animal Chatter | Local Ecological Journalism Hub" name="twitter:title"/>
+<meta content="Stay updated with daily curated news on wildlife conservation, domestic pets, and livestock." name="twitter:description"/>
+<meta content="https://shubhamraaj.github.io/Project-for-Future-Kind/images/preview-banner.jpg" name="twitter:image"/>
+<style>
     /* Reset & Base Styles */
     * {
       box-sizing: border-box;
@@ -336,85 +333,90 @@
   </style>
 </head>
 <body>
-
-  <!-- Navigation Header -->
-  <header>
-    <div class="header-container">
-      <a href="index.html" class="logo">Animal Chatter</a>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="categories/wildlife.html">Wildlife</a>
-        <a href="categories/domestic.html">Domestic</a>
-        <a href="categories/poultry.html">Poultry</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="search.html">Search</a>
-        
-        <!-- Theme Switcher Button -->
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-          <span id="theme-icon">🌙</span>
-          <span id="theme-text">Dark</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Live Status Bar -->
-  <div class="status-bar">
-    <div class="status-container">
-      <div>🟢 <strong>LIVE AGGREGATOR:</strong> Connected to 1,000+ Indian News &amp; Policy Networks</div>
-      <div class="status-badge">System Status: Active</div>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Ecology, Welfare, and Campus Policy</h1>
-    <p>Analyzing the critical intersection of localized institutional regulations, public community hygiene models, and data-driven wildlife conservation science.</p>
-  </section>
-
-  <!-- Main Content Grid -->
-  <main>
-    
-    <!-- Welfare News Section -->
-    <h2 class="section-title">Welfare Wire &amp; Local Updates</h2>
-    <div id="welfare-container" class="news-grid">
-      <!-- Python script (curate_news.py) populates news cards here -->
-    </div>
-
-    <!-- Insights Section -->
-    <h2 class="section-title">Conservation Insights &amp; Policy Analysis</h2>
-    <div id="insights-container" class="news-grid">
-      <!-- Python script (curate_news.py) populates insights cards here -->
-    </div>
-
-    <!-- Events Section -->
-    <h2 class="section-title">Community Events &amp; Conferences</h2>
-    <div id="events-container" class="news-grid">
-      <!-- Python script (curate_news.py) populates event cards here -->
-    </div>
-
-    <!-- Free Newsletter Subscription Section -->
-    <section class="subscribe-box">
-      <h2>Subscribe to Daily Updates</h2>
-      <p>Get curated daily updates on animal welfare, campus policy, and environmental news delivered to your inbox.</p>
-      
-      <form action="https://api.web3forms.com/submit" method="POST" class="subscribe-form">
-  <input type="hidden" name="access_key" value="c1e994d7-eca1-4bdd-8bf9-a011f5a2ac50">
-  <input type="hidden" name="subject" value="New Newsletter Subscription - Animal Chatter">
-  <input type="email" name="email" placeholder="Enter your email address..." required class="subscribe-input">
-  <button type="submit" class="subscribe-btn">Subscribe</button>
+<!-- Navigation Header -->
+<header>
+<div class="header-container">
+<a class="logo" href="index.html">Animal Chatter</a>
+<nav>
+<a class="active" href="index.html">Home</a>
+<a href="categories/wildlife.html">Wildlife</a>
+<a href="categories/domestic.html">Domestic</a>
+<a href="categories/poultry.html">Poultry</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="search.html">Search</a>
+<!-- Theme Switcher Button -->
+<button aria-label="Toggle Theme" class="theme-toggle-btn" id="theme-toggle">
+<span id="theme-icon">🌙</span>
+<span id="theme-text">Dark</span>
+</button>
+</nav>
+</div>
+</header>
+<!-- Live Status Bar -->
+<div class="status-bar">
+<div class="status-container">
+<div>🟢 <strong>LIVE AGGREGATOR:</strong> Connected to 1,000+ Indian News &amp; Policy Networks</div>
+<div class="status-badge">System Status: Active</div>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="hero">
+<h1>Ecology, Welfare, and Campus Policy</h1>
+<p>Analyzing the critical intersection of localized institutional regulations, public community hygiene models, and data-driven wildlife conservation science.</p>
+</section>
+<!-- Main Content Grid -->
+<main>
+<!-- Welfare News Section -->
+<h2 class="section-title">Welfare Wire &amp; Local Updates</h2>
+<div class="news-grid" id="welfare-container">
+<div class="card">
+<div class="card-tag" style="color: #033666;">WELFARE</div>
+<h3 class="card-title">A collective voice for the animal protection movement in India - YourStory.com</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Google News Wire</div>
+<p class="card-snippet">A collective voice for the animal protection movement in India  YourStory.com</p>
+<a class="card-link" href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQbnFLaFpVY1lXZkRaektLYlQ0eDYyYnphUXUxVGxrTE9KN2tUNlBtSTJpM2ZDc2N5VW1lRHpiNmdVQ1ZxT1hCTmtQdWlIWEJvaU11MWpZZnV4ZVNlMklmdlZNUnFiQTc3aG11VlVFSHl2eHhCQm5vazRMai15SFhIUnhoX29maC1fQVlzeXBUX09taTFabDJYYmh4OFZnQjNTTWJRVzlfemlvNFNFZGc?oc=5" target="_blank">Read Full Article →</a>
+</div>
+</div>
+<!-- Insights Section -->
+<h2 class="section-title">Conservation Insights &amp; Policy Analysis</h2>
+<div class="news-grid" id="insights-container">
+<div class="card">
+<div class="card-tag" style="color: #0284c7;">INSIGHTS</div>
+<h3 class="card-title">Mapping Human-Wildlife Coexistence Corridors</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Conservation Review</div>
+<p class="card-snippet">An institutional overview of ecological zoning and corridor preservation in forested districts.</p>
+<a class="card-link" href="#" target="_blank">Read Full Article →</a>
+</div>
+</div>
+<!-- Events Section -->
+<h2 class="section-title">Community Events &amp; Conferences</h2>
+<div class="news-grid" id="events-container">
+<div class="card">
+<div class="card-tag" style="color: #0284c7;">EVENTS</div>
+<h3 class="card-title">National Campus Sustainability &amp; Welfare Summit</h3>
+<div style="font-size:0.85rem; color:#64748b; font-style:italic; margin-bottom:0.75rem;">Source: Green Club</div>
+<p class="card-snippet">Join student environmental clubs and policy researchers for panel discussions on green campus infrastructure.</p>
+<a class="card-link" href="#" target="_blank">Read Full Article →</a>
+</div>
+</div>
+<!-- Free Newsletter Subscription Section -->
+<section class="subscribe-box">
+<h2>Subscribe to Daily Updates</h2>
+<p>Get curated daily updates on animal welfare, campus policy, and environmental news delivered to your inbox.</p>
+<form action="https://api.web3forms.com/submit" class="subscribe-form" method="POST">
+<input name="access_key" type="hidden" value="c1e994d7-eca1-4bdd-8bf9-a011f5a2ac50"/>
+<input name="subject" type="hidden" value="New Newsletter Subscription - Animal Chatter"/>
+<input class="subscribe-input" name="email" placeholder="Enter your email address..." required="" type="email"/>
+<button class="subscribe-btn" type="submit">Subscribe</button>
 </form>
-    </section>
-
-  </main>
-
-  <footer>
-    &copy; Animal Chatter | Ecological Journalism Hub
+</section>
+</main>
+<footer>
+    © Animal Chatter | Ecological Journalism Hub
   </footer>
-
-  <!-- Dark Mode Switcher JavaScript -->
-  <script>
+<!-- Dark Mode Switcher JavaScript -->
+<script>
     const toggleBtn = document.getElementById('theme-toggle');
     const themeIcon = document.getElementById('theme-icon');
     const themeText = document.getElementById('theme-text');
@@ -451,6 +453,5 @@
       localStorage.setItem('theme', newTheme);
     });
   </script>
-
 </body>
 </html>
